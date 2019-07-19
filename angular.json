@@ -2,5 +2,73 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "visitors": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/visitors",
+      "sourceRoot": "projects/visitors/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/visitors",
+            "index": "projects/visitors/src/index.html",
+            "main": "projects/visitors/src/main.ts",
+            "polyfills": "projects/visitors/src/polyfills.ts",
+            "tsConfig": "projects/visitors/tsconfig.app.json",
+            "aot": true,
+            "assets": ["projects/visitors/src/assets"],
+            "styles": ["projects/visitors/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/visitors/src/environments/environment.ts",
+                  "with": "projects/visitors/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "visitors:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "visitors:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "visitors:build"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "visitors"
 }
