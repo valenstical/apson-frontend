@@ -9,7 +9,7 @@ import { AboutComponent } from './projects/visitors/about/about.component';
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },

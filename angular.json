@@ -13,12 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/visitors",
+            "outputPath": "dist/browser",
             "index": "projects/visitors/src/index.html",
             "main": "projects/visitors/src/main.ts",
             "polyfills": "projects/visitors/src/polyfills.ts",
             "tsConfig": "projects/visitors/tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": ["projects/visitors/src/assets"],
             "styles": ["projects/visitors/src/styles.css"],
             "scripts": []
@@ -65,6 +65,29 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "visitors:build"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "projects/visitors/src/main.server.ts",
+            "tsConfig": "projects/visitors/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/visitors/src/environments/environment.ts",
+                  "with": "projects/visitors/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
           }
         }
       }
