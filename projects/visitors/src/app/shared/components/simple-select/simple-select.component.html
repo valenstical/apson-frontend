@@ -1,0 +1,5 @@
+<select class="form-control custom-select" [value]="defaultValue" (change)="notifyChange($event.target.value)">
+  <option value="">-- {{placeholder}} --</option>
+  <option *ngFor="let item of data; let i = index" value="{{ i }}">
+    {{ item }}</option>
+</select>

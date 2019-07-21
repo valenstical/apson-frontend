@@ -1,0 +1,9 @@
+<button
+  type="type"
+  class="btn-brand mt-4 btn-curved {{ maxWidth }}"
+  [disabled]="isBusy || disabled"
+  (click)="onClick($event)"
+>
+  {{ text }}
+  <div class="spinner-border" *ngIf="isBusy"></div>
+</button>

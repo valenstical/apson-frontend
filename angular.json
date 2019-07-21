@@ -19,13 +19,8 @@
             "polyfills": "projects/visitors/src/polyfills.ts",
             "tsConfig": "projects/visitors/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "projects/visitors/src/favicon.ico",
-              "projects/visitors/src/assets"
-            ],
-            "styles": [
-              "projects/visitors/src/styles.css"
-            ],
+            "assets": ["projects/visitors/src/assets"],
+            "styles": ["projects/visitors/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -73,6 +68,22 @@
           }
         }
       }
-    }},
+    },
+    "helpers": {
+      "projectType": "library",
+      "root": "projects/helpers",
+      "sourceRoot": "projects/helpers/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/helpers/tsconfig.lib.json",
+            "project": "projects/helpers/ng-package.json"
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "visitors"
 }

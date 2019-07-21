@@ -1,0 +1,43 @@
+<div class="row boxed-row" *ngIf="!loading">
+  <div class="col-6 col-lg-4 mb-4" *ngFor="let school of schools">
+    <div class="school-box card h-100">
+      <span class="blog-category school-type bg-school-type-0">{{
+        school.typeName
+      }}</span>
+      <a class="link-cover" routerLink="/schools/{{ school.id }}"></a>
+      <div class="school-box-cover">
+        <img src="{{ school.cover }}" width="100%" />
+      </div>
+      <div class="school-box-content card-body">
+        <a *ngIf="school.contact" href="tel: {{ school.contact.phone }}"
+          class="blog-control school-btn-call transition"><i class="fas fa-phone fa-flip-horizontal"></i></a>
+        <h4 class="school-box-title">{{ school.name }}</h4>
+        <ul class="fa-ul school-list" *ngIf="school.location || school.contact">
+          <li *ngIf="school.location">
+            <i class="fas fa-map-marker-alt fa-li text-secondary"></i>
+            {{ school.fullAddress }}
+          </li>
+          <li *ngIf="school.contact">
+            <i class="fas fa-li fa-phone fa-flip-horizontal text-secondary"></i>
+            {{ school.contact.phone }}
+          </li>
+        </ul>
+      </div>
+      <div class="school-footer card-footer">
+        <!-- <div class="school-ratings float-left">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div> -->
+        <a routerLink="/schools/{{ school.id }}" class="blog-link-more">Details <i
+            class="fas fa-arrow-right transition"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-busy *ngIf="loading"></app-busy>
+<app-not-found-box *ngIf="isEmpty && !loading" message="There is no school matching your search."
+  title="No schools found">
+</app-not-found-box>

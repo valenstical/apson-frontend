@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="{{ name }}">{{ title }}</label>
+  <input
+    type="{{ type }}"
+    class="form-control"
+    id="{{ name }}"
+    [formControl]="formData.controls[name]"
+    [value]="formData.controls[name].value"
+  />
+  <span
+    class="display-error"
+    *ngIf="formData.controls[name].invalid && formData.controls[name].dirty"
+    >{{ invalidText }}</span
+  >
+</div>
