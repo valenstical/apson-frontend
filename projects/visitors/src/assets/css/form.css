@@ -28,8 +28,10 @@
 
 .custom-control-label::after {
   background-size: 100%;
-  top: 0.55em;
-  left: -1.14em;
+  top: 10px;
+  left: -17px;
+  height: 7px;
+  width: 7px;
   border-radius: 1000px;
   background-repeat: no-repeat;
 }
