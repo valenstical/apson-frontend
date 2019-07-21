@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { scrollIntoView } from '../helpers/utils';
 import { ActivatedRoute, Router } from '@angular/router';
-import { School } from '../shared/models/school';
-import { BaseComponent } from '../shared/components/base-component';
-import { RequestService } from '../shared/services/request.service';
+import { scrollIntoView } from 'helpers';
+import { BaseComponent, School, RequestService } from 'shared';
 
 @Component({
   selector: 'app-single-school',

@@ -6,7 +6,7 @@
       <div class="row position-static">
         <div class="column-left col-12 col-md-5 colum-left bg-login">
           <div class="h-100">
-            <app-back-button></app-back-button>
+            <lib-back-button></lib-back-button>
             <h1 class="text-white font-weight-bold column-left-title">
               Log in to APSON
             </h1>
@@ -18,12 +18,12 @@
             (ngSubmit)="onLogin()"
             novalidate
           >
-            <app-alert
+            <lib-alert
               [title]="response.title"
               [type]="response.type"
               [message]="response.message"
               *ngIf="!hideAlert"
-            ></app-alert>
+            ></lib-alert>
             <div class="form-group">
               <label for="username">Email Address or Phone Number</label>
               <input
@@ -63,11 +63,11 @@
               >
             </div>
             <div class="text-center">
-              <app-submit-button
+              <lib-submit-button
                 [text]="'Login to APSON'"
                 [isBusy]="isBusy"
                 [disabled]="formData.invalid"
-              ></app-submit-button>
+              ></lib-submit-button>
             </div>
             <div class="text-center mt-5">
               <a

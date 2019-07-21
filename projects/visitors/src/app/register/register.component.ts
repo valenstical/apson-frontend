@@ -1,9 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BaseComponent } from '../shared/components/base-component';
-import { AuthService } from '../shared/services/auth.service';
-import { RequestService } from '../shared/services/request.service';
+import { BaseComponent, AuthService, RequestService } from 'shared';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +19,6 @@ export class RegisterComponent extends BaseComponent implements OnDestroy {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private requestService: RequestService,
-    private router: Router,
   ) {
     super();
   }
@@ -38,7 +34,7 @@ export class RegisterComponent extends BaseComponent implements OnDestroy {
           this.authService.setMember(data);
           this.toggleLoaders(false);
           this.showMessage('Registration successful', '', 'success');
-          this.router.navigateByUrl('/members/my-schools');
+          this.authService.gotoMembers();
         },
         error => {
           this.handleError(error);

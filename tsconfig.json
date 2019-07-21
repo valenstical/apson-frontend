@@ -24,6 +24,12 @@
       ],
       "helpers/*": [
         "dist/helpers/*"
+      ],
+      "shared": [
+        "dist/shared"
+      ],
+      "shared/*": [
+        "dist/shared/*"
       ]
     }
   },

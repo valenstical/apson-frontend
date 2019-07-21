@@ -4,19 +4,35 @@
     <div class="select-group form">
       <div class="row">
         <div class="col-md-4 col-12">
-          <app-simple-select placeholder="All States" [data]="states" (select)="filterByState($event)">
-          </app-simple-select>
+          <lib-simple-select
+            placeholder="All States"
+            [data]="states"
+            (whenSelected)="filterByState($event)"
+          >
+          </lib-simple-select>
         </div>
         <div class="col-md-4 col-12">
-          <app-simple-select placholder="All LGAs" (select)="filter('lga', $event)" [data]="lgas"></app-simple-select>
+          <lib-simple-select
+            placholder="All LGAs"
+            (whenSelected)="filter('lga', $event)"
+            [data]="lgas"
+          ></lib-simple-select>
         </div>
         <div class="col-md-4 col-12">
           <div class="input-group">
-            <app-simple-select placeholder="All types" [data]="types" (select)="filter('type', $event)">
-            </app-simple-select>
+            <lib-simple-select
+              placeholder="All types"
+              [data]="types"
+              (whenSelected)="filter('type', $event)"
+            >
+            </lib-simple-select>
             <div class="input-group-append">
-              <a (click)="scrollToResults(results)" class="btn btn-link input-group-text btn-brand scroll pointer"> <i
-                  class="fas fa-arrow-down"></i></a>
+              <a
+                (click)="scrollToResults(results)"
+                class="btn btn-link input-group-text btn-brand scroll pointer"
+              >
+                <i class="fas fa-arrow-down"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -26,7 +42,9 @@
 </section>
 <section class="section bg-grey school-section-content" id="results" #results>
   <div class="position-relative container-fluid">
-    <app-school-box [schoolParams]="schoolParams" [size]="1000"></app-school-box>
-
+    <lib-school-box
+      [schoolParams]="schoolParams"
+      [size]="1000"
+    ></lib-school-box>
   </div>
 </section>

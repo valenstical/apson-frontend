@@ -1,13 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BaseComponent } from '../shared/components/base-component';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService, BaseComponent } from 'shared';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
 })
-export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
+export class LoginComponent extends BaseComponent implements OnDestroy {
   formData: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
@@ -15,14 +13,8 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router,
   ) {
     super();
-  }
-  ngOnInit() {
-    if (this.authService.isLoggedIn('/members/my-schools')) {
-      this.router.navigateByUrl('/members/my-schools');
-    }
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -40,7 +32,7 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
             'success',
           );
           this.authService.setMember(data);
-          this.router.navigateByUrl(this.authService.url);
+          this.authService.gotoMembers();
         },
         error => {
           this.handleError(error);

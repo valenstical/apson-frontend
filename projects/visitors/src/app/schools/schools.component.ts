@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { scrollIntoView } from '../helpers/utils';
-import { LGAS } from '../helpers/lga';
-import { STATES } from '../helpers/states';
 import { Subject } from 'rxjs';
-import { SCHOOL_TYPES } from '../helpers/constants';
-
+import { STATES, SCHOOL_TYPES, scrollIntoView, LGAS } from 'helpers';
 @Component({
   selector: 'app-schools',
   templateUrl: './schools.component.html',

@@ -6,7 +6,7 @@
       <div class="row position-static">
         <div class="column-left col-12 col-md-5 colum-left bg-register">
           <div class="h-100">
-            <app-back-button></app-back-button>
+            <lib-back-button></lib-back-button>
             <h1 class="text-white font-weight-bold column-left-title mt-3">
               Register with APSON
             </h1>
@@ -18,19 +18,19 @@
             role="form"
             class="form pl-4 position-relative pr-4 pt-5 register"
           >
-            <app-alert
+            <lib-alert
               [title]="response.title"
               [type]="response.type"
               [message]="response.message"
               *ngIf="!hideAlert"
-            ></app-alert>
-            <app-input
+            ></lib-alert>
+            <lib-input
               [title]="'Full Name'"
               [type]="'text'"
               [formData]="formData"
               [name]="'name'"
               [invalidText]="'Your name is required'"
-            ></app-input>
+            ></lib-input>
             <div class="form-group">
               <label for="state">State of residence</label>
               <select
@@ -86,13 +86,13 @@
                 >Your state is required.</span
               >
             </div>
-            <app-input
+            <lib-input
               [title]="'Email Address'"
               [type]="'email'"
               [formData]="formData"
               [name]="'email'"
               [invalidText]="'Enter a valid email address'"
-            ></app-input>
+            ></lib-input>
             <div class="form-group">
               <label for="sex" class="d-block">Sex</label>
               <div class="custom-control custom-radio d-inline-block mr-5">
@@ -124,26 +124,26 @@
                 >
               </div>
             </div>
-            <app-input
+            <lib-input
               [title]="'Phone number'"
               [type]="'tel'"
               [formData]="formData"
               [name]="'phone'"
               [invalidText]="'Phone number is required'"
-            ></app-input>
-            <app-input
+            ></lib-input>
+            <lib-input
               [title]="'Choose a password'"
               [type]="'password'"
               [formData]="formData"
               [name]="'password'"
               [invalidText]="'Choose a password'"
-            ></app-input>
+            ></lib-input>
             <div class="text-center mt-4 btn-curved w-100">
-              <app-submit-button
+              <lib-submit-button
                 [text]="'Register with APSON'"
                 [isBusy]="isBusy"
                 [disabled]="formData.invalid"
-              ></app-submit-button>
+              ></lib-submit-button>
             </div>
           </form>
           <div class="text-center mt-5 login-footer">
