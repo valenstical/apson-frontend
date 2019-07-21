@@ -1,0 +1,163 @@
+<section class="section bg-grey min-vh-100">
+  <div class="container-fluid contact-form-wrapper">
+    <div
+      class="shadow-sm bg-white login-wrapper position-relative overflow-hidden mw-100"
+    >
+      <div class="row position-static">
+        <div class="column-left col-12 col-md-5 colum-left bg-register">
+          <div class="h-100">
+            <lib-back-button></lib-back-button>
+            <h1 class="text-white font-weight-bold column-left-title mt-3">
+              Register with APSON
+            </h1>
+          </div>
+        </div>
+        <div class="col-md-7 offset-md-5 col-12">
+          <form
+            (ngSubmit)="onRegisterMember()"
+            role="form"
+            class="form pl-4 position-relative pr-4 pt-5 register"
+          >
+            <lib-alert
+              [title]="response.title"
+              [type]="response.type"
+              [message]="response.message"
+              *ngIf="!hideAlert"
+            ></lib-alert>
+            <lib-input
+              [title]="'Full Name'"
+              [type]="'text'"
+              [formData]="formData"
+              [name]="'name'"
+              [invalidText]="'Your name is required'"
+            ></lib-input>
+            <div class="form-group">
+              <label for="state">State of residence</label>
+              <select
+                class="form-control custom-select"
+                [formControl]="formData.get('state')"
+                [value]="formData.get('state').value"
+              >
+                <option value="">-- Choose one --</option>
+                <option value="0">Abia</option>
+                <option value="1">Adamawa</option>
+                <option value="2">Akwa Ibom</option>
+                <option value="3">Anambra</option>
+                <option value="4">Bauchi</option>
+                <option value="5">Bayelsa</option>
+                <option value="6">Benue</option>
+                <option value="7">Borno</option>
+                <option value="8">Cross River</option>
+                <option value="9">Delta</option>
+                <option value="10">Ebonyi</option>
+                <option value="11">Edo</option>
+                <option value="12">Ekiti</option>
+                <option value="13">Enugu</option>
+                <option value="14">FCT</option>
+                <option value="15">Gombe</option>
+                <option value="16">Imo</option>
+                <option value="17">Jigawa</option>
+                <option value="18">Kaduna</option>
+                <option value="19">Kano</option>
+                <option value="20">Katsina</option>
+                <option value="21">Kebbi</option>
+                <option value="22">Kogi</option>
+                <option value="23">Kwara</option>
+                <option value="24">Lagos</option>
+                <option value="25">Nasarawa</option>
+                <option value="26">Niger</option>
+                <option value="27">Ogun</option>
+                <option value="28">Ondo</option>
+                <option value="29">Osun</option>
+                <option value="30">Oyo</option>
+                <option value="31">Plateau</option>
+                <option value="32">Rivers</option>
+                <option value="33">Sokoto</option>
+                <option value="34">Taraba</option>
+                <option value="35">Yobe</option>
+                <option value="36">Zamfara</option>
+              </select>
+              <span
+                class="display-error"
+                *ngIf="
+                  formData.get('state').invalid &&
+                  (formData.get('state').dirty || formData.get('state').touched)
+                "
+                >Your state is required.</span
+              >
+            </div>
+            <lib-input
+              [title]="'Email Address'"
+              [type]="'email'"
+              [formData]="formData"
+              [name]="'email'"
+              [invalidText]="'Enter a valid email address'"
+            ></lib-input>
+            <div class="form-group">
+              <label for="sex" class="d-block">Sex</label>
+              <div class="custom-control custom-radio d-inline-block mr-5">
+                <input
+                  id="sexMale"
+                  [formControl]="formData.get('sex')"
+                  value="Male"
+                  type="radio"
+                  class="custom-control-input"
+                />
+                <label
+                  class="custom-control-label font-weight-normal"
+                  for="sexMale"
+                  >Male</label
+                >
+              </div>
+              <div class="custom-control custom-radio d-inline-block">
+                <input
+                  id="sexFemale"
+                  [formControl]="formData.get('sex')"
+                  value="Female"
+                  type="radio"
+                  class="custom-control-input"
+                />
+                <label
+                  class="custom-control-label font-weight-normal"
+                  for="sexFemale"
+                  >Female</label
+                >
+              </div>
+            </div>
+            <lib-input
+              [title]="'Phone number'"
+              [type]="'tel'"
+              [formData]="formData"
+              [name]="'phone'"
+              [invalidText]="'Phone number is required'"
+            ></lib-input>
+            <lib-input
+              [title]="'Choose a password'"
+              [type]="'password'"
+              [formData]="formData"
+              [name]="'password'"
+              [invalidText]="'Choose a password'"
+            ></lib-input>
+            <div class="text-center mt-4 btn-curved w-100">
+              <lib-submit-button
+                [text]="'Register with APSON'"
+                [isBusy]="isBusy"
+                [disabled]="formData.invalid"
+              ></lib-submit-button>
+            </div>
+          </form>
+          <div class="text-center mt-5 login-footer">
+            <p class="text-muted">
+              Already a member?
+              <a
+                routerLink="/login"
+                class="d-inline-block btn-underlined blog-link-more ml-1"
+                >Login</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="{{ title }}">{{ title }}
+    <img *ngIf="isLoading" src="/assets/images/icons/loading.gif" width="20" /></label>
+  <select class="form-control custom-select" [formControl]="formData.controls[name]"
+    [value]="formData.controls[name].value" (change)="notifyChange(formData.controls[name].value)"
+    [attr.disabled]="disabled || isLoading ? 'true' : null">
+    <option value="">-- Choose one --</option>
+    <option *ngFor="let item of data; let i = index" value="{{ i }}">
+      {{ item }}</option>
+  </select>
+  <span class="display-error"
+    *ngIf="formData.controls[name].invalid && formData.controls[name].dirty">{{ invalidText }}.</span>
+</div>
