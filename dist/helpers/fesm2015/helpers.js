@@ -1023,6 +1023,12 @@ const selectedFilter = (/**
     }
     return params;
 });
+/** @type {?} */
+const getGender = (/**
+ * @param {?} genderId
+ * @return {?}
+ */
+(genderId) => ['Male', 'Female', 'Male & Female'][genderId]);
 
 /**
  * @fileoverview added by tsickle
@@ -1050,5 +1056,5 @@ const SCHOOL_TYPES = [
     'Secondary school',
 ];
 
-export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, scrollIntoView, selectedFilter };
+export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
 //# sourceMappingURL=helpers.js.map

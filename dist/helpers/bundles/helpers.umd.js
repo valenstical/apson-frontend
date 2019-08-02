@@ -1056,6 +1056,14 @@
         }
         return params;
     });
+    /** @type {?} */
+    var getGender = (/**
+     * @param {?} genderId
+     * @return {?}
+     */
+    function (genderId) {
+        return ['Male', 'Female', 'Male & Female'][genderId];
+    });
 
     /**
      * @fileoverview added by tsickle
@@ -1091,6 +1099,7 @@
     exports.STATES = STATES;
     exports.STUDENTS_URL = STUDENTS_URL;
     exports.VISITORS_URL = VISITORS_URL;
+    exports.getGender = getGender;
     exports.scrollIntoView = scrollIntoView;
     exports.selectedFilter = selectedFilter;
 

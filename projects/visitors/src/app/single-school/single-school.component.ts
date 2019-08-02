@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { scrollIntoView } from 'helpers';
+import { scrollIntoView, getGender } from 'helpers';
 import { BaseComponent, School, RequestService } from 'shared';
 
 @Component({
@@ -9,6 +9,7 @@ import { BaseComponent, School, RequestService } from 'shared';
 })
 export class SingleSchoolComponent extends BaseComponent implements OnInit {
   school: School;
+  cover = 'https://angular.io/assets/images/logos/angular/logo-nav@2x.png';
   constructor(
     private activedRoute: ActivatedRoute,
     private requestService: RequestService,
@@ -26,8 +27,10 @@ export class SingleSchoolComponent extends BaseComponent implements OnInit {
     } = this.activedRoute;
     this.subscription.add(
       this.requestService.get(`schools/${id}`).subscribe(
-        school => {
-          this.school = school;
+        ({ data }) => {
+          this.school = data;
+          this.setFullAddress();
+          this.setContactDetails();
           this.loading = false;
         },
         _ => {
@@ -35,6 +38,46 @@ export class SingleSchoolComponent extends BaseComponent implements OnInit {
         },
       ),
     );
+  }
+
+  toMapAddress(): string {
+    return `https://maps.google.com?q=${this.school.fullAddress}`;
+  }
+
+  toPhone(): string {
+    return `tel:${this.school.phone}`;
+  }
+
+  setFullAddress(): void {
+    if (this.school.location) {
+      const {
+        location: { address, city, stateName },
+      } = this.school;
+      this.school.fullAddress = `${address}, ${city}, ${stateName}`;
+    }
+  }
+
+  setContactDetails(): void {
+    if (this.school.contact) {
+      const {
+        contact: { email, phone, website },
+      } = this.school;
+      this.school.email = email;
+      this.school.phone = phone;
+      this.school.website = website;
+    }
+  }
+
+  toEmailAddress(): string {
+    return `mailto:${this.school.email}`;
+  }
+
+  getCover(): string {
+    return `url(${this.school.cover})`;
+  }
+
+  getGender(): string {
+    return getGender(this.school.gender);
   }
 
   scrollToContact(element: HTMLElement) {

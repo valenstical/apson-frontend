@@ -1,568 +1,204 @@
-<section class="hero-single-school"></section>
-<section class="section school-section">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-4 col-md-5">
-        <div class="school-cta shadow sticky-top mb-5">
-          <img
-            src="assets/images/icons/shield.png"
-            width="20"
-            class="school-badge"
-          />
-          <h1 class="mb-4 school-subtitle text-center">
-            Fortune International Group of Schools
-          </h1>
-          <ul class="fa-ul school-list">
-            <li>
-              <i class="fas fa-map-marker-alt fa-li blog-link-more"></i>
-              <a
-                [href]="
-                  'https://maps.google.com?q=No. 12 Uwadiae street by NNPC Medical Centre, off Giwa Amu road, G.R.A, Benin City, Edo state'
-                "
-                target="_blank"
-                >No. 12 Uwadiae street by NNPC Medical Centre, off Giwa Amu
-                road, G.R.A, Benin City, Edo state</a
-              >
-            </li>
-            <li>
-              <i
-                class="fas fa-li fa-flip-horizontal fa-envelope blog-link-more"
-              ></i>
-              <a [href]="'mailto:info@fortuneschools.com'" class="text-overflow"
-                >info@fortuneschools.com</a
-              >
-            </li>
-            <li>
-              <i
-                class="fas fa-li fa-flip-horizontal fa-link blog-link-more"
-              ></i>
-              <a
-                [href]="'https://www.fortuneschool.com'"
-                target="_blank"
-                class="text-overflow"
-                >www.fortuneschool.com</a
-              >
-            </li>
-            <li>
-              <i
-                class="fas fa-li fa-phone fa-flip-horizontal blog-link-more"
-              ></i>
-              <a [href]="'tel:08094567890'">0809 456 7890</a>
-            </li>
-          </ul>
-          <a
-            (click)="scrollToContact(contact)"
-            class="btn-brand mt-4 w-100 pointer text-uppercase scroll"
-            >Contact us</a
-          >
-        </div>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-4 school-subtitle mt-4">About Us</h4>
-        <ul class="list-inline text-sm mb-4 mt-4 school-summary">
-          <li class="list-inline-item mr-3">
-            <i class="fas blog-link-more fa-user-graduate"></i> Nursery School
-          </li>
-          <li class="list-inline-item mr-3">
-            <i class="fas fa-calendar-alt blog-link-more"></i> Founded 2012
-          </li>
-          <li class="list-inline-item mr-3">
-            <i class="fas fa-users blog-link-more"></i> Accepts Male &amp;
-            Female
-          </li>
-        </ul>
-        <div class="school-details">
-          <div class="text-block">
-            <p class="text-muted font-weight-light">
-              Our garden basement apartment is fully equipped with everything
-              you need to enjoy your stay. Very comfortable for a couple but
-              plenty of space for a small family. Close to many wonderful
-              Brooklyn attractions and quick trip to Manhattan.
-            </p>
-            <h3>The space</h3>
-            <p class="text-muted font-weight-light">
-              Welcome to Brooklyn! We are excited to share our wonderful
-              neighborhood with you. Our modern apartment has a private
-              entrance, fully equipped kitchen, and a very comfortable queen
-              size bed. We are happy to accommodate additional guests with a
-              single bed in the living room, another comfy mattress on the floor
-              and can make arrangements for small children with a portable crib
-              and highchair if requested.
-            </p>
-            <p class="text-muted font-weight-light">Also in the apartment:</p>
-            <ul class="text-muted font-weight-light">
-              <li>TV with Netflix and DirectTVNow</li>
-              <li>Free WiFi</li>
-              <li>Gourmet Coffee/Tea making supplies</li>
-              <li>Fresh Sheets and Towels</li>
-              <li>
-                Toaster, microwave, pots and pans and basic cooking needs like
-                salt, pepper, sugar, and olive oil.
+<ng-container *ngIf="loading; else schoolTemplate">
+  <lib-busy></lib-busy>
+</ng-container>
+<ng-template #schoolTemplate>
+  <section
+    class="hero-single-school"
+    [style.backgroundImage]="getCover()"
+  ></section>
+  <section class="section school-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-5">
+          <div class="school-cta shadow sticky-top mb-5">
+            <img [attr.src]="school.logo" width="20" class="school-badge" />
+            <h1 class="mb-4 school-subtitle text-center">
+              {{ school.name }}
+            </h1>
+            <ul class="fa-ul school-list">
+              <li *ngIf="school.location">
+                <i class="fas fa-map-marker-alt fa-li blog-link-more"></i>
+                <a [href]="toMapAddress()" target="_blank">{{
+                  school.fullAddress
+                }}</a>
               </li>
-              <li>Air Conditioning to keep you cool all summer!</li>
-            </ul>
-            <p class="text-muted font-weight-light">
-              The apartment is surprisingly quiet for being in the heart of a
-              vibrant, bustling neighborhood.
-            </p>
-            <h3>Interaction with guests</h3>
-            <p class="text-muted font-weight-light">
-              We live in the two floors above the garden apartment so we are
-              usually available to answer questions. The garden apartment is
-              separate from our living space. We are happy to provide advice on
-              local attractions, restaurants and transportation around the city.
-              If there's anything you need please don't hesitate to ask!
-            </p>
-          </div>
-        </div>
-        <hr class="mt-5 mb-4" />
-        <div class="text-block">
-          <h2 class="school-subtitle mb-4">Amenities</h2>
-          <ul class="list-unstyled text-muted school-summary mb-0">
-            <li class="mb-2">
-              <i class="fas mr-1 fa-bong blog-link-more"></i>
-              <span class="text-sm">Science Laboratory</span>
-            </li>
-            <li class="mb-2">
-              <i class="fas mr-1 fa-desktop blog-link-more"></i>
-              <span class="text-sm">Computer Laboratory</span>
-            </li>
-            <li class="mb-2">
-              <i class="fas mr-1 fa-book blog-link-more"></i>
-              <span class="text-sm">Library</span>
-            </li>
-            <li class="/schools/7564534/">
-              <i class="fas mr-1 fa-bus-alt blog-link-more"></i>
-              <span class="text-sm">School Vehicle</span>
-            </li>
-            <li class="/schools/7564534/">
-              <i class="fas mr-1 blog-link-more fa-house-damage"></i>
-              <span class="text-sm">Boarding Facility</span>
-            </li>
-          </ul>
-        </div>
-        <hr class="mb-4 mt-5" />
-        <div class="text-block">
-          <h2 class="mb-4 school-subtitle">Gallery</h2>
-          <div class="card-columns">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/santi-vedri-707620-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/les-anderson-202336-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/zach-vessels-1314100-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/annie-spratt-1215936-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/trevor-cole-393231-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/michael-mims-130838-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/princess-684305-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/images/limbo/princess-684305-unsplash.jpg"
-                alt="Card image cap"
-              />
-            </div>
-          </div>
-        </div>
-        <form role="form" class="contact-form form mb-5 " id="contact" #contact>
-          <hr class="mt-5 mb-5" />
-          <h2 class="school-subtitle mb-1 ">Contact Us</h2>
-          <p class="mb-5 support-text">
-            Feel free to contact us for more information concerning our school,
-            admission procedures and requirements.
-          </p>
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Your Name</label>
-                <input type="text" class="form-control" id="name" name="name" />
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="formInput132">Subject</label>
-                <select
-                  id="subject"
-                  class="form-control custom-select"
-                  name="subject"
+              <li *ngIf="school.contact">
+                <i
+                  class="fas fa-li fa-flip-horizontal fa-envelope blog-link-more"
+                ></i>
+                <a [href]="toEmailAddress()" class="text-overflow">{{
+                  school.email
+                }}</a>
+              </li>
+              <li *ngIf="school.contact">
+                <i
+                  class="fas fa-li fa-flip-horizontal fa-link blog-link-more"
+                ></i>
+                <a
+                  [href]="school.website"
+                  target="_blank"
+                  class="text-overflow"
+                  >{{ school.website }}</a
                 >
-                  <option value="Enquiry for Admission"
-                    >Enquiry for Admission</option
+              </li>
+              <li *ngIf="school.contact">
+                <i
+                  class="fas fa-li fa-phone fa-flip-horizontal blog-link-more"
+                ></i>
+                <a [href]="toPhone()">{{ school.phone }}</a>
+              </li>
+            </ul>
+            <a
+              (click)="scrollToContact(contact)"
+              class="btn-brand mt-4 w-100 pointer text-uppercase scroll"
+              >Contact us</a
+            >
+          </div>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-4 school-subtitle mt-4">About Us</h4>
+          <ul class="list-inline text-sm mb-4 mt-4 school-summary">
+            <li class="list-inline-item mr-3">
+              <i class="fas blog-link-more fa-user-graduate"></i>
+              {{ school.typeName }}
+            </li>
+            <li class="list-inline-item mr-3">
+              <i class="fas fa-calendar-alt blog-link-more"></i> Founded
+              {{ school.founded }}
+            </li>
+            <li class="list-inline-item mr-3">
+              <i class="fas fa-users blog-link-more"></i> Accepts
+              {{ getGender() }}
+            </li>
+          </ul>
+          <div class="school-details">
+            <div
+              class="text-block text-muted font-weight-light text-sentence"
+              [innerHTML]="school.details"
+            ></div>
+          </div>
+          <div class="text-block" *ngIf="school.amenities">
+            <hr class="mt-5 mb-4" />
+            <h2 class="school-subtitle mb-4">Amenities</h2>
+            <ul class="list-unstyled text-muted school-summary mb-0">
+              <li class="mb-2" *ngIf="school.amenities.laboratory">
+                <i class="fas mr-1 fa-bong blog-link-more"></i>
+                <span class="text-sm">Science Laboratory</span>
+              </li>
+              <li class="mb-2" *ngIf="school.amenities.computer">
+                <i class="fas mr-1 fa-desktop blog-link-more"></i>
+                <span class="text-sm">Computer Laboratory</span>
+              </li>
+              <li class="mb-2" *ngIf="school.amenities.library">
+                <i class="fas mr-1 fa-book blog-link-more"></i>
+                <span class="text-sm">Library</span>
+              </li>
+              <li class="mb-3" *ngIf="school.amenities.vehicle">
+                <i class="fas mr-1 fa-bus-alt blog-link-more"></i>
+                <span class="text-sm">School Vehicle</span>
+              </li>
+              <li class="mb-2" *ngIf="school.amenities.boarding">
+                <i class="fas mr-1 blog-link-more fa-house-damage"></i>
+                <span class="text-sm">Boarding Facility</span>
+              </li>
+            </ul>
+          </div>
+          <div class="text-block" *ngIf="school.gallery">
+            <hr class="mb-4 mt-5" />
+            <h2 class="mb-4 school-subtitle">Gallery</h2>
+            <div class="card-columns">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="assets/images/limbo/santi-vedri-707620-unsplash.jpg"
+                  alt="Card image cap"
+                />
+              </div>
+              <div class="card" *ngFor="let image of school.gallery">
+                <img
+                  class="card-img-top"
+                  [attr.src]="image"
+                  alt="{{
+                    school.name.concat(', ').concat(school.fullAddress)
+                  }}"
+                />
+              </div>
+            </div>
+          </div>
+          <form
+            role="form"
+            class="contact-form form mb-5 "
+            id="contact"
+            #contact
+          >
+            <hr class="mt-5 mb-5" />
+            <h2 class="school-subtitle mb-1 ">Contact Us</h2>
+            <p class="mb-5 support-text">
+              Feel free to contact us for more information concerning our
+              school, admission procedures and requirements.
+            </p>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="formInput132">Subject</label>
+                  <select
+                    id="subject"
+                    class="form-control custom-select"
+                    name="subject"
                   >
-                  <option value="General Enquiry">General Enquiry</option>
-                </select>
+                    <option value="Enquiry for Admission"
+                      >Enquiry for Admission</option
+                    >
+                    <option value="General Enquiry">General Enquiry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Phone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                  />
+                </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                />
-              </div>
+            <div class="form-group">
+              <label for="formInput100">Additional Message (optional)</label>
+              <textarea
+                class="form-control"
+                name="message"
+                id="message"
+              ></textarea>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Phone</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="phone"
-                  name="phone"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="formInput100">Additional Message (optional)</label>
-            <textarea
-              class="form-control"
-              name="message"
-              id="message"
-            ></textarea>
-          </div>
-          <lib-submit-button [text]="'Send message'"></lib-submit-button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section bg-grey">
-  <div class="container-fluid position-relative">
-    <header class="header-left">
-      <h2 class="font-weight-bold text-uppercase">Similar Schools</h2>
-      <a routerLink="/schools" class="blog-link-more float-right"
-        >VIEW MORE <i class="fas fa-arrow-right"></i
-      ></a>
-    </header>
-    <div class="row boxed-row">
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <span class="blog-category school-type bg-school-type-0"
-            >Primary</span
-          >
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/zach-vessels-1289561-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content card-body">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of school</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <span class="blog-category school-type bg-school-type-0"
-            >Secondary</span
-          >
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/ben-white-998822-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content card-body">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of schools</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <span class="blog-category school-type bg-school-type-0"
-            >Creshce/Nursery</span
-          >
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/sharon-mccutcheon-528615-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content card-body">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of schools</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <span class="blog-category school-type bg-school-type-0"
-            >Primary</span
-          >
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/zach-vessels-1289560-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of schools</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <span class="blog-category school-type bg-school-type-0"
-            >Cresche/Nursery</span
-          >
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/zach-vessels-1284924-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of schools</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 mb-4">
-        <div class="school-box card h-100">
-          <span class="blog-category school-type bg-school-type-0"
-            >Cresche/Nursery</span
-          >
-          <a class="link-cover" routerLink="/schools/994567"></a>
-          <div class="school-box-cover">
-            <img
-              src="assets/images/limbo/bailey-torres-677234-unsplash.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="school-box-content">
-            <a
-              [href]="'tel: +2348045678945'"
-              class="blog-control school-btn-call transition"
-              ><i class="fas fa-phone fa-flip-horizontal"></i
-            ></a>
-            <h4 class="school-box-title">Paragon group of schools</h4>
-            <ul class="fa-ul school-list">
-              <li>
-                <i class="fas fa-map-marker-alt fa-li text-secondary"></i>Benin
-                City, Edo state
-              </li>
-              <li>
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal text-secondary"
-                ></i>
-                0809 456 9804
-              </li>
-            </ul>
-          </div>
-          <div class="school-footer card-footer">
-            <div class="school-ratings float-left">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <a routerLink="/schools/7564534/" class="blog-link-more"
-              >Details <i class="fas fa-arrow-right transition"></i
-            ></a>
-          </div>
+            <lib-submit-button [text]="'Send message'"></lib-submit-button>
+          </form>
         </div>
       </div>
     </div>
-    <button type="button" class="btn blog-control transition">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <button
-      type="button"
-      class="btn blog-control transition blog-control-right"
-    >
-      <i class="fas fa-arrow-right"></i>
-    </button>
-  </div>
-</section>
+  </section>
+</ng-template>

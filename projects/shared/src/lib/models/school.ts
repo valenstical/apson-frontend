@@ -3,8 +3,10 @@ export class School {
   name?: string;
   type?: number;
   founded?: number;
-  gender?: string;
+  gender?: number;
   contact?: any;
+  email?: string;
+  phone?: string;
   location?: any;
   details?: any;
   amenities?: any;
@@ -17,4 +19,5 @@ export class School {
   memberId?: string;
   typeName?: string;
   fullAddress?: string;
+  website?: string;
 }
