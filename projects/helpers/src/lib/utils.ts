@@ -17,3 +17,6 @@ export const selectedFilter = (
   }
   return params;
 };
+
+export const getGender = (genderId: number) =>
+  ['Male', 'Female', 'Male & Female'][genderId];

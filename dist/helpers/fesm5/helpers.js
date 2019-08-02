@@ -1026,6 +1026,14 @@ function (params, key, value) {
     }
     return params;
 });
+/** @type {?} */
+var getGender = (/**
+ * @param {?} genderId
+ * @return {?}
+ */
+function (genderId) {
+    return ['Male', 'Female', 'Male & Female'][genderId];
+});
 
 /**
  * @fileoverview added by tsickle
@@ -1053,5 +1061,5 @@ var SCHOOL_TYPES = [
     'Secondary school',
 ];
 
-export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, scrollIntoView, selectedFilter };
+export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
 //# sourceMappingURL=helpers.js.map
