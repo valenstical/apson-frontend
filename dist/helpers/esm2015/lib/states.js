@@ -1,0 +1,45 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+export const STATES = [
+    'Abia',
+    'Adamawa',
+    'Akwa Ibom',
+    'Anambra',
+    'Bauchi',
+    'Bayelsa',
+    'Benue',
+    'Borno',
+    'Cross River',
+    'Delta',
+    'Ebonyi',
+    'Edo',
+    'Ekiti',
+    'Enugu',
+    'FCT',
+    'Gombe',
+    'Imo',
+    'Jigawa',
+    'Kaduna',
+    'Kano',
+    'Katsina',
+    'Kebbi',
+    'Kogi',
+    'Kwara',
+    'Lagos',
+    'Nassarawa',
+    'Niger',
+    'Ogun',
+    'Ondo',
+    'Osun',
+    'Oyo',
+    'Plataeu',
+    'Rivers',
+    'Sokoto',
+    'Taraba',
+    'Yobe',
+    'Zamfara',
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3RhdGVzLmpzIiwic291cmNlUm9vdCI6Im5nOi8vaGVscGVycy8iLCJzb3VyY2VzIjpbImxpYi9zdGF0ZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxNQUFNLE9BQU8sTUFBTSxHQUFHO0lBQ3BCLE1BQU07SUFDTixTQUFTO0lBQ1QsV0FBVztJQUNYLFNBQVM7SUFDVCxRQUFRO0lBQ1IsU0FBUztJQUNULE9BQU87SUFDUCxPQUFPO0lBQ1AsYUFBYTtJQUNiLE9BQU87SUFDUCxRQUFRO0lBQ1IsS0FBSztJQUNMLE9BQU87SUFDUCxPQUFPO0lBQ1AsS0FBSztJQUNMLE9BQU87SUFDUCxLQUFLO0lBQ0wsUUFBUTtJQUNSLFFBQVE7SUFDUixNQUFNO0lBQ04sU0FBUztJQUNULE9BQU87SUFDUCxNQUFNO0lBQ04sT0FBTztJQUNQLE9BQU87SUFDUCxXQUFXO0lBQ1gsT0FBTztJQUNQLE1BQU07SUFDTixNQUFNO0lBQ04sTUFBTTtJQUNOLEtBQUs7SUFDTCxTQUFTO0lBQ1QsUUFBUTtJQUNSLFFBQVE7SUFDUixRQUFRO0lBQ1IsTUFBTTtJQUNOLFNBQVM7Q0FDViIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBTVEFURVMgPSBbXG4gICdBYmlhJyxcbiAgJ0FkYW1hd2EnLFxuICAnQWt3YSBJYm9tJyxcbiAgJ0FuYW1icmEnLFxuICAnQmF1Y2hpJyxcbiAgJ0JheWVsc2EnLFxuICAnQmVudWUnLFxuICAnQm9ybm8nLFxuICAnQ3Jvc3MgUml2ZXInLFxuICAnRGVsdGEnLFxuICAnRWJvbnlpJyxcbiAgJ0VkbycsXG4gICdFa2l0aScsXG4gICdFbnVndScsXG4gICdGQ1QnLFxuICAnR29tYmUnLFxuICAnSW1vJyxcbiAgJ0ppZ2F3YScsXG4gICdLYWR1bmEnLFxuICAnS2FubycsXG4gICdLYXRzaW5hJyxcbiAgJ0tlYmJpJyxcbiAgJ0tvZ2knLFxuICAnS3dhcmEnLFxuICAnTGFnb3MnLFxuICAnTmFzc2FyYXdhJyxcbiAgJ05pZ2VyJyxcbiAgJ09ndW4nLFxuICAnT25kbycsXG4gICdPc3VuJyxcbiAgJ095bycsXG4gICdQbGF0YWV1JyxcbiAgJ1JpdmVycycsXG4gICdTb2tvdG8nLFxuICAnVGFyYWJhJyxcbiAgJ1lvYmUnLFxuICAnWmFtZmFyYScsXG5dO1xuIl19
