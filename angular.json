@@ -19,7 +19,7 @@
             "polyfills": "projects/visitors/src/polyfills.ts",
             "tsConfig": "projects/visitors/tsconfig.app.json",
             "aot": false,
-            "assets": ["projects/visitors/src/assets"],
+            "assets": ["projects/visitors/src/assets", "projects/visitors/src/manifest.webmanifest"],
             "styles": ["projects/visitors/src/styles.css"],
             "scripts": []
           },
@@ -46,7 +46,9 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/visitors/ngsw-config.json"
             }
           }
         },
