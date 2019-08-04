@@ -22,6 +22,6 @@ export class LoginGuard implements CanActivate {
     if (authenticated) {
       this.authService.gotoMembers();
     }
-    return authenticated;
+    return !authenticated;
   }
 }
