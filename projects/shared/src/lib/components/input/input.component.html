@@ -1,12 +1,24 @@
 <div class="form-group">
   <label for="{{ name }}">{{ title }}</label>
-  <input
-    type="{{ type }}"
-    class="form-control"
-    id="{{ name }}"
-    [formControl]="formData.controls[name]"
-    [value]="formData.controls[name].value"
-  />
+  <ng-container *ngIf="type === 'textarea'; else textfield">
+    <textarea
+      class="form-control"
+      id="{{ name }}"
+      [formControl]="formData.controls[name]"
+      >{{ formData.controls[name].value }}
+</textarea
+    >
+  </ng-container>
+  <ng-template #textfield>
+    <input
+      type="{{ type }}"
+      class="form-control"
+      id="{{ name }}"
+      [formControl]="formData.controls[name]"
+      [value]="formData.controls[name].value"
+    />
+  </ng-template>
+
   <span
     class="display-error"
     *ngIf="formData.controls[name].invalid && formData.controls[name].dirty"
