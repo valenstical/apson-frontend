@@ -24,6 +24,7 @@ import { SharedModule, InterceptorService } from 'shared';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ContactBoxComponent } from './contact-box/contact-box.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { environment } from '../environments/environment';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     PageNotFoundComponent,
+    ContactBoxComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { scrollIntoView, getGender } from 'helpers';
+import { scrollIntoView, getGender, APSON_EMAIL } from 'helpers';
 import { BaseComponent, School, RequestService } from 'shared';
 
 @Component({
@@ -9,7 +9,8 @@ import { BaseComponent, School, RequestService } from 'shared';
 })
 export class SingleSchoolComponent extends BaseComponent implements OnInit {
   school: School;
-  cover = 'https://angular.io/assets/images/logos/angular/logo-nav@2x.png';
+  defaultEmail = APSON_EMAIL;
+
   constructor(
     private activedRoute: ActivatedRoute,
     private requestService: RequestService,

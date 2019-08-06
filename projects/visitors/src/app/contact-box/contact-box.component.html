@@ -1,0 +1,69 @@
+<form
+  class="contact-form form"
+  [formGroup]="formGroup"
+  (submit)="sendMessage()"
+>
+  <lib-alert
+    [message]="response.message"
+    [title]="response.title"
+    [type]="response.type"
+    *ngIf="!hideAlert"
+  ></lib-alert>
+  <div class="row">
+    <div class="col-sm-6">
+      <lib-input
+        name="name"
+        type="text"
+        title="Your name"
+        [formData]="formGroup"
+        invalidText="Your name is required"
+      ></lib-input>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Subject</label>
+        <select
+          id="subject"
+          class="form-control custom-select"
+          name="subject"
+          formControlName="subject"
+        >
+          <option value="Enquiry">Enquiry</option>
+          <option value="Complaint">Complaint</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <lib-input
+        name="email"
+        type="email"
+        title="Email"
+        [formData]="formGroup"
+        invalidText="A valid email address is required"
+      ></lib-input>
+    </div>
+    <div class="col-sm-6">
+      <lib-input
+        name="phone"
+        type="tel"
+        title="Phone"
+        [formData]="formGroup"
+        invalidText="Phone number is required"
+      ></lib-input>
+    </div>
+  </div>
+  <lib-input
+    name="message"
+    type="textarea"
+    title="Message"
+    [formData]="formGroup"
+    invalidText="Enter the message you wish to send."
+  ></lib-input>
+  <div class="mt-4">
+    <lib-submit-button
+      text="Send Message"
+      [disabled]="isBusy || formGroup.invalid"
+      [isBusy]="isBusy"
+    ></lib-submit-button>
+  </div>
+</form>

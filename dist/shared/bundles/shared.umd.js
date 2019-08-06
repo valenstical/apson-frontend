@@ -117,7 +117,7 @@
         InputComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'lib-input',
-                        template: "<div class=\"form-group\">\n  <label for=\"{{ name }}\">{{ title }}</label>\n  <input\n    type=\"{{ type }}\"\n    class=\"form-control\"\n    id=\"{{ name }}\"\n    [formControl]=\"formData.controls[name]\"\n    [value]=\"formData.controls[name].value\"\n  />\n  <span\n    class=\"display-error\"\n    *ngIf=\"formData.controls[name].invalid && formData.controls[name].dirty\"\n    >{{ invalidText }}</span\n  >\n</div>\n"
+                        template: "<div class=\"form-group\">\n  <label for=\"{{ name }}\">{{ title }}</label>\n  <ng-container *ngIf=\"type === 'textarea'; else textfield\">\n    <textarea\n      class=\"form-control\"\n      id=\"{{ name }}\"\n      [formControl]=\"formData.controls[name]\"\n      >{{ formData.controls[name].value }}\n</textarea\n    >\n  </ng-container>\n  <ng-template #textfield>\n    <input\n      type=\"{{ type }}\"\n      class=\"form-control\"\n      id=\"{{ name }}\"\n      [formControl]=\"formData.controls[name]\"\n      [value]=\"formData.controls[name].value\"\n    />\n  </ng-template>\n\n  <span\n    class=\"display-error\"\n    *ngIf=\"formData.controls[name].invalid && formData.controls[name].dirty\"\n    >{{ invalidText }}</span\n  >\n</div>\n"
                     }] }
         ];
         InputComponent.propDecorators = {

@@ -1062,7 +1062,7 @@
      * @return {?}
      */
     function (genderId) {
-        return ['Male', 'Female', 'Male & Female'][genderId];
+        return ['Male Only', 'Female Female', 'Male & Female'][genderId];
     });
 
     /**
@@ -1085,6 +1085,8 @@
     // export const ADMIN_URL = 'https://admin.apsonigeria.org';
     // export const STUDENTS_URL = 'https://students.apsonigeria.org';
     /** @type {?} */
+    var APSON_EMAIL = 'support@apsonigeria.org';
+    /** @type {?} */
     var SCHOOL_TYPES = [
         'Cresche/Nursery',
         'Primary shoool',
@@ -1092,6 +1094,7 @@
     ];
 
     exports.ADMIN_URL = ADMIN_URL;
+    exports.APSON_EMAIL = APSON_EMAIL;
     exports.BASE_URL = BASE_URL;
     exports.LGAS = LGAS;
     exports.MEMBERS_URL = MEMBERS_URL;

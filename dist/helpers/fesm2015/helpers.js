@@ -1028,7 +1028,7 @@ const getGender = (/**
  * @param {?} genderId
  * @return {?}
  */
-(genderId) => ['Male', 'Female', 'Male & Female'][genderId]);
+(genderId) => ['Male Only', 'Female Female', 'Male & Female'][genderId]);
 
 /**
  * @fileoverview added by tsickle
@@ -1050,11 +1050,13 @@ const VISITORS_URL = 'https://www.apsonigeria.org';
 // export const ADMIN_URL = 'https://admin.apsonigeria.org';
 // export const STUDENTS_URL = 'https://students.apsonigeria.org';
 /** @type {?} */
+const APSON_EMAIL = 'support@apsonigeria.org';
+/** @type {?} */
 const SCHOOL_TYPES = [
     'Cresche/Nursery',
     'Primary shoool',
     'Secondary school',
 ];
 
-export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
+export { ADMIN_URL, APSON_EMAIL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
 //# sourceMappingURL=helpers.js.map

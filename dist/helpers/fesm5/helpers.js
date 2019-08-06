@@ -1032,7 +1032,7 @@ var getGender = (/**
  * @return {?}
  */
 function (genderId) {
-    return ['Male', 'Female', 'Male & Female'][genderId];
+    return ['Male Only', 'Female Female', 'Male & Female'][genderId];
 });
 
 /**
@@ -1055,11 +1055,13 @@ var VISITORS_URL = 'https://www.apsonigeria.org';
 // export const ADMIN_URL = 'https://admin.apsonigeria.org';
 // export const STUDENTS_URL = 'https://students.apsonigeria.org';
 /** @type {?} */
+var APSON_EMAIL = 'support@apsonigeria.org';
+/** @type {?} */
 var SCHOOL_TYPES = [
     'Cresche/Nursery',
     'Primary shoool',
     'Secondary school',
 ];
 
-export { ADMIN_URL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
+export { ADMIN_URL, APSON_EMAIL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
 //# sourceMappingURL=helpers.js.map
