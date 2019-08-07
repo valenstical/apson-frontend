@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  active = false;
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      this.active = false;
+    });
+  }
+
+  toggleMenu() {
+    this.active = !this.active;
+  }
 }
