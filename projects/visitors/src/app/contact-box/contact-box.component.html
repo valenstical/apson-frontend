@@ -28,8 +28,9 @@
           name="subject"
           formControlName="subject"
         >
-          <option value="Enquiry">Enquiry</option>
-          <option value="Complaint">Complaint</option>
+          <option [value]="subject" *ngFor="let subject of subjects">{{
+            subject
+          }}</option>
         </select>
       </div>
     </div>

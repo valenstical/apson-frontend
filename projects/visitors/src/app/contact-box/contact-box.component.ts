@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BaseComponent, RequestService } from 'shared';
 import { scrollIntoView, APSON_EMAIL } from 'helpers';
@@ -7,15 +7,17 @@ import { scrollIntoView, APSON_EMAIL } from 'helpers';
   selector: 'app-contact-box',
   templateUrl: './contact-box.component.html',
 })
-export class ContactBoxComponent extends BaseComponent implements OnDestroy {
+export class ContactBoxComponent extends BaseComponent
+  implements OnInit, OnDestroy {
   @Input() scrollView: HTMLElement;
   @Input() receiver = APSON_EMAIL;
+  @Input() subjects = ['Enquiry', 'Complaint'];
 
   formGroup: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', Validators.required],
-    subject: ['Enquiry', Validators.required],
+    subject: ['', Validators.required],
     message: ['', Validators.required],
     receiver: [this.receiver],
   });
@@ -25,6 +27,10 @@ export class ContactBoxComponent extends BaseComponent implements OnDestroy {
     private requestService: RequestService,
   ) {
     super();
+  }
+
+  ngOnInit() {
+    this.formGroup.controls.subject.setValue(this.subjects[0]);
   }
 
   ngOnDestroy() {

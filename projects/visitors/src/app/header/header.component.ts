@@ -1,18 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Router,
+  RouterEvent,
+  RouteConfigLoadStart,
+  RouteConfigLoadEnd,
+} from '@angular/router';
+import { BaseComponent } from 'shared';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends BaseComponent
+  implements OnInit, OnDestroy {
   active = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    super();
+  }
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
-      this.active = false;
-    });
+    this.subscription.add(
+      this.router.events.subscribe(
+        (event: RouterEvent): void => {
+          this.active = false;
+          if (event instanceof RouteConfigLoadStart) {
+            this.loading = true;
+          } else if (event instanceof RouteConfigLoadEnd) {
+            this.loading = false;
+          }
+        },
+      ),
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   toggleMenu() {
