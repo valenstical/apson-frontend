@@ -27,9 +27,18 @@ export class RequestService {
     );
   }
 
-  @Cacheable()
+  @Cacheable({
+    maxCacheCount: 1000,
+  })
   searchSchools(query: any): Observable<any> {
     return this.get('schools', query);
+  }
+
+  @Cacheable({
+    maxCacheCount: 1000,
+  })
+  getSchool(id: number): Observable<any> {
+    return this.get(`schools/${id}`);
   }
 
   validatePayment(ref: any): Observable<any> {

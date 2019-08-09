@@ -27,7 +27,7 @@ export class SingleSchoolComponent extends BaseComponent implements OnInit {
       },
     } = this.activedRoute;
     this.subscription.add(
-      this.requestService.get(`schools/${id}`).subscribe(
+      this.requestService.getSchool(id).subscribe(
         ({ data }) => {
           this.school = data;
           this.setFullAddress();

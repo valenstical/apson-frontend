@@ -14,6 +14,7 @@ import { BaseComponent } from 'shared';
 export class HeaderComponent extends BaseComponent
   implements OnInit, OnDestroy {
   active = false;
+  loading = false;
   constructor(private router: Router) {
     super();
   }

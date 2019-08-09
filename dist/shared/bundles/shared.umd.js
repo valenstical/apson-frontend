@@ -295,6 +295,17 @@
             return this.get('schools', query);
         };
         /**
+         * @param {?} id
+         * @return {?}
+         */
+        RequestService.prototype.getSchool = /**
+         * @param {?} id
+         * @return {?}
+         */
+        function (id) {
+            return this.get("schools/" + id);
+        };
+        /**
          * @param {?} ref
          * @return {?}
          */
@@ -356,11 +367,21 @@
         ]; };
         /** @nocollapse */ RequestService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function RequestService_Factory() { return new RequestService(core.ɵɵinject(HttpService)); }, token: RequestService, providedIn: "root" });
         __decorate([
-            ngxCacheable.Cacheable(),
+            ngxCacheable.Cacheable({
+                maxCacheCount: 1000,
+            }),
             __metadata("design:type", Function),
             __metadata("design:paramtypes", [Object]),
             __metadata("design:returntype", rxjs.Observable)
         ], RequestService.prototype, "searchSchools", null);
+        __decorate([
+            ngxCacheable.Cacheable({
+                maxCacheCount: 1000,
+            }),
+            __metadata("design:type", Function),
+            __metadata("design:paramtypes", [Number]),
+            __metadata("design:returntype", rxjs.Observable)
+        ], RequestService.prototype, "getSchool", null);
         return RequestService;
     }());
 

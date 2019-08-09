@@ -8,6 +8,7 @@ export declare class RequestService {
     registerMember(data: any): Observable<any>;
     requestPayment(paymentType: string): Observable<any>;
     searchSchools(query: any): Observable<any>;
+    getSchool(id: number): Observable<any>;
     validatePayment(ref: any): Observable<any>;
     post(endpoint: string, data: any): Observable<any>;
     patch(endpoint: string, data: any): Observable<any>;
