@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-4 col-12">
           <lib-simple-select
-            placeholder="All States"
+            placeholder="-- All States --"
             [data]="states"
             (whenSelected)="filterByState($event)"
           >
@@ -13,19 +13,22 @@
         </div>
         <div class="col-md-4 col-12">
           <lib-simple-select
-            placholder="All LGAs"
+            placeholder="-- All LGAs --"
             (whenSelected)="filter('lga', $event)"
             [data]="lgas"
           ></lib-simple-select>
         </div>
         <div class="col-md-4 col-12">
           <div class="input-group">
-            <lib-simple-select
-              placeholder="All types"
-              [data]="types"
-              (whenSelected)="filter('type', $event)"
+            <select
+              class="form-control custom-select"
+              (change)="filter('type', $event.target.value)"
             >
-            </lib-simple-select>
+              <option value="">-- All types --</option>
+              <option *ngFor="let type of types; let i = index" value="{{ i }}">
+                {{ type }}</option
+              >
+            </select>
             <div class="input-group-append">
               <a
                 (click)="scrollToResults(results)"

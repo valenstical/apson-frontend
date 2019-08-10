@@ -1,0 +1,32 @@
+<aside class="right-panel pb-5">
+  <section class="right-body">
+    <header class="header mb-0">
+      <div class="container-fluid">
+        <button
+          class="btn-menu btn btn-link"
+          type="button"
+          onclick="toggleMenu()"
+        >
+          <span></span>
+          <span class="mt-1 w-75"></span>
+          <span class="mt-1"></span>
+        </button>
+        <h1 class="mb-0 d-inline-block"></h1>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <lib-alert
+        [title]="response.title"
+        [type]="response.type"
+        [message]="response.message"
+        *ngIf="!hideAlert"
+      ></lib-alert>
+      <app-message-box
+        [action]="'0'"
+        [buttonText]="'Pay membership fee'"
+        (btnClick)="startPayment()"
+        [isBusy]="isBusy"
+      ></app-message-box>
+    </div>
+  </section>
+</aside>

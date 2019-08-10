@@ -19,4 +19,15 @@ export const selectedFilter = (
 };
 
 export const getGender = (genderId: number) =>
-  ['Male Only', 'Female Female', 'Male & Female'][genderId];
+  ['Male Only', 'Female Only', 'Male & Female'][genderId];
+
+export const toMobileNumber = (phone: string) => {
+  let suffix = '0';
+  const firstLetter = phone.charAt(0);
+  if (firstLetter === '2') {
+    suffix = '+';
+  } else if (firstLetter === '0' || firstLetter === '+') {
+    suffix = '';
+  }
+  return `${suffix}${phone}`;
+};

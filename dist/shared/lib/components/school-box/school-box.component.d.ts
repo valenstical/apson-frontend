@@ -11,6 +11,7 @@ export declare class SchoolBoxComponent extends BaseDataComponent implements OnI
     constructor(requestService: RequestService);
     ngOnInit(): void;
     private setSchoolData;
+    getMobileNumber(phone: string): string;
     private initFilterSubscription;
     populateTable(): void;
     ngOnDestroy(): void;

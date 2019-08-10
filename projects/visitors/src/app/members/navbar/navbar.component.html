@@ -1,0 +1,39 @@
+<aside class="left-panel" [class.hidden-menu]="classReference.showMenu">
+  <button
+    type="button"
+    class="btn btn-link btn-back text-brand"
+    (click)="toggleMenu()"
+  >
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <div class="left-content">
+    <div class="left-panel-profile text-center">
+      <img src="{{ member.image }}" class="profile-image" />
+      <h4 class="font-weight-bold left-panel-profile-name">
+        {{ member.name }}
+      </h4>
+      <p class="left-panel-email">{{ member.email }}</p>
+    </div>
+    <ul class="fa-ul ">
+      <li routerLinkActive="active">
+        <i class="fas fa-li fa-hotel transition"></i>
+        <a routerLink="/members/my-schools" class="transition">My Schools</a>
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-plus-circle"></i>
+        <a routerLink="/members/add-school/" class="transition"
+          >Add new School</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-user-cog"></i>
+        <a routerLink="/members/settings/" class="transition">Settings</a>
+      </li>
+      <li>
+        <i class="fas fa-li transitio fa-sign-in-alt"></i>
+        <a (click)="logout()" class="transition pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <a routerLink="/" class="copyright">&copy; Copyright APSON.</a>
+</aside>

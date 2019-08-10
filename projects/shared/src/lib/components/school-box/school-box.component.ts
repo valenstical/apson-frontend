@@ -3,7 +3,7 @@ import { School } from '../../models/school';
 import { RequestService } from '../../services/request.service';
 import { Subject } from 'rxjs';
 import { BaseDataComponent } from '../base-data-component';
-import { selectedFilter } from 'helpers';
+import { selectedFilter, toMobileNumber } from 'helpers';
 
 @Component({
   selector: 'lib-school-box',
@@ -32,6 +32,10 @@ export class SchoolBoxComponent extends BaseDataComponent
     this.loading = false;
     this.schools = result || [];
     this.isEmpty = this.schools.length === 0;
+  }
+
+  getMobileNumber(phone: string): string {
+    return toMobileNumber(phone);
   }
 
   private initFilterSubscription() {

@@ -1,0 +1,397 @@
+.members-wrapper {
+  @keyframes uploading {
+    to {
+      opacity: 0.8;
+    }
+  }
+
+  body {
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #393838;
+  }
+
+  .container-fluid {
+    max-width: 1200px;
+  }
+
+  .card-body {
+    padding: 0px;
+  }
+
+  .bg-grey {
+    background-color: #f5f6f7;
+  }
+
+  .left-panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: white;
+    border-right: 1px solid #eee;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.01);
+    padding: 60px 30px 30px;
+    overflow-y: auto;
+    width: 280px;
+    overflow: hidden;
+    transition: all 400ms;
+    z-index: 10;
+  }
+
+  .profile-image {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .left-panel-profile-name {
+    font-size: 14px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  .transition {
+    transition: 400ms;
+  }
+
+  .left-panel ul {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color: #8d8484;
+  }
+
+  .left-panel ul a {
+    padding: 5px 0px 5px 10px;
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    position: relative;
+    top: -3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .left-panel li.active {
+    color: #00b09b;
+  }
+
+  .left-panel-email {
+    font-size: 14px;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 8px;
+    color: #919493;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+
+  .right-panel {
+    min-height: 100vh;
+    padding: 50px 30px 30px;
+    margin-left: 280px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .card {
+    border: none;
+  }
+
+  .shadow-raised {
+    box-shadow: 0px 8px 20px #e3e7ea;
+  }
+
+  .school-box {
+    padding-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .school-cover-image {
+    width: 100%;
+  }
+
+  .school-badge {
+    width: 50px;
+    margin-top: -30px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 3px;
+  }
+
+  .school-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .btn-brand {
+    background-image: linear-gradient(-90deg, #00b09b, #96c93d);
+    padding: 12px 20px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: box-shadow 300ms, transform 300ms;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .btn-brand:hover {
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .header {
+    margin-bottom: 50px;
+    color: #505050;
+  }
+
+  .text-md {
+    font-size: 15px;
+  }
+
+  .school-box-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+  }
+
+  .ml-20 {
+    margin-left: 20px;
+  }
+
+  .mr-20 {
+    margin-right: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .left-panel {
+      left: -280px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .right-panel {
+      margin-left: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-top: 0px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .header {
+      margin-left: 0px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .right-panel .right-body {
+      padding-top: 100px;
+    }
+  }
+
+  .btn-menu {
+    padding: 0px;
+    width: 40px;
+    margin-right: 20px;
+    display: none;
+  }
+
+  .btn-menu span {
+    display: block;
+    height: 3px;
+    background-color: #00b09b;
+  }
+
+  @media (max-width: 991px) {
+    .btn-menu {
+      display: inline-block;
+    }
+  }
+
+  .hidden-menu.left-panel {
+    left: 0px;
+  }
+
+  .hidden-menu.backdrop {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.69);
+    z-index: 8;
+  }
+
+  .btn-back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .text-brand {
+    color: #00b09b;
+  }
+
+  @media (min-width: 992px) {
+    .left-panel .btn-back {
+      display: none;
+    }
+  }
+
+  button {
+    border: none;
+  }
+
+  btn-curved {
+    border-radius: 80px;
+  }
+
+  .btn-curved {
+    border-radius: 80px;
+  }
+
+  .form-box {
+    background-color: white;
+  }
+
+  .text-sm {
+    font-size: 12px;
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+
+  .uploading {
+    animation: uploading 600ms linear 0s infinite alternate;
+  }
+
+  .uploading::before {
+    background-color: rgba(0, 0, 0, 0.65);
+    content: '';
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+  }
+  .uploading .spinner-border {
+    position: absolute;
+    z-index: 3;
+    left: 35px;
+    top: 30px;
+  }
+  .form-section-heding {
+    margin-bottom: 30px;
+  }
+
+  .form-section-heading h4 {
+    font-weight: bolder;
+    font-size: 13px;
+    color: #555765;
+  }
+
+  .form-section-heading p {
+    color: rgba(71, 80, 94, 0.55);
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .form-section .row {
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  .form-section .btn-grouped {
+    border-top: 1px solid #eeeeee;
+    margin-top: 50px;
+  }
+
+  .btn-brand-bordered,
+  .btn-brand-bordered:hover {
+    background: none;
+    border: 1px solid #00b09b;
+    color: #00b09b;
+  }
+
+  .card-column-2 {
+    column-count: 2;
+  }
+
+  .school-logo {
+    max-width: 200px !important;
+  }
+
+  .form-section .row:last-child {
+    border: none;
+  }
+
+  .img-max-300 {
+    max-width: 220px;
+  }
+
+  .empty-data-title {
+    font-weight: bold;
+    font-size: 21px;
+    color: #292c44;
+  }
+
+  .empty-data-description {
+    color: #676d73;
+    font-size: 15px;
+  }
+
+  .max-width-500 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .delete-image {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    background: #ff562f;
+    color: white;
+    opacity: 1;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    font-size: 19px;
+  }
+}

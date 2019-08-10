@@ -1,0 +1,31 @@
+<aside class="right-panel">
+  <header class="header">
+    <div class="container-fluid">
+      <button
+        class="btn-menu btn btn-link"
+        type="button"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span class="mt-1 w-75"></span>
+        <span class="mt-1"></span>
+      </button>
+      <h1 class="mb-0 d-inline-block">
+        {{ id ? 'Manage' : 'Add New' }} School
+      </h1>
+    </div>
+  </header>
+  <section class="right-body form-section">
+    <div class="container-fluid">
+      <lib-busy *ngIf="isBusy"></lib-busy>
+      <app-basic-details *ngIf="!isBusy"></app-basic-details>
+      <div *ngIf="schoolService.get() | async">
+        <app-contact-details></app-contact-details>
+        <app-location-details></app-location-details>
+        <app-full-details></app-full-details>
+        <app-amenities-details></app-amenities-details>
+        <app-image-details></app-image-details>
+      </div>
+    </div>
+  </section>
+</aside>

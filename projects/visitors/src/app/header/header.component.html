@@ -1,9 +1,6 @@
-<div class="progress page-loader" *ngIf="loading">
-  <div
-    class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
-    style="width: 100%"
-  ></div>
-</div>
+<lib-page-transition
+  (activeChange)="classReference.showMenu = $event"
+></lib-page-transition>
 <div class="nav-top alert sticky-top">
   <div class="container-fluid position-relative">
     <span
@@ -36,7 +33,7 @@
     <div
       class="collapse navbar-collapse"
       id="navbarToggler8"
-      [style.display]="active ? 'block' : 'none'"
+      [style.display]="classReference.showMenu ? 'block' : 'none'"
     >
       <ul class="navbar-nav mt-2 mt-lg-0 ml-auto ">
         <li class="nav-item active">

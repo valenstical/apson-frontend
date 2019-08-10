@@ -6,6 +6,8 @@ export declare class BaseComponent implements OnDestroy {
     isEmpty: boolean;
     isError: boolean;
     loading: boolean;
+    static showMenu: boolean;
+    classReference: typeof BaseComponent;
     hideAlert: boolean;
     show404: boolean;
     response: {

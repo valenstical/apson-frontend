@@ -11,19 +11,19 @@
       <div class="school-box-content card-body">
         <a
           *ngIf="school.contact"
-          href="tel: {{ school.contact.phone }}"
+          href="tel: {{ getMobileNumber(school.contact.phone) }}"
           class="blog-control school-btn-call transition"
           ><i class="fas fa-phone fa-flip-horizontal"></i
         ></a>
-        <h4 class="school-box-title">{{ school.name }}</h4>
+        <h4 class="school-box-title text-capitalize">{{ school.name }}</h4>
         <ul class="fa-ul school-list" *ngIf="school.location || school.contact">
-          <li *ngIf="school.location">
+          <li *ngIf="school.location" class="text-sentence">
             <i class="fas fa-map-marker-alt fa-li text-secondary"></i>
             {{ school.fullAddress }}
           </li>
           <li *ngIf="school.contact">
             <i class="fas fa-li fa-phone fa-flip-horizontal text-secondary"></i>
-            {{ school.contact.phone }}
+            {{ getMobileNumber(school.contact.phone) }}
           </li>
         </ul>
       </div>

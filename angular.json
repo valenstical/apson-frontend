@@ -19,8 +19,11 @@
             "polyfills": "projects/visitors/src/polyfills.ts",
             "tsConfig": "projects/visitors/tsconfig.app.json",
             "aot": false,
-            "assets": ["projects/visitors/src/assets", "projects/visitors/src/manifest.webmanifest"],
-            "styles": ["projects/visitors/src/styles.css"],
+            "assets": [
+              "projects/visitors/src/assets",
+              "projects/visitors/src/manifest.webmanifest"
+            ],
+            "styles": ["projects/visitors/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -114,9 +117,7 @@
               "projects/shared/tsconfig.lib.json",
               "projects/shared/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

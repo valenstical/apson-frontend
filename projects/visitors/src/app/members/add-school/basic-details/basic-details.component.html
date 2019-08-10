@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>1. Basic Information</h4>
+      <p>Add basic information about your school here</p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <form
+      (submit)="updateDetails()"
+      [formGroup]="formData"
+      class="form pl-4 position-relative pr-4 pt-5  form-box pb-4"
+    >
+      <lib-input
+        [title]="'School Name'"
+        [type]="'text'"
+        [formData]="formData"
+        [name]="'name'"
+        [invalidText]="'School name is required'"
+      ></lib-input>
+      <lib-select
+        [title]="'Type of school'"
+        [data]="['Creche/Nursery', 'Primary', 'Secondary']"
+        [formData]="formData"
+        [name]="'type'"
+        [invalidText]="'School type is required'"
+      ></lib-select>
+      <lib-input
+        [title]="'Year Founded'"
+        [type]="'number'"
+        [formData]="formData"
+        [name]="'founded'"
+        [invalidText]="'Enter a valid year (e.g 2012)'"
+      ></lib-input>
+      <div class="form-group">
+        <label for="gender" class="d-block">Accepted Gender</label>
+        <div class="custom-control custom-radio d-inline-block mr-5 mb-2">
+          <input
+            id="genderMixed"
+            [formControl]="formData.get('gender')"
+            value="0"
+            type="radio"
+            class="custom-control-input"
+          />
+          <label
+            class="custom-control-label font-weight-normal"
+            for="genderMixed"
+            >Mixed</label
+          >
+        </div>
+        <div class="custom-control custom-radio d-inline-block mr-5 mb-2">
+          <input
+            id="genderMale"
+            [formControl]="formData.get('gender')"
+            value="1"
+            type="radio"
+            class="custom-control-input"
+          />
+          <label
+            class="custom-control-label font-weight-normal"
+            for="genderMale"
+            >Male Only</label
+          >
+        </div>
+        <div class="custom-control custom-radio d-inline-block mb-2">
+          <input
+            id="genderFemale"
+            [formControl]="formData.get('gender')"
+            value="2"
+            type="radio"
+            class="custom-control-input"
+          />
+          <label
+            class="custom-control-label font-weight-normal"
+            for="genderFemale"
+            >Female Only</label
+          >
+        </div>
+      </div>
+      <lib-alert
+        *ngIf="!hideAlert"
+        [message]="response.message"
+        [type]="response.type"
+        [title]="response.title"
+      ></lib-alert>
+      <div class="text-right text-sm btn-grouped ml-n4 mr-n4 pr-4 pl-4">
+        <lib-submit-button
+          [text]="'Save changes'"
+          [maxWidth]="''"
+          [isBusy]="isBusy"
+          [disabled]="formData.invalid"
+        ></lib-submit-button>
+      </div>
+    </form>
+  </div>
+</div>

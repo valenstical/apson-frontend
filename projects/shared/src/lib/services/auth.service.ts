@@ -3,14 +3,14 @@ import { Member } from '../models/member';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpService } from './http.service';
-import { MEMBERS_URL, VISITORS_URL, STUDENTS_URL, ADMIN_URL } from 'helpers';
+import { STUDENTS_URL, ADMIN_URL } from 'helpers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   member: Subject<Member>;
-  url = MEMBERS_URL;
+  url = 'members';
   constructor(private router: Router, private httpService: HttpService) {}
 
   login(data: any): Observable<any> {
@@ -44,11 +44,11 @@ export class AuthService {
   }
 
   public gotoMembers() {
-    location.assign(MEMBERS_URL);
+    this.router.navigateByUrl('/members');
   }
 
   public gotoVisitors() {
-    location.assign(VISITORS_URL);
+    this.router.navigateByUrl('/');
   }
 
   public gotoStudents() {

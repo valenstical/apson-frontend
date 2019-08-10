@@ -11,6 +11,7 @@ import { SimpleSelectComponent } from './components/simple-select/simple-select.
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { PageTransitionComponent } from './components/page-transition/page-transition.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AlertComponent } from './components/alert/alert.component';
     BusyComponent,
     SchoolBoxComponent,
     NotFoundComponent,
+    PageTransitionComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -37,6 +39,7 @@ import { AlertComponent } from './components/alert/alert.component';
     SimpleSelectComponent,
     SchoolBoxComponent,
     NotFoundComponent,
+    PageTransitionComponent,
   ],
 })
 export class SharedModule {}

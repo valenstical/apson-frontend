@@ -7,6 +7,8 @@ export class BaseComponent implements OnDestroy {
   isEmpty = false;
   isError = false;
   loading = true;
+  static showMenu = false;
+  classReference = BaseComponent;
   hideAlert = true;
   show404 = true;
   response = {
@@ -50,5 +52,8 @@ export class BaseComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-  toggleMenu() {}
+
+  toggleMenu() {
+    BaseComponent.showMenu = !BaseComponent.showMenu;
+  }
 }

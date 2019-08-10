@@ -5,9 +5,9 @@ import { __assign, __decorate, __metadata, __extends } from 'tslib';
 import { Observable, Subscription, Subject, throwError, BehaviorSubject } from 'rxjs';
 import { Cacheable } from 'ngx-cacheable';
 import { HttpClient } from '@angular/common/http';
-import { BASE_URL, selectedFilter, MEMBERS_URL, VISITORS_URL, STUDENTS_URL, ADMIN_URL } from 'helpers';
+import { BASE_URL, selectedFilter, toMobileNumber, STUDENTS_URL, ADMIN_URL } from 'helpers';
 import { tap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouteConfigLoadStart, RouteConfigLoadEnd, RouterModule } from '@angular/router';
 
 /**
  * @fileoverview added by tsickle
@@ -350,6 +350,7 @@ var BaseComponent = /** @class */ (function () {
         this.isEmpty = false;
         this.isError = false;
         this.loading = true;
+        this.classReference = BaseComponent;
         this.hideAlert = true;
         this.show404 = true;
         this.response = {
@@ -450,7 +451,10 @@ var BaseComponent = /** @class */ (function () {
     BaseComponent.prototype.toggleMenu = /**
      * @return {?}
      */
-    function () { };
+    function () {
+        BaseComponent.showMenu = !BaseComponent.showMenu;
+    };
+    BaseComponent.showMenu = false;
     return BaseComponent;
 }());
 
@@ -650,6 +654,17 @@ var SchoolBoxComponent = /** @class */ (function (_super) {
         this.isEmpty = this.schools.length === 0;
     };
     /**
+     * @param {?} phone
+     * @return {?}
+     */
+    SchoolBoxComponent.prototype.getMobileNumber = /**
+     * @param {?} phone
+     * @return {?}
+     */
+    function (phone) {
+        return toMobileNumber(phone);
+    };
+    /**
      * @private
      * @return {?}
      */
@@ -709,7 +724,7 @@ var SchoolBoxComponent = /** @class */ (function (_super) {
     SchoolBoxComponent.decorators = [
         { type: Component, args: [{
                     selector: 'lib-school-box',
-                    template: "<div class=\"row boxed-row\" *ngIf=\"!loading\">\n  <div class=\"col-6 col-lg-4 mb-4\" *ngFor=\"let school of schools\">\n    <div class=\"school-box card h-100\">\n      <span class=\"blog-category school-type bg-school-type-0\">{{\n        school.typeName\n      }}</span>\n      <a class=\"link-cover\" routerLink=\"/schools/{{ school.id }}\"></a>\n      <div class=\"school-box-cover\">\n        <img src=\"{{ school.cover }}\" width=\"100%\" />\n      </div>\n      <div class=\"school-box-content card-body\">\n        <a\n          *ngIf=\"school.contact\"\n          href=\"tel: {{ school.contact.phone }}\"\n          class=\"blog-control school-btn-call transition\"\n          ><i class=\"fas fa-phone fa-flip-horizontal\"></i\n        ></a>\n        <h4 class=\"school-box-title\">{{ school.name }}</h4>\n        <ul class=\"fa-ul school-list\" *ngIf=\"school.location || school.contact\">\n          <li *ngIf=\"school.location\">\n            <i class=\"fas fa-map-marker-alt fa-li text-secondary\"></i>\n            {{ school.fullAddress }}\n          </li>\n          <li *ngIf=\"school.contact\">\n            <i class=\"fas fa-li fa-phone fa-flip-horizontal text-secondary\"></i>\n            {{ school.contact.phone }}\n          </li>\n        </ul>\n      </div>\n      <div class=\"school-footer card-footer\">\n        <!-- <div class=\"school-ratings float-left\">\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n        </div> -->\n        <a routerLink=\"/schools/{{ school.id }}\" class=\"blog-link-more\"\n          >Details <i class=\"fas fa-arrow-right transition\"></i\n        ></a>\n      </div>\n    </div>\n  </div>\n</div>\n<lib-busy *ngIf=\"loading\"></lib-busy>\n<lib-not-found-box\n  *ngIf=\"isEmpty && !loading\"\n  message=\"There is no school matching your search.\"\n  title=\"No schools found\"\n>\n</lib-not-found-box>\n"
+                    template: "<div class=\"row boxed-row\" *ngIf=\"!loading\">\n  <div class=\"col-6 col-lg-4 mb-4\" *ngFor=\"let school of schools\">\n    <div class=\"school-box card h-100\">\n      <span class=\"blog-category school-type bg-school-type-0\">{{\n        school.typeName\n      }}</span>\n      <a class=\"link-cover\" routerLink=\"/schools/{{ school.id }}\"></a>\n      <div class=\"school-box-cover\">\n        <img src=\"{{ school.cover }}\" width=\"100%\" />\n      </div>\n      <div class=\"school-box-content card-body\">\n        <a\n          *ngIf=\"school.contact\"\n          href=\"tel: {{ getMobileNumber(school.contact.phone) }}\"\n          class=\"blog-control school-btn-call transition\"\n          ><i class=\"fas fa-phone fa-flip-horizontal\"></i\n        ></a>\n        <h4 class=\"school-box-title text-capitalize\">{{ school.name }}</h4>\n        <ul class=\"fa-ul school-list\" *ngIf=\"school.location || school.contact\">\n          <li *ngIf=\"school.location\" class=\"text-sentence\">\n            <i class=\"fas fa-map-marker-alt fa-li text-secondary\"></i>\n            {{ school.fullAddress }}\n          </li>\n          <li *ngIf=\"school.contact\">\n            <i class=\"fas fa-li fa-phone fa-flip-horizontal text-secondary\"></i>\n            {{ getMobileNumber(school.contact.phone) }}\n          </li>\n        </ul>\n      </div>\n      <div class=\"school-footer card-footer\">\n        <!-- <div class=\"school-ratings float-left\">\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n        </div> -->\n        <a routerLink=\"/schools/{{ school.id }}\" class=\"blog-link-more\"\n          >Details <i class=\"fas fa-arrow-right transition\"></i\n        ></a>\n      </div>\n    </div>\n  </div>\n</div>\n<lib-busy *ngIf=\"loading\"></lib-busy>\n<lib-not-found-box\n  *ngIf=\"isEmpty && !loading\"\n  message=\"There is no school matching your search.\"\n  title=\"No schools found\"\n>\n</lib-not-found-box>\n"
                 }] }
     ];
     /** @nocollapse */
@@ -748,7 +763,7 @@ var SimpleSelectComponent = /** @class */ (function () {
     SimpleSelectComponent.decorators = [
         { type: Component, args: [{
                     selector: 'lib-simple-select',
-                    template: "<select class=\"form-control custom-select\" [value]=\"defaultValue\" (change)=\"notifyChange($event.target.value)\">\n  <option value=\"\">-- {{placeholder}} --</option>\n  <option *ngFor=\"let item of data; let i = index\" value=\"{{ i }}\">\n    {{ item }}</option>\n</select>"
+                    template: "<select\n  class=\"form-control custom-select\"\n  [value]=\"defaultValue\"\n  (change)=\"notifyChange($event.target.value)\"\n>\n  <option value=\"\">{{ placeholder }}</option>\n  <option *ngFor=\"let item of data; let i = index\" value=\"{{ i }}\">\n    {{ item }}</option\n  >\n</select>\n"
                 }] }
     ];
     SimpleSelectComponent.propDecorators = {
@@ -852,6 +867,66 @@ var AlertComponent = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+var PageTransitionComponent = /** @class */ (function (_super) {
+    __extends(PageTransitionComponent, _super);
+    function PageTransitionComponent(router) {
+        var _this = _super.call(this) || this;
+        _this.router = router;
+        _this.activeChange = new EventEmitter();
+        _this.loading = false;
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    PageTransitionComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.subscription.add(this.router.events.subscribe((/**
+         * @param {?} event
+         * @return {?}
+         */
+        function (event) {
+            BaseComponent.showMenu = false;
+            if (event instanceof RouteConfigLoadStart) {
+                _this.loading = true;
+            }
+            else if (event instanceof RouteConfigLoadEnd) {
+                _this.loading = false;
+            }
+        })));
+    };
+    /**
+     * @return {?}
+     */
+    PageTransitionComponent.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.subscription.unsubscribe();
+    };
+    PageTransitionComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'lib-page-transition',
+                    template: "<div class=\"progress page-loader\" *ngIf=\"loading\">\n  <div\n    class=\"progress-bar bg-danger progress-bar-striped progress-bar-animated\"\n    style=\"width: 100%\"\n  ></div>\n</div>\n"
+                }] }
+    ];
+    /** @nocollapse */
+    PageTransitionComponent.ctorParameters = function () { return [
+        { type: Router }
+    ]; };
+    PageTransitionComponent.propDecorators = {
+        activeChange: [{ type: Output }]
+    };
+    return PageTransitionComponent;
+}(BaseComponent));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var SharedModule = /** @class */ (function () {
     function SharedModule() {
     }
@@ -867,6 +942,7 @@ var SharedModule = /** @class */ (function () {
                         BusyComponent,
                         SchoolBoxComponent,
                         NotFoundComponent,
+                        PageTransitionComponent,
                     ],
                     imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
                     exports: [
@@ -881,6 +957,7 @@ var SharedModule = /** @class */ (function () {
                         SimpleSelectComponent,
                         SchoolBoxComponent,
                         NotFoundComponent,
+                        PageTransitionComponent,
                     ],
                 },] }
     ];
@@ -895,7 +972,7 @@ var AuthService = /** @class */ (function () {
     function AuthService(router, httpService) {
         this.router = router;
         this.httpService = httpService;
-        this.url = MEMBERS_URL;
+        this.url = 'members';
     }
     /**
      * @param {?} data
@@ -966,7 +1043,7 @@ var AuthService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        location.assign(MEMBERS_URL);
+        this.router.navigateByUrl('/members');
     };
     /**
      * @return {?}
@@ -975,7 +1052,7 @@ var AuthService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        location.assign(VISITORS_URL);
+        this.router.navigateByUrl('/');
     };
     /**
      * @return {?}
@@ -1267,5 +1344,87 @@ var School = /** @class */ (function () {
     return School;
 }());
 
-export { AuthService, BaseComponent, BaseDataComponent, HttpService, InterceptorService, Member, RequestService, School, SchoolService, ScriptLoaderService, ScriptStore, SharedModule, BackButtonComponent as ɵa, SubmitButtonComponent as ɵb, AlertComponent as ɵc, InputComponent as ɵd, SelectComponent as ɵe, SimpleSelectComponent as ɵf, BusyComponent as ɵg, SchoolBoxComponent as ɵh, NotFoundComponent as ɵi };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ActiveMemberGuard = /** @class */ (function () {
+    function ActiveMemberGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    ActiveMemberGuard.prototype.canActivate = /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    function (next, state) {
+        /** @type {?} */
+        var isActive = this.authService.getMember().isActive;
+        if (!isActive) {
+            this.router.navigateByUrl('/members/membership-renewal');
+        }
+        return isActive;
+    };
+    ActiveMemberGuard.decorators = [
+        { type: Injectable, args: [{
+                    providedIn: 'root',
+                },] }
+    ];
+    /** @nocollapse */
+    ActiveMemberGuard.ctorParameters = function () { return [
+        { type: AuthService },
+        { type: Router }
+    ]; };
+    /** @nocollapse */ ActiveMemberGuard.ngInjectableDef = ɵɵdefineInjectable({ factory: function ActiveMemberGuard_Factory() { return new ActiveMemberGuard(ɵɵinject(AuthService), ɵɵinject(Router)); }, token: ActiveMemberGuard, providedIn: "root" });
+    return ActiveMemberGuard;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    AuthGuard.prototype.canActivate = /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    function (next, state) {
+        /** @type {?} */
+        var authenticated = this.authService.isLoggedIn(state.url);
+        if (!authenticated) {
+            this.router.navigateByUrl('/login');
+        }
+        return authenticated;
+    };
+    AuthGuard.decorators = [
+        { type: Injectable, args: [{
+                    providedIn: 'root',
+                },] }
+    ];
+    /** @nocollapse */
+    AuthGuard.ctorParameters = function () { return [
+        { type: AuthService },
+        { type: Router }
+    ]; };
+    /** @nocollapse */ AuthGuard.ngInjectableDef = ɵɵdefineInjectable({ factory: function AuthGuard_Factory() { return new AuthGuard(ɵɵinject(AuthService), ɵɵinject(Router)); }, token: AuthGuard, providedIn: "root" });
+    return AuthGuard;
+}());
+
+export { ActiveMemberGuard, AuthGuard, AuthService, BaseComponent, BaseDataComponent, HttpService, InterceptorService, Member, RequestService, School, SchoolService, ScriptLoaderService, ScriptStore, SharedModule, BackButtonComponent as ɵa, SubmitButtonComponent as ɵb, AlertComponent as ɵc, InputComponent as ɵd, SelectComponent as ɵe, SimpleSelectComponent as ɵf, BusyComponent as ɵg, SchoolBoxComponent as ɵh, NotFoundComponent as ɵi, PageTransitionComponent as ɵj };
 //# sourceMappingURL=shared.js.map

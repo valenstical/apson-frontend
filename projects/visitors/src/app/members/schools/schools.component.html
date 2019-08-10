@@ -1,0 +1,58 @@
+<aside class="right-panel">
+  <header class="header">
+    <div class="container-fluid">
+      <button
+        class="btn-menu btn btn-link"
+        type="button"
+        onclick="toggleMenu()"
+      >
+        <span></span>
+        <span class="mt-1 w-75"></span>
+        <span class="mt-1"></span>
+      </button>
+      <h1 class="mb-0 d-inline-block">My Schools</h1>
+    </div>
+  </header>
+  <section class="right-body">
+    <div class="container-fluid">
+      <lib-busy *ngIf="isBusy"></lib-busy>
+      <app-message-box
+        *ngIf="!isBusy && mySchools.length === 0"
+        [action]="'2'"
+        [buttonText]="'ADD YOUR SCHOOL'"
+        [path]="'/members/add-school'"
+        [title]="'No schools found'"
+        [message]="
+          'You have not added any of your schools to the APSON school directory system. Add your school to our online directory so it can be easily discovered by everyone.'
+        "
+      ></app-message-box>
+      <div class="row" *ngIf="!isBusy && mySchools.length !== 0">
+        <div class="col-sm-6 col-xl-4 mb-4" *ngFor="let item of mySchools">
+          <div class="card h-100 shadow-raised school-box">
+            <img
+              src="{{ item.cover }}"
+              width="100%"
+              class="school-cover-image"
+            />
+            <img src="{{ item.logo }}" class="school-badge shadow-raised" />
+            <div class="school-box-content card-body">
+              <h4 class="school-title mb-0">{{ item.name }}</h4>
+              <span
+                class="badge mb-3 mt-2 badge-pill badge-primary pl-2 pr-2 pt-1 pb-1 school-box-type"
+                >{{ item.typeName }}</span
+              >
+              <!-- <p class="text-md">
+                {{ item.location.state }}
+              </p> -->
+            </div>
+            <a
+              routerLink="/members/schools/{{ item.id }}"
+              class="btn btn-sm btn-brand mt-3 ml-20 mr-20"
+              >Manage School</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>

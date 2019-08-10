@@ -1,0 +1,12 @@
+<div class="members-wrapper">
+  <main class="min-vh-100 bg-grey">
+    <lib-page-transition></lib-page-transition>
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+    <div
+      class="backdrop"
+      [class.hidden-menu]="classReference.showMenu"
+      (click)="toggleMenu()"
+    ></div>
+  </main>
+</div>

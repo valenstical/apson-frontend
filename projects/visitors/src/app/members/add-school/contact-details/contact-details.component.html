@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>2. Contact Details</h4>
+      <p>
+        Add your school contact details here. Ensure phone number and email
+        address are functional.
+      </p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <form
+      (submit)="updateDetails()"
+      [formGroup]="formData"
+      class="form pl-4 position-relative pr-4 pt-5  form-box pb-4"
+    >
+      <lib-input
+        [title]="'Email Address'"
+        [type]="'text'"
+        [formData]="formData"
+        [name]="'email'"
+        [invalidText]="'Enter a valid email address'"
+      ></lib-input>
+      <lib-input
+        [title]="'Phone Number'"
+        [type]="'tel'"
+        [formData]="formData"
+        [name]="'phone'"
+        [invalidText]="'Phone number is required'"
+      ></lib-input>
+      <lib-input
+        [title]="'School Website (optional)'"
+        [type]="'url'"
+        [formData]="formData"
+        [name]="'website'"
+        [invalidText]="'Enter a valid URL for your school website'"
+      ></lib-input>
+      <lib-alert
+        *ngIf="!hideAlert"
+        [message]="response.message"
+        [type]="response.type"
+        [title]="response.title"
+      ></lib-alert>
+      <div class="text-right text-sm btn-grouped ml-n4 mr-n4 pr-4 pl-4">
+        <lib-submit-button
+          [text]="'Save changes'"
+          [maxWidth]="''"
+          [isBusy]="isBusy"
+          [disabled]="formData.invalid"
+        ></lib-submit-button>
+      </div>
+    </form>
+  </div>
+</div>
