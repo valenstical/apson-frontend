@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="container-fluid">
+    <ng-container *ngIf="commonService.fullWidth; else pageTittle">
+      <a (click)="location.back()" class="text-hover transition">
+        <i
+          class="fas transition fa-arrow-circle-left mr-2 header-back-icon"
+        ></i>
+        Back
+      </a>
+    </ng-container>
+    <ng-template #pageTittle>
+      <button
+        class="btn-menu btn btn-link"
+        type="button"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span class="mt-1 w-75"></span>
+        <span class="mt-1"></span>
+      </button>
+      <h1 class="mb-0 d-inline-block">
+        {{ commonService.getPageTitle() }}
+      </h1>
+    </ng-template>
+  </div>
+</header>

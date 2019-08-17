@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BaseComponent, RequestService, SchoolService } from 'shared';
+import { RequestService } from 'shared';
 import { STATES } from 'helpers';
+import { AddSchoolTemplate } from '../add-school-template';
 
 @Component({
   selector: 'app-location-details',
   templateUrl: './location-details.component.html',
 })
-export class LocationDetailsComponent extends BaseComponent
+export class LocationDetailsComponent extends AddSchoolTemplate
   implements OnDestroy, OnInit {
   schoolId: string;
   fetchingLga = false;
@@ -22,7 +23,6 @@ export class LocationDetailsComponent extends BaseComponent
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,
-    private schoolService: SchoolService,
   ) {
     super();
   }
@@ -62,12 +62,11 @@ export class LocationDetailsComponent extends BaseComponent
     );
   }
   ngOnInit(): void {
-    const school = this.schoolService.getValue();
-    this.schoolId = school.id;
-    if (school.location) {
+    this.schoolId = this.school.id;
+    if (this.school.location) {
       const {
         location: { address, city, state, lga },
-      } = school;
+      } = this.school;
       this.formData.setValue({ address, city, state, lga });
       this.updateLGA(state, false);
     }

@@ -10,17 +10,43 @@ const routes: Routes = [
     component: MembersComponent,
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/members/dashboard',
+      },
+      {
+        path: 'dashboard',
+        pathMatch: 'full',
+        canActivate: [ActiveMemberGuard],
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'students',
+        pathMatch: 'full',
+        canActivate: [ActiveMemberGuard],
+        loadChildren: () =>
+          import('./students/students.module').then(m => m.StudentsModule),
+      },
+      {
+        path: 'scores',
+        pathMatch: 'full',
+        canActivate: [ActiveMemberGuard],
+        loadChildren: () =>
+          import('./scores/scores.module').then(m => m.ScoresModule),
+      },
+      {
         path: 'settings',
         pathMatch: 'full',
+        canActivate: [ActiveMemberGuard],
         loadChildren: () =>
           import('./settings/settings.module').then(m => m.SettingsModule),
       },
       {
-        path: 'schools/:id',
+        path: 'profile',
         pathMatch: 'full',
-        canActivate: [ActiveMemberGuard],
         loadChildren: () =>
-          import('./schools/schools.module').then(m => m.MemberSchoolsModule),
+          import('./profile/profile.module').then(m => m.ProfileModule),
       },
       {
         path: 'add-school',

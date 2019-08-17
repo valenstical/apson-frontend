@@ -1,15 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Member, AuthService, BaseComponent } from 'shared';
+import { Member, AuthService } from 'shared';
+import { Dropdown } from 'dropdown';
+import { CommonService } from '../services/common-service.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
 })
-export class NavbarComponent extends BaseComponent
-  implements OnInit, OnDestroy {
+export class NavbarComponent extends Dropdown implements OnInit, OnDestroy {
   member: Member;
 
-  constructor(public authService: AuthService) {
+  constructor(
+    public authService: AuthService,
+    public commonService: CommonService,
+  ) {
     super();
   }
 

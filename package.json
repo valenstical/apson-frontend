@@ -27,6 +27,7 @@
     "@angular/pwa": "^0.802.0",
     "@angular/router": "~8.1.2",
     "@angular/service-worker": "~8.1.2",
+    "dropdown": "file:dist/dropdown",
     "helpers": "file:dist/helpers",
     "ngx-cacheable": "^1.2.5",
     "rxjs": "~6.4.0",

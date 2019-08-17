@@ -1,0 +1,21 @@
+{
+  "name": "dropdown",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.1.2",
+    "@angular/core": "^8.1.2"
+  },
+  "main": "bundles/dropdown.umd.js",
+  "module": "fesm5/dropdown.js",
+  "es2015": "fesm2015/dropdown.js",
+  "esm5": "esm5/dropdown.js",
+  "esm2015": "esm2015/dropdown.js",
+  "fesm5": "fesm5/dropdown.js",
+  "fesm2015": "fesm2015/dropdown.js",
+  "typings": "dropdown.d.ts",
+  "metadata": "dropdown.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

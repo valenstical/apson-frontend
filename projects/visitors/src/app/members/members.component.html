@@ -1,12 +1,28 @@
 <div class="members-wrapper">
   <main class="min-vh-100 bg-grey">
     <lib-page-transition></lib-page-transition>
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <div
-      class="backdrop"
-      [class.hidden-menu]="classReference.showMenu"
-      (click)="toggleMenu()"
-    ></div>
+
+    <ng-container *ngIf="commonService.isReady(); else setup">
+      <app-navbar></app-navbar>
+      <app-member-header></app-member-header>
+
+      <aside class="right-panel">
+        <section class="right-body pt-5 pb-5">
+          <div class="container-fluid ">
+            <router-outlet></router-outlet>
+          </div>
+        </section>
+      </aside>
+
+      <div
+        class="backdrop"
+        [class.hidden-menu]="classReference.showMenu"
+        (click)="toggleMenu()"
+      ></div>
+    </ng-container>
+
+    <ng-template #setup>
+      <app-setup></app-setup>
+    </ng-template>
   </main>
 </div>
