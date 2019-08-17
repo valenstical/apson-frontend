@@ -1,18 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {
-  BaseComponent,
-  RequestService,
-  SchoolService,
-  ScriptLoaderService,
-} from 'shared';
+import { RequestService, ScriptLoaderService } from 'shared';
 import { CloudinaryWidget } from 'helpers';
+import { AddSchoolTemplate } from '../add-school-template';
 
 @Component({
   selector: 'app-image-details',
   templateUrl: './image-details.component.html',
 })
-export class ImageDetailsComponent extends BaseComponent
+export class ImageDetailsComponent extends AddSchoolTemplate
   implements OnInit, OnDestroy {
   schoolId: string;
   cover: string;
@@ -27,19 +23,17 @@ export class ImageDetailsComponent extends BaseComponent
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,
-    private schoolService: SchoolService,
     private scriptLoaderService: ScriptLoaderService,
   ) {
     super();
   }
 
   ngOnInit(): void {
-    const school = this.schoolService.getValue();
-    this.schoolId = school.id;
-    this.cover = school.cover;
-    this.logo = school.logo;
-    if (school.gallery) {
-      school.gallery.forEach(image => {
+    this.schoolId = this.school.id;
+    this.cover = this.school.cover;
+    this.logo = this.school.logo;
+    if (this.school.gallery) {
+      this.school.gallery.forEach(image => {
         this.gallery.add(image);
       });
     }

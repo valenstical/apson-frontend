@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BaseComponent, RequestService, SchoolService } from 'shared';
+import { RequestService, BaseComponent, School } from 'shared';
+import { CommonService } from '../../services/common-service.service';
 
 @Component({
   selector: 'app-basic-details',
@@ -8,7 +9,8 @@ import { BaseComponent, RequestService, SchoolService } from 'shared';
 })
 export class BasicDetailsComponent extends BaseComponent
   implements OnInit, OnDestroy {
-  schoolId: string;
+  @Input() school: School;
+
   formData: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     type: ['', Validators.required],
@@ -18,10 +20,11 @@ export class BasicDetailsComponent extends BaseComponent
     ],
     gender: ['0'],
   });
+
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,
-    private schoolService: SchoolService,
+    private commonService: CommonService,
   ) {
     super();
   }
@@ -29,7 +32,7 @@ export class BasicDetailsComponent extends BaseComponent
   editSchool() {
     this.subscription.add(
       this.requestService
-        .patch(`schools/${this.schoolId}`, this.formData.value)
+        .patch(`schools/${this.school.id}`, this.formData.value)
         .subscribe(
           response => {
             this.toggleLoaders(false);
@@ -46,17 +49,9 @@ export class BasicDetailsComponent extends BaseComponent
     this.subscription.add(
       this.requestService.post('schools', this.formData.value).subscribe(
         response => {
-          const { data, message } = response;
+          const { data } = response;
           this.toggleLoaders(false);
-          this.schoolService.setValue(data);
-          this.schoolId = this.schoolService.getValue().id;
-          this.showMessage(
-            [
-              'School successfully added to our platform. Scroll down to complete your school details!',
-            ],
-            '',
-            'success',
-          );
+          this.commonService.saveActiveSchool(data.id);
         },
         error => {
           this.handleError(error);
@@ -67,14 +62,12 @@ export class BasicDetailsComponent extends BaseComponent
 
   updateDetails() {
     this.toggleLoaders(true);
-    this.schoolId ? this.editSchool() : this.createSchool();
+    this.school ? this.editSchool() : this.createSchool();
   }
 
   ngOnInit(): void {
-    const school = this.schoolService.getValue();
-    if (school) {
-      this.schoolId = school.id;
-      const { name, type, founded, gender } = school;
+    if (this.school) {
+      const { name, type, founded, gender } = this.school;
       this.formData.setValue({
         name,
         type,

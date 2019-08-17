@@ -1,12 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BaseComponent, RequestService, SchoolService } from 'shared';
+import { RequestService } from 'shared';
+import { AddSchoolTemplate } from '../add-school-template';
 
 @Component({
   selector: 'app-contact-details',
   templateUrl: './contact-details.component.html',
 })
-export class ContactDetailsComponent extends BaseComponent
+export class ContactDetailsComponent extends AddSchoolTemplate
   implements OnDestroy, OnInit {
   schoolId: string;
   formData: FormGroup = this.formBuilder.group({
@@ -17,7 +18,6 @@ export class ContactDetailsComponent extends BaseComponent
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,
-    private schoolService: SchoolService,
   ) {
     super();
   }
@@ -43,12 +43,11 @@ export class ContactDetailsComponent extends BaseComponent
     );
   }
   ngOnInit(): void {
-    const school = this.schoolService.getValue();
-    this.schoolId = school.id;
-    if (school.contact) {
+    this.schoolId = this.school.id;
+    if (this.school.contact) {
       const {
         contact: { email, phone, website },
-      } = school;
+      } = this.school;
       this.formData.setValue({ email, phone, website: website || '' });
     }
   }

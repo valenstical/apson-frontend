@@ -7,6 +7,7 @@ import {
   AuthService,
 } from 'shared';
 import { PaystackWidget } from 'helpers';
+import { CommonService } from '../services/common-service.service';
 
 @Component({
   selector: 'app-make-payment',
@@ -21,11 +22,14 @@ export class MakePaymentComponent extends BaseComponent
     private scriptLoaderService: ScriptLoaderService,
     private authService: AuthService,
     private router: Router,
+    private commonService: CommonService,
   ) {
     super();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.commonService.setPageTitle('Make Payment');
+  }
 
   ngOnDestroy() {
     super.ngOnDestroy();
@@ -38,7 +42,7 @@ export class MakePaymentComponent extends BaseComponent
           this.isBusy = false;
           const member = this.authService.getMember();
           this.authService.setMember({ ...member, isActive: true });
-          this.router.navigateByUrl('/members/my-schools');
+          this.router.navigateByUrl('/members/dashboard');
         },
         error => {
           this.handleError(error);

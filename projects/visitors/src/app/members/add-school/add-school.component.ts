@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BaseComponent, SchoolService, RequestService } from 'shared';
+import { BaseComponent } from 'shared';
+import { CommonService } from '../services/common-service.service';
 
 @Component({
   selector: 'app-add-school',
@@ -8,36 +8,16 @@ import { BaseComponent, SchoolService, RequestService } from 'shared';
 })
 export class AddSchoolComponent extends BaseComponent
   implements OnInit, OnDestroy {
-  id: string;
-  constructor(
-    private route: ActivatedRoute,
-    public schoolService: SchoolService,
-    private requestService: RequestService,
-  ) {
+  constructor(private commonService: CommonService) {
     super();
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) {
-      this.isBusy = true;
-      this.subscription.add(
-        this.requestService.get(`schools/${this.id}`, null).subscribe(
-          response => {
-            this.isBusy = false;
-            this.schoolService.setValue(response.data);
-          },
-          error => {
-            this.isBusy = false;
-            this.show404 = true;
-          },
-        ),
-      );
-    }
+    this.commonService.fullWidth = true;
   }
 
   ngOnDestroy(): void {
-    this.schoolService.setValue(null);
+    this.commonService.fullWidth = false;
     super.ngOnDestroy();
   }
 }
