@@ -1058,9 +1058,9 @@ function (phone) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-var BASE_URL = 'https://appson-backend.herokuapp.com';
+var BASE_URL = 'https://apson.herokuapp.com';
 /** @type {?} */
-var VISITORS_URL = 'https://www.apsonigeria.org';
+var VISITORS_URL = 'https://www.apsonigeria.com';
 // export const ADMIN_URL = 'https://admin.apsonigeria.org';
 // export const STUDENTS_URL = 'https://students.apsonigeria.org';
 /** @type {?} */
@@ -1068,7 +1068,7 @@ var ADMIN_URL = 'http://localhost:4500';
 /** @type {?} */
 var STUDENTS_URL = 'http://localhost:4600';
 /** @type {?} */
-var APSON_EMAIL = 'support@apsonigeria.org';
+var APSON_EMAIL = 'support@apsonigeria.com';
 /** @type {?} */
 var SCHOOL_TYPES = [
     'Cresche/Nursery',

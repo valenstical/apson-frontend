@@ -1053,9 +1053,9 @@ const toMobileNumber = (/**
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const BASE_URL = 'https://appson-backend.herokuapp.com';
+const BASE_URL = 'https://apson.herokuapp.com';
 /** @type {?} */
-const VISITORS_URL = 'https://www.apsonigeria.org';
+const VISITORS_URL = 'https://www.apsonigeria.com';
 // export const ADMIN_URL = 'https://admin.apsonigeria.org';
 // export const STUDENTS_URL = 'https://students.apsonigeria.org';
 /** @type {?} */
@@ -1063,7 +1063,7 @@ const ADMIN_URL = 'http://localhost:4500';
 /** @type {?} */
 const STUDENTS_URL = 'http://localhost:4600';
 /** @type {?} */
-const APSON_EMAIL = 'support@apsonigeria.org';
+const APSON_EMAIL = 'support@apsonigeria.com';
 /** @type {?} */
 const SCHOOL_TYPES = [
     'Cresche/Nursery',
