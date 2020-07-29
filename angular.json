@@ -24,7 +24,7 @@
               "projects/visitors/src/manifest.webmanifest",
               "projects/visitors/src/.well-known/assetlinks.json"
             ],
-            "styles": ["projects/visitors/src/styles.scss"],
+            "styles": ["projects/visitors/src/styles.css"],
             "scripts": []
           },
           "configurations": {
