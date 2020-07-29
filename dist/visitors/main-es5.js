@@ -1,10 +1,82 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "../../dist/dropdown/fesm5/dropdown.js":
+/*!***************************************************************************************************!*\
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/dist/dropdown/fesm5/dropdown.js ***!
+  \***************************************************************************************************/
+/*! exports provided: Dropdown */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dropdown", function() { return Dropdown; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var Dropdown = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Dropdown, _super);
+    function Dropdown() {
+        var _this = _super.call(this) || this;
+        _this.dropdownShown = false;
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    Dropdown.prototype.onClick = /**
+     * @return {?}
+     */
+    function () {
+        this.setDropdownState(false);
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    Dropdown.prototype.toggleDropdownMenu = /**
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        event.stopPropagation();
+        this.dropdownShown = !this.dropdownShown;
+    };
+    /**
+     * @param {?} state
+     * @return {?}
+     */
+    Dropdown.prototype.setDropdownState = /**
+     * @param {?} state
+     * @return {?}
+     */
+    function (state) {
+        this.dropdownShown = state;
+    };
+    Dropdown.propDecorators = {
+        onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['document:click',] }]
+    };
+    return Dropdown;
+}(shared__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
+
+
+//# sourceMappingURL=dropdown.js.map
+
+
+/***/ }),
+
 /***/ "../../dist/helpers/fesm5/helpers.js":
 /*!*************************************************************************************************!*\
   !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/dist/helpers/fesm5/helpers.js ***!
   \*************************************************************************************************/
-/*! exports provided: ADMIN_URL, APSON_EMAIL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter */
+/*! exports provided: ADMIN_URL, APSON_EMAIL, BASE_URL, CloudinaryWidget, LGAS, MEMBERS_URL, PaystackWidget, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter, toMobileNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,8 +84,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN_URL", function() { return ADMIN_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APSON_EMAIL", function() { return APSON_EMAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_URL", function() { return BASE_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CloudinaryWidget", function() { return CloudinaryWidget; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LGAS", function() { return LGAS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEMBERS_URL", function() { return MEMBERS_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaystackWidget", function() { return PaystackWidget; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SCHOOL_TYPES", function() { return SCHOOL_TYPES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STATES", function() { return STATES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STUDENTS_URL", function() { return STUDENTS_URL; });
@@ -21,6 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGender", function() { return getGender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scrollIntoView", function() { return scrollIntoView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectedFilter", function() { return selectedFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toMobileNumber", function() { return toMobileNumber; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 
 
@@ -1056,7 +1131,25 @@ var getGender = (/**
  * @return {?}
  */
 function (genderId) {
-    return ['Male Only', 'Female Female', 'Male & Female'][genderId];
+    return ['Male Only', 'Female Only', 'Male & Female'][genderId];
+});
+/** @type {?} */
+var toMobileNumber = (/**
+ * @param {?} phone
+ * @return {?}
+ */
+function (phone) {
+    /** @type {?} */
+    var suffix = '0';
+    /** @type {?} */
+    var firstLetter = phone.charAt(0);
+    if (firstLetter === '2') {
+        suffix = '+';
+    }
+    else if (firstLetter === '0' || firstLetter === '+') {
+        suffix = '';
+    }
+    return "" + suffix + phone;
 });
 
 /**
@@ -1064,7 +1157,7 @@ function (genderId) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-var BASE_URL = 'https://appson-backend.herokuapp.com';
+var BASE_URL = 'https://apson.herokuapp.com';
 // export const VISITORS_URL = 'http://localhost:4300';
 // export const MEMBERS_URL = 'http://localhost:4400';
 /** @type {?} */
@@ -1073,19 +1166,131 @@ var ADMIN_URL = 'http://localhost:4500';
 var STUDENTS_URL = 'http://localhost:4600';
 // export const BASE_URL = 'http://localhost:4300';
 /** @type {?} */
-var MEMBERS_URL = 'https://members.apsonigeria.org';
+var MEMBERS_URL = 'https://members.apsonigeria.com';
 /** @type {?} */
-var VISITORS_URL = 'https://www.apsonigeria.org';
-// export const ADMIN_URL = 'https://admin.apsonigeria.org';
-// export const STUDENTS_URL = 'https://students.apsonigeria.org';
+var VISITORS_URL = 'https://www.apsonigeria.com';
+// export const ADMIN_URL = 'https://admin.apsonigeria.com';
+// export const STUDENTS_URL = 'https://students.apsonigeria.com';
 /** @type {?} */
-var APSON_EMAIL = 'support@apsonigeria.org';
+var APSON_EMAIL = 'support@apsonigeria.com';
 /** @type {?} */
 var SCHOOL_TYPES = [
     'Cresche/Nursery',
     'Primary shoool',
     'Secondary school',
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var PaystackWidget = /** @class */ (function () {
+    function PaystackWidget(_a, onSuccess, onFailure) {
+        var key = _a.key, ref = _a.ref, plan = _a.plan, email = _a.email;
+        this.handler = PaystackPop.setup({
+            key: key,
+            email: email,
+            ref: ref,
+            plan: plan,
+            callback: (/**
+             * @param {?} response
+             * @return {?}
+             */
+            function (response) {
+                onSuccess(response);
+            }),
+            onClose: (/**
+             * @return {?}
+             */
+            function () {
+                onFailure();
+            }),
+        });
+    }
+    /**
+     * @return {?}
+     */
+    PaystackWidget.prototype.open = /**
+     * @return {?}
+     */
+    function () {
+        this.handler.openIframe();
+    };
+    return PaystackWidget;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var defaultFunc = (/**
+ * @param {?} params
+ * @return {?}
+ */
+function (params) { });
+/** @type {?} */
+var styles = {
+    palette: {
+        window: '#FFFFFF',
+        sourceBg: '#FBFBFB',
+        windowBorder: '#00b09b',
+        tabIcon: '#000000',
+        inactiveTabIcon: '#0D2F5A',
+        menuIcons: '#555a5f',
+        link: '#00b09b',
+        action: '#339933',
+        inProgress: '#0433ff',
+        complete: '#339933',
+        error: '#cc0000',
+        textDark: '#000000',
+        textLight: '#FFFFFF',
+    },
+};
+var CloudinaryWidget = /** @class */ (function () {
+    function CloudinaryWidget(handleSuccess, handleFailure, ratio, preset, cropping) {
+        if (handleSuccess === void 0) { handleSuccess = defaultFunc; }
+        if (handleFailure === void 0) { handleFailure = defaultFunc; }
+        if (ratio === void 0) { ratio = 1; }
+        if (preset === void 0) { preset = 'profile'; }
+        if (cropping === void 0) { cropping = true; }
+        this.widget = window.cloudinary.createUploadWidget({
+            cloudName: 'dvnrltpfi',
+            uploadPreset: preset,
+            cropping: cropping,
+            croppingAspectRatio: ratio,
+            croppingDefaultSelectionRatio: 0.8,
+            resourceType: 'image',
+            clientAllowedFormats: ['png', 'jpg', 'jpeg', 'gif'],
+            maxImageWidth: 500,
+            maxImageHeight: 500,
+            multiple: false,
+            styles: styles,
+            buttonClass: 'd-none',
+            sources: ['local', 'camera'],
+        }, (/**
+         * @param {?} error
+         * @param {?} result
+         * @return {?}
+         */
+        function (error, result) {
+            if (!error && result && result.event === 'success') {
+                return handleSuccess(result.info.secure_url);
+            }
+            handleFailure(error);
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    CloudinaryWidget.prototype.open = /**
+     * @return {?}
+     */
+    function () {
+        this.widget.open();
+    };
+    return CloudinaryWidget;
+}());
 
 
 //# sourceMappingURL=helpers.js.map
@@ -1097,11 +1302,13 @@ var SCHOOL_TYPES = [
 /*!***********************************************************************************************!*\
   !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/dist/shared/fesm5/shared.js ***!
   \***********************************************************************************************/
-/*! exports provided: AuthService, BaseComponent, BaseDataComponent, HttpService, InterceptorService, Member, RequestService, School, SchoolService, ScriptLoaderService, ScriptStore, SharedModule, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg, ɵh, ɵi */
+/*! exports provided: ActiveMemberGuard, AuthGuard, AuthService, BaseComponent, BaseDataComponent, HttpService, InterceptorService, Member, RequestService, School, SchoolService, ScriptLoaderService, ScriptStore, SharedModule, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg, ɵh, ɵi, ɵj */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActiveMemberGuard", function() { return ActiveMemberGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseComponent", function() { return BaseComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseDataComponent", function() { return BaseDataComponent; });
@@ -1123,6 +1330,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵg", function() { return BusyComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵh", function() { return SchoolBoxComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵi", function() { return NotFoundComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵj", function() { return PageTransitionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
@@ -1385,6 +1593,17 @@ var RequestService = /** @class */ (function () {
         return this.get('schools', query);
     };
     /**
+     * @param {?} id
+     * @return {?}
+     */
+    RequestService.prototype.getSchool = /**
+     * @param {?} id
+     * @return {?}
+     */
+    function (id) {
+        return this.get("schools/" + id);
+    };
+    /**
      * @param {?} ref
      * @return {?}
      */
@@ -1446,11 +1665,21 @@ var RequestService = /** @class */ (function () {
     ]; };
     /** @nocollapse */ RequestService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function RequestService_Factory() { return new RequestService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(HttpService)); }, token: RequestService, providedIn: "root" });
     Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__decorate"])([
-        Object(ngx_cacheable__WEBPACK_IMPORTED_MODULE_5__["Cacheable"])(),
+        Object(ngx_cacheable__WEBPACK_IMPORTED_MODULE_5__["Cacheable"])({
+            maxCacheCount: 1000,
+        }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:type", Function),
         Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:paramtypes", [Object]),
         Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:returntype", rxjs__WEBPACK_IMPORTED_MODULE_4__["Observable"])
     ], RequestService.prototype, "searchSchools", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__decorate"])([
+        Object(ngx_cacheable__WEBPACK_IMPORTED_MODULE_5__["Cacheable"])({
+            maxCacheCount: 1000,
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:type", Function),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:paramtypes", [Number]),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__metadata"])("design:returntype", rxjs__WEBPACK_IMPORTED_MODULE_4__["Observable"])
+    ], RequestService.prototype, "getSchool", null);
     return RequestService;
 }());
 
@@ -1465,6 +1694,7 @@ var BaseComponent = /** @class */ (function () {
         this.isEmpty = false;
         this.isError = false;
         this.loading = true;
+        this.classReference = BaseComponent;
         this.hideAlert = true;
         this.show404 = true;
         this.response = {
@@ -1565,7 +1795,10 @@ var BaseComponent = /** @class */ (function () {
     BaseComponent.prototype.toggleMenu = /**
      * @return {?}
      */
-    function () { };
+    function () {
+        BaseComponent.showMenu = !BaseComponent.showMenu;
+    };
+    BaseComponent.showMenu = false;
     return BaseComponent;
 }());
 
@@ -1765,6 +1998,17 @@ var SchoolBoxComponent = /** @class */ (function (_super) {
         this.isEmpty = this.schools.length === 0;
     };
     /**
+     * @param {?} phone
+     * @return {?}
+     */
+    SchoolBoxComponent.prototype.getMobileNumber = /**
+     * @param {?} phone
+     * @return {?}
+     */
+    function (phone) {
+        return Object(helpers__WEBPACK_IMPORTED_MODULE_7__["toMobileNumber"])(phone);
+    };
+    /**
      * @private
      * @return {?}
      */
@@ -1824,7 +2068,7 @@ var SchoolBoxComponent = /** @class */ (function (_super) {
     SchoolBoxComponent.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
                     selector: 'lib-school-box',
-                    template: "<div class=\"row boxed-row\" *ngIf=\"!loading\">\n  <div class=\"col-6 col-lg-4 mb-4\" *ngFor=\"let school of schools\">\n    <div class=\"school-box card h-100\">\n      <span class=\"blog-category school-type bg-school-type-0\">{{\n        school.typeName\n      }}</span>\n      <a class=\"link-cover\" routerLink=\"/schools/{{ school.id }}\"></a>\n      <div class=\"school-box-cover\">\n        <img src=\"{{ school.cover }}\" width=\"100%\" />\n      </div>\n      <div class=\"school-box-content card-body\">\n        <a\n          *ngIf=\"school.contact\"\n          href=\"tel: {{ school.contact.phone }}\"\n          class=\"blog-control school-btn-call transition\"\n          ><i class=\"fas fa-phone fa-flip-horizontal\"></i\n        ></a>\n        <h4 class=\"school-box-title\">{{ school.name }}</h4>\n        <ul class=\"fa-ul school-list\" *ngIf=\"school.location || school.contact\">\n          <li *ngIf=\"school.location\">\n            <i class=\"fas fa-map-marker-alt fa-li text-secondary\"></i>\n            {{ school.fullAddress }}\n          </li>\n          <li *ngIf=\"school.contact\">\n            <i class=\"fas fa-li fa-phone fa-flip-horizontal text-secondary\"></i>\n            {{ school.contact.phone }}\n          </li>\n        </ul>\n      </div>\n      <div class=\"school-footer card-footer\">\n        <!-- <div class=\"school-ratings float-left\">\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n        </div> -->\n        <a routerLink=\"/schools/{{ school.id }}\" class=\"blog-link-more\"\n          >Details <i class=\"fas fa-arrow-right transition\"></i\n        ></a>\n      </div>\n    </div>\n  </div>\n</div>\n<lib-busy *ngIf=\"loading\"></lib-busy>\n<lib-not-found-box\n  *ngIf=\"isEmpty && !loading\"\n  message=\"There is no school matching your search.\"\n  title=\"No schools found\"\n>\n</lib-not-found-box>\n"
+                    template: "<div class=\"row boxed-row\" *ngIf=\"!loading\">\n  <div class=\"col-6 col-lg-4 mb-4\" *ngFor=\"let school of schools\">\n    <div class=\"school-box card h-100\">\n      <span class=\"blog-category school-type bg-school-type-0\">{{\n        school.typeName\n      }}</span>\n      <a class=\"link-cover\" routerLink=\"/schools/{{ school.id }}\"></a>\n      <div class=\"school-box-cover\">\n        <img src=\"{{ school.cover }}\" width=\"100%\" />\n      </div>\n      <div class=\"school-box-content card-body\">\n        <a\n          *ngIf=\"school.contact\"\n          href=\"tel: {{ getMobileNumber(school.contact.phone) }}\"\n          class=\"blog-control school-btn-call transition\"\n          ><i class=\"fas fa-phone fa-flip-horizontal\"></i\n        ></a>\n        <h4 class=\"school-box-title text-capitalize\">{{ school.name }}</h4>\n        <ul class=\"fa-ul school-list\" *ngIf=\"school.location || school.contact\">\n          <li *ngIf=\"school.location\" class=\"text-sentence\">\n            <i class=\"fas fa-map-marker-alt fa-li text-secondary\"></i>\n            {{ school.fullAddress }}\n          </li>\n          <li *ngIf=\"school.contact\">\n            <i class=\"fas fa-li fa-phone fa-flip-horizontal text-secondary\"></i>\n            {{ getMobileNumber(school.contact.phone) }}\n          </li>\n        </ul>\n      </div>\n      <div class=\"school-footer card-footer\">\n        <!-- <div class=\"school-ratings float-left\">\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n          <i class=\"fas fa-star\"></i>\n        </div> -->\n        <a routerLink=\"/schools/{{ school.id }}\" class=\"blog-link-more\"\n          >Details <i class=\"fas fa-arrow-right transition\"></i\n        ></a>\n      </div>\n    </div>\n  </div>\n</div>\n<lib-busy *ngIf=\"loading\"></lib-busy>\n<lib-not-found-box\n  *ngIf=\"isEmpty && !loading\"\n  message=\"There is no school matching your search.\"\n  title=\"No schools found\"\n>\n</lib-not-found-box>\n"
                 }] }
     ];
     /** @nocollapse */
@@ -1863,7 +2107,7 @@ var SimpleSelectComponent = /** @class */ (function () {
     SimpleSelectComponent.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
                     selector: 'lib-simple-select',
-                    template: "<select class=\"form-control custom-select\" [value]=\"defaultValue\" (change)=\"notifyChange($event.target.value)\">\n  <option value=\"\">-- {{placeholder}} --</option>\n  <option *ngFor=\"let item of data; let i = index\" value=\"{{ i }}\">\n    {{ item }}</option>\n</select>"
+                    template: "<select\n  class=\"form-control custom-select\"\n  [value]=\"defaultValue\"\n  (change)=\"notifyChange($event.target.value)\"\n>\n  <option value=\"\">{{ placeholder }}</option>\n  <option *ngFor=\"let item of data; let i = index\" value=\"{{ i }}\">\n    {{ item }}</option\n  >\n</select>\n"
                 }] }
     ];
     SimpleSelectComponent.propDecorators = {
@@ -1967,6 +2211,66 @@ var AlertComponent = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+var PageTransitionComponent = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(PageTransitionComponent, _super);
+    function PageTransitionComponent(router) {
+        var _this = _super.call(this) || this;
+        _this.router = router;
+        _this.activeChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        _this.loading = false;
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    PageTransitionComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.subscription.add(this.router.events.subscribe((/**
+         * @param {?} event
+         * @return {?}
+         */
+        function (event) {
+            BaseComponent.showMenu = false;
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouteConfigLoadStart"]) {
+                _this.loading = true;
+            }
+            else if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouteConfigLoadEnd"]) {
+                _this.loading = false;
+            }
+        })));
+    };
+    /**
+     * @return {?}
+     */
+    PageTransitionComponent.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.subscription.unsubscribe();
+    };
+    PageTransitionComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                    selector: 'lib-page-transition',
+                    template: "<div class=\"progress page-loader\" *ngIf=\"loading\">\n  <div\n    class=\"progress-bar bg-danger progress-bar-striped progress-bar-animated\"\n    style=\"width: 100%\"\n  ></div>\n</div>\n"
+                }] }
+    ];
+    /** @nocollapse */
+    PageTransitionComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
+    ]; };
+    PageTransitionComponent.propDecorators = {
+        activeChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+    };
+    return PageTransitionComponent;
+}(BaseComponent));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var SharedModule = /** @class */ (function () {
     function SharedModule() {
     }
@@ -1982,6 +2286,7 @@ var SharedModule = /** @class */ (function () {
                         BusyComponent,
                         SchoolBoxComponent,
                         NotFoundComponent,
+                        PageTransitionComponent,
                     ],
                     imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]],
                     exports: [
@@ -1996,6 +2301,7 @@ var SharedModule = /** @class */ (function () {
                         SimpleSelectComponent,
                         SchoolBoxComponent,
                         NotFoundComponent,
+                        PageTransitionComponent,
                     ],
                 },] }
     ];
@@ -2010,7 +2316,7 @@ var AuthService = /** @class */ (function () {
     function AuthService(router, httpService) {
         this.router = router;
         this.httpService = httpService;
-        this.url = helpers__WEBPACK_IMPORTED_MODULE_7__["MEMBERS_URL"];
+        this.url = 'members';
     }
     /**
      * @param {?} data
@@ -2081,7 +2387,7 @@ var AuthService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        location.assign(helpers__WEBPACK_IMPORTED_MODULE_7__["MEMBERS_URL"]);
+        this.router.navigateByUrl('/members');
     };
     /**
      * @return {?}
@@ -2090,7 +2396,7 @@ var AuthService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        location.assign(helpers__WEBPACK_IMPORTED_MODULE_7__["VISITORS_URL"]);
+        this.router.navigateByUrl('/');
     };
     /**
      * @return {?}
@@ -2382,53 +2688,91 @@ var School = /** @class */ (function () {
     return School;
 }());
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ActiveMemberGuard = /** @class */ (function () {
+    function ActiveMemberGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    ActiveMemberGuard.prototype.canActivate = /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    function (next, state) {
+        /** @type {?} */
+        var isActive = this.authService.getMember().isActive;
+        if (!isActive) {
+            this.router.navigateByUrl('/members/membership-renewal');
+        }
+        return isActive;
+    };
+    ActiveMemberGuard.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root',
+                },] }
+    ];
+    /** @nocollapse */
+    ActiveMemberGuard.ctorParameters = function () { return [
+        { type: AuthService },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
+    ]; };
+    /** @nocollapse */ ActiveMemberGuard.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function ActiveMemberGuard_Factory() { return new ActiveMemberGuard(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(AuthService), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"])); }, token: ActiveMemberGuard, providedIn: "root" });
+    return ActiveMemberGuard;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    AuthGuard.prototype.canActivate = /**
+     * @param {?} next
+     * @param {?} state
+     * @return {?}
+     */
+    function (next, state) {
+        /** @type {?} */
+        var authenticated = this.authService.isLoggedIn(state.url);
+        if (!authenticated) {
+            this.router.navigateByUrl('/login');
+        }
+        return authenticated;
+    };
+    AuthGuard.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root',
+                },] }
+    ];
+    /** @nocollapse */
+    AuthGuard.ctorParameters = function () { return [
+        { type: AuthService },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
+    ]; };
+    /** @nocollapse */ AuthGuard.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function AuthGuard_Factory() { return new AuthGuard(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(AuthService), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"])); }, token: AuthGuard, providedIn: "root" });
+    return AuthGuard;
+}());
+
 
 //# sourceMappingURL=shared.js.map
 
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/about/about.component.html":
-/*!********************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/about/about.component.html ***!
-  \********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"hero-section section overlay bg-about\">\n  <div class=\"container-fluid position-relative\">\n    <h1 class=\"text-center\">About us</h1>\n  </div>\n</section>\n<section class=\"section\">\n  <div class=\"container-fluid\">\n    <header class=\"header\">\n      <span>What we do</span>\n      <h2>Promoting education for national development</h2>\n    </header>\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <p>The <strong>Association of Private School Owners of Nigeria</strong> (APSON) is the official umbrella body of\n          all proprietors of private schools and other Non Governmetal Organizations (NGOs) engaged in education related\n          matters in Nigeria. </p>\n        <p>Founded in 1995, the association was created to promote the interest of private school owners and improve the\n          standard of quality eduction in Nigeria. The association is duly registered with corporate Affairs commission\n          with certificate number <ins>082240</ins>. </p>\n      </div>\n      <div class=\"col-sm-6\">\n        <p>As the official flagship organization of private school owners in Nigeria, we are constantly building an\n          organization that puts it's members welfare at the core center of our decision making process. </p>\n        <p>APSON provides a strong support system that ensures that members are protected from undue harrassments and\n          can operate smoothly without encumbrances and hindrance.</p>\n        <p>We constantly collaborate with the relevant governmental agencies and other stakeholders in education sector.\n        </p>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"section bg-grey\">\n  <div class=\"container-fluid\">\n    <header class=\"header\">\n      <span>Leadership</span>\n      <h2>The Executives</h2>\n    </header>\n    <div class=\"row\">\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/12.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title card-body mb-2 \">Bishop Dr. Opukeme Eseimokumor Godly (JP)</h4>\n          <span class=\"blog-date\">National President</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/13.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Hon. Martins Owamagbe Osakue</h4>\n          <span class=\"blog-date\">Chairman BoT</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/11.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Deaconess Onerime oluwatoyin Florence</h4>\n          <span class=\"blog-date\">Southwest Zonal President</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/10.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Nemi Ekiotenne</h4>\n          <span class=\"blog-date\">Bayelsa Chairperson</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/9.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Dr. Patience Epelle</h4>\n          <span class=\"blog-date\">National Secretary. Training and Seminar</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/8.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Comrade Vayero Isaac Ejogbamu</h4>\n          <span class=\"blog-date\">Delta State Chairperson</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/7.jpg\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Alh Abdurrahman Marafa</h4>\n          <span class=\"blog-date\">National Secretary</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/6.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2 card-body\">Deacon Ojakorotu Etaverho Lucky (JP)</h4>\n          <span class=\"blog-date\">Deputy National President</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/5.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2\">Haj.Rashidat Oluremi Sani</h4>\n          <span class=\"blog-date\">Welfare/Organising Secretary</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/4.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2\">Obanla-amoo flourish Busola</h4>\n          <span class=\"blog-date\">National Treasurer</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/3.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2\">Bishop Jerry Eze</h4>\n          <span class=\"blog-date\">Legal Advisor 2</span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/2.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2\"></h4>\n          <span class=\"blog-date\"></span>\n        </div>\n      </div>\n      <div class=\"mb-4 col-12 col-sm-6 col-md-4\">\n        <div class=\"blog-box card h-100 text-center exco-box pb-5 pt-4\">\n          <img src=\"assets/images/excos/1.jpg\" width=\"100%\" class=\"transition mt-4 mb-4\" />\n          <h4 class=\"blog-title mb-2\"></h4>\n          <span class=\"blog-date\"></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"section\">\n  <div class=\"container\">\n    <header class=\"header\">\n      <span>Why join us</span>\n      <h2>100% SUPPORT FOR MEMBERS WELFARE</h2>\n      <p>As the official and flagship organization of private school owners in Nigeria, we constantly building an\n        organization that puts it's members welfare at the core center of our decision making process. </p>\n    </header>\n  </div>\n  <div class=\"container-fluid\">\n    <div class=\"row position-relative\">\n      <div class=\"col-sm-4\">\n        <div class=\"why-item\">\n          <i class=\"fas why-item-icon fa-handshake\"></i>\n          <span class=\"why-item-subtitle\">Members welfare</span>\n          <h4>100% Support for Member's welfare</h4>\n          <p>APSON creates an enabling environment to protect her members from undue harassment, hindrance or\n            encumbrances.</p>\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"why-item\">\n          <i class=\"fas why-item-icon fa-map-marked-alt\"></i>\n          <span class=\"why-item-subtitle\">School directory</span>\n          <h4>Get your schools discovered</h4>\n          <p>APSON provides an online platform where member schools are freely advertised, making easy for the public to\n            discover your schools.</p>\n          <a routerLink=\"/schools\" class=\"blog-link-more\">Learn more</a>\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"why-item\">\n          <i class=\"fas why-item-icon fa-laptop\"></i>\n          <span class=\"why-item-subtitle\">getsmati.com</span>\n          <h4>Free school management software</h4>\n          <p>Make it easy for your students to pay fees, get results, connect with their classmates with our state of\n            the art student management system.</p>\n          <a [href]=\"'https://www.getsmati.com'\" class=\"blog-link-more\" target=\"_blank\">Learn more</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"section bg-grey\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"mb-4 col-sm-6 col-12\">\n        <div class=\"intro-box overlay bg-news card h-100\">\n          <div>\n            <span>Our publications</span>\n            <h3>News &amp; Events</h3>\n            <p>Stay updated with news, events and publications from APSON.</p>\n            <a routerLink=\"/blog\" class=\"btn-brand\">Get updated</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"mb-4 col-sm-6 col-12\">\n        <div class=\"intro-box overlay bg-schools card h-100\">\n          <div>\n            <span>Our schools</span>\n            <h3>Member schools</h3>\n            <p>Get direct access to the best private schools in Nigeria.</p>\n            <a routerLink=\"/schools\" class=\"btn-brand\">Find a school</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/blogs/blogs.component.html":
-/*!********************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/blogs/blogs.component.html ***!
-  \********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"hero-section section bg-contact overlay contact-section\">\n  <div class=\"container-fluid position-relative\">\n    <h1 class=\"text-center\">Publications</h1>\n  </div>\n</section>\n<section class=\"nav-section\">\n  <div class=\"container-fluid\">\n    <ul class=\"nav\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/blog\" routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: true}\">All</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/blog/news/\" routerLinkActive=\"active\">News/Events</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/blog/publications/\" routerLinkActive=\"active\">Publications</a>\n      </li>\n    </ul>\n  </div>\n</section>\n<section class=\"section bg-grey\">\n  <div class=\"container-fluid\">\n    <div class=\"row blog-slider boxed-row\">\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100 \">\n          <span class=\"blog-category bg-cat-news\">News</span>\n          <a routerLink=\"/blog/998345\" class=\"link-cover\"></a>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/zach-vessels-1284924-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">How to start a private school in Nigeria</h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/9987456\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-publication\">Publication</span>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/joshua-oluwagbemiga-1435064-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">How to start a private school in Nigeria.</h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/994343\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-event\">Event</span>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/annie-spratt-1215936-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">Register for the 2019 Education for all </h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a class=\"link-cover\" routerLink=\"/blog/994343\"></a>\n          <span class=\"blog-category bg-cat-event\">Event</span>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/santi-vedri-707620-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">Register for the 2019 Education for all </h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/994343\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-publication\">Publication</span>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/zach-vessels-1285339-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">Register for the 2019 Education for all </h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/994343\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-news\">News</span>\n          <div class=\"blog-image-wrapper\">\n            <img src=\"assets/images/limbo/benny-jackson-222664-unsplash.jpg\" width=\"100%\" class=\"blog-image\" />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">Register for the 2019 Education for all </h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/contact-box/contact-box.component.html":
-/*!********************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/contact-box/contact-box.component.html ***!
-  \********************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<form\n  class=\"contact-form form\"\n  [formGroup]=\"formGroup\"\n  (submit)=\"sendMessage()\"\n>\n  <lib-alert\n    [message]=\"response.message\"\n    [title]=\"response.title\"\n    [type]=\"response.type\"\n    *ngIf=\"!hideAlert\"\n  ></lib-alert>\n  <div class=\"row\">\n    <div class=\"col-sm-6\">\n      <lib-input\n        name=\"name\"\n        type=\"text\"\n        title=\"Your name\"\n        [formData]=\"formGroup\"\n        invalidText=\"Your name is required\"\n      ></lib-input>\n    </div>\n    <div class=\"col-sm-6\">\n      <div class=\"form-group\">\n        <label>Subject</label>\n        <select\n          id=\"subject\"\n          class=\"form-control custom-select\"\n          name=\"subject\"\n          formControlName=\"subject\"\n        >\n          <option value=\"Enquiry\">Enquiry</option>\n          <option value=\"Complaint\">Complaint</option>\n        </select>\n      </div>\n    </div>\n    <div class=\"col-sm-6\">\n      <lib-input\n        name=\"email\"\n        type=\"email\"\n        title=\"Email\"\n        [formData]=\"formGroup\"\n        invalidText=\"A valid email address is required\"\n      ></lib-input>\n    </div>\n    <div class=\"col-sm-6\">\n      <lib-input\n        name=\"phone\"\n        type=\"tel\"\n        title=\"Phone\"\n        [formData]=\"formGroup\"\n        invalidText=\"Phone number is required\"\n      ></lib-input>\n    </div>\n  </div>\n  <lib-input\n    name=\"message\"\n    type=\"textarea\"\n    title=\"Message\"\n    [formData]=\"formGroup\"\n    invalidText=\"Enter the message you wish to send.\"\n  ></lib-input>\n  <div class=\"mt-4\">\n    <lib-submit-button\n      text=\"Send Message\"\n      [disabled]=\"isBusy || formGroup.invalid\"\n      [isBusy]=\"isBusy\"\n    ></lib-submit-button>\n  </div>\n</form>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/contact/contact.component.html":
-/*!************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/contact/contact.component.html ***!
-  \************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"hero-section section bg-contact overlay contact-section\">\n  <div class=\"container-fluid position-relative\">\n    <h1 class=\"text-center\">Contact us</h1>\n  </div>\n</section>\n<section class=\"section contact-section\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-2 col-md-2 d-md-block d-none\">\n        <h3 class=\"contact-section-subtitle\">Contact Details:</h3>\n      </div>\n      <div class=\"col-md-4 col-sm-12\">\n        <h2 class=\"text-uppercase\">APSON Headquarters</h2>\n        <p>\n          No. 2 Etete road, Off Adesuwa Grammer School road, Benin City, Edo\n          state, Nigeria\n        </p>\n      </div>\n      <div class=\"col-md-3 col-sm-12\">\n        <h2 class=\"text-uppercase\">Email</h2>\n        <p>\n          <a [href]=\"'mailto:support@apsonigeria.org'\"\n            >support@apsonigeria.org</a\n          >\n        </p>\n      </div>\n      <div class=\"col-md-3 col-sm-12\" #scrollView>\n        <h2 class=\"text-uppercase\">Phone</h2>\n        <p><a [href]=\"'tel:+2348094561245'\">+234 (0)809 456 1245</a></p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container-fluid contact-form-wrapper\">\n    <div class=\"row\">\n      <div class=\"col-lg-2 col-md-2\">\n        <h3 class=\"contact-section-subtitle subtitle\">Write Us:</h3>\n      </div>\n      <div class=\"col-sm-12 col-md-10\">\n        <app-contact-box [scrollView]=\"scrollView\"></app-contact-box>\n      </div>\n    </div>\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -2443,17 +2787,6 @@ module.exports = "<footer class=\"footer\">\n  <div class=\"container-fluid\">\n
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/forgot-password/forgot-password.component.html":
-/*!****************************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/forgot-password/forgot-password.component.html ***!
-  \****************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"section bg-grey\">\n  <div class=\"container-fluid contact-form-wrapper\">\n    <div\n      class=\"shadow-sm bg-white login-wrapper position-relative overflow-hidden\"\n    >\n      <div class=\"row position-static\">\n        <div class=\"column-left col-12 col-md-5 colum-left bg-login\">\n          <div class=\"h-100\">\n            <lib-back-button></lib-back-button>\n            <h1 class=\"text-white font-weight-bold column-left-title\">\n              Recover Password!\n            </h1>\n          </div>\n        </div>\n        <div class=\"col-md-7 offset-md-5 col-12\">\n          <form role=\"form\" class=\"form pl-4 position-relative pr-4 pt-5\">\n            <div class=\"form-group\">\n              <label for=\"exampleInputEmail1\">Email Address</label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"email\" />\n            </div>\n            <div class=\"text-center mt-4 btn-curved w-100\">\n              <lib-submit-button\n                [text]=\"'Send me recovery link'\"\n              ></lib-submit-button>\n            </div>\n          </form>\n          <div class=\"text-center mt-5 login-footer\">\n            <p class=\"text-muted\">\n              Back to\n              <a\n                routerLink=\"/login\"\n                class=\"d-inline-block btn-underlined blog-link-more ml-1\"\n                >Log in</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
-
-/***/ }),
-
 /***/ "../../node_modules/raw-loader/index.js!./src/app/header/header.component.html":
 /*!**********************************************************************************************************************************!*\
   !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/header/header.component.html ***!
@@ -2461,7 +2794,7 @@ module.exports = "<section class=\"section bg-grey\">\n  <div class=\"container-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"nav-top alert sticky-top\">\n  <div class=\"container-fluid position-relative\">\n    <span><strong>News!</strong>Register for the 2019 Education for All Conference. <a routerLink=\"/blog/9945645\"\n        class=\"d-inline-block\">Click here</a></span>\n  </div>\n</div>\n<nav class=\"navbar navbar-light bg-light sticky-top navbar-expand-lg\" id=\"navbar\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand\" routerLink=\"/\">\n      <img src=\"assets/images/icons/icon.jpg\" width=\"40\" />\n      <span>APSON</span>\n    </a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarToggler8\"\n      aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarToggler8\">\n      <ul class=\"navbar-nav mt-2 mt-lg-0 ml-auto \">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink=\"/\">Home</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/about\">About</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/schools\">Schools</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/blog\">Publications</a>\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link\" routerLink=\"/contact\">Contact</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/login\">Login</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link btn-brand\" routerLink=\"/register\">Become a member</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<lib-page-transition\n  (activeChange)=\"classReference.showMenu = $event\"\n></lib-page-transition>\n<div class=\"nav-top alert sticky-top\">\n  <div class=\"container-fluid position-relative\">\n    <span\n      ><strong>News!</strong>Register for the 2019 Education for All Conference.\n      <a routerLink=\"/blog/9945645\" class=\"d-inline-block\">Click here</a></span\n    >\n  </div>\n</div>\n<nav\n  class=\"navbar navbar-light bg-light sticky-top navbar-expand-lg\"\n  id=\"navbar\"\n>\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand\" routerLink=\"/\">\n      <img src=\"assets/images/icons/icon.jpg\" width=\"40\" />\n      <span>APSON</span>\n    </a>\n    <button\n      (click)=\"toggleMenu()\"\n      class=\"navbar-toggler\"\n      type=\"button\"\n      data-toggle=\"collapse\"\n      data-target=\"#navbarToggler8\"\n      aria-controls=\"navbarTogglerDemo01\"\n      aria-expanded=\"false\"\n      aria-label=\"Toggle navigation\"\n    >\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div\n      class=\"collapse navbar-collapse\"\n      id=\"navbarToggler8\"\n      [style.display]=\"classReference.showMenu ? 'block' : 'none'\"\n    >\n      <ul class=\"navbar-nav mt-2 mt-lg-0 ml-auto \">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink=\"/\">Home</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/about\">About</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/schools\">Schools</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/blog\">Publications</a>\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link\" routerLink=\"/contact\">Contact</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/login\">Login</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link btn-brand\" routerLink=\"/register\"\n            >Become a member</a\n          >\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -2476,102 +2809,58 @@ module.exports = "<section class=\"hero overlay\">\n  <div class=\"container-flu
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/login/login.component.html":
-/*!********************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/login/login.component.html ***!
-  \********************************************************************************************************************************/
+/***/ "../../node_modules/raw-loader/index.js!./src/app/members/header/header.component.html":
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/members/header/header.component.html ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section bg-grey\">\n  <div class=\"container-fluid contact-form-wrapper\">\n    <div\n      class=\"shadow-sm bg-white login-wrapper position-relative overflow-hidden\"\n    >\n      <div class=\"row position-static\">\n        <div class=\"column-left col-12 col-md-5 colum-left bg-login\">\n          <div class=\"h-100\">\n            <lib-back-button></lib-back-button>\n            <h1 class=\"text-white font-weight-bold column-left-title\">\n              Log in to APSON\n            </h1>\n          </div>\n        </div>\n        <div class=\"col-md-7 offset-md-5 col-12\">\n          <form\n            class=\"form pl-4 position-relative pr-4 pt-5\"\n            (ngSubmit)=\"onLogin()\"\n            novalidate\n          >\n            <lib-alert\n              [title]=\"response.title\"\n              [type]=\"response.type\"\n              [message]=\"response.message\"\n              *ngIf=\"!hideAlert\"\n            ></lib-alert>\n            <div class=\"form-group\">\n              <label for=\"username\">Email Address or Phone Number</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"name\"\n                [formControl]=\"formData.get('username')\"\n                [value]=\"formData.get('username').value\"\n              />\n              <span\n                class=\"display-error\"\n                *ngIf=\"\n                  formData.get('username').invalid &&\n                  (formData.get('username').dirty ||\n                    formData.get('username').touched)\n                \"\n                >Enter your email or phone number</span\n              >\n            </div>\n            <div class=\"form-group\">\n              <label for=\"password\">Password</label>\n              <input\n                type=\"password\"\n                class=\"form-control\"\n                id=\"password\"\n                [formControl]=\"formData.get('password')\"\n                [value]=\"formData.get('password').value\"\n              />\n              <span\n                class=\"display-error\"\n                *ngIf=\"\n                  formData.get('password').invalid &&\n                  (formData.get('password').dirty ||\n                    formData.get('password').touched)\n                \"\n                >Password is required</span\n              >\n            </div>\n            <div class=\"text-center\">\n              <lib-submit-button\n                [text]=\"'Login to APSON'\"\n                [isBusy]=\"isBusy\"\n                [disabled]=\"formData.invalid\"\n              ></lib-submit-button>\n            </div>\n            <div class=\"text-center mt-5\">\n              <a\n                routerLink=\"/forgot-password/\"\n                class=\"d-inline-block text-muted btn-underlined\"\n                ><small>Forgot Password?</small></a\n              >\n            </div>\n          </form>\n          <div class=\"text-center mt-5 login-footer\">\n            <p class=\"text-muted\">\n              Not a member yet?\n              <a\n                routerLink=\"/register/\"\n                class=\"d-inline-block btn-underlined blog-link-more ml-1\"\n                >Register Now</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<header class=\"header\">\n  <div class=\"container-fluid\">\n    <ng-container *ngIf=\"commonService.fullWidth; else pageTittle\">\n      <a (click)=\"location.back()\" class=\"text-hover transition\">\n        <i\n          class=\"fas transition fa-arrow-circle-left mr-2 header-back-icon\"\n        ></i>\n        Back\n      </a>\n    </ng-container>\n    <ng-template #pageTittle>\n      <button\n        class=\"btn-menu btn btn-link\"\n        type=\"button\"\n        (click)=\"toggleMenu()\"\n      >\n        <span></span>\n        <span class=\"mt-1 w-75\"></span>\n        <span class=\"mt-1\"></span>\n      </button>\n      <h1 class=\"mb-0 d-inline-block\">\n        {{ commonService.getPageTitle() }}\n      </h1>\n    </ng-template>\n  </div>\n</header>\n"
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/page-not-found/page-not-found.component.html":
-/*!**************************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/page-not-found/page-not-found.component.html ***!
-  \**************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"section min-vh-100\">\n  <div class=\"container-fluid text-center mt-3 pt-5\">\n    <img src=\"assets/images/icons/not-found.svg\" class=\"img-fluid\" width=\"300\" />\n    <h1 class=\"text-secondary font-weight-bold mt-5 text-md\">PAGE NOT FOUND</h1>\n    <h6 class=\"mt-2\">\n      We can't seem to find the page you're looking for.</h6>\n    <a class=\"nav-link btn-brand mt-5 mb-5\" routerLink=\"/\">Back to home page</a>\n  </div>\n</section>"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/privacy/privacy.component.html":
+/***/ "../../node_modules/raw-loader/index.js!./src/app/members/members.component.html":
 /*!************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/privacy/privacy.component.html ***!
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/members/members.component.html ***!
   \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"hero-section section\" data-pg-collapsed>\n  <div class=\"container-fluid position-relative\">\n    <h1 class=\"text-uppercase text-center\">Privacy Policy</h1>\n  </div>\n</section>\n<section class=\"section terms-section\" data-pg-collapsed>\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <div class=\"terms-intro\">\n          <div>\n            <h4>1. Collection of Data</h4>\n            <p>\n              When you register, log in or subscribe to our newsletter, we\n              collect the personal information you give us such as your name,\n              address and email address etc.\n            </p>\n            <p>\n              When you browse our site, we also automatically receive your\n              computer’s internet protocol (IP) address in order to provide us\n              with information that helps us learn about your browser and\n              operating system. Email marketing (if applicable): With your\n              permission, we may send your emails about our store, new products\n              and other updates.\n            </p>\n          </div>\n          <div>\n            <h4>2. Sharing of Data</h4>\n            <p>\n              Your personal details are not rented or sold to any external\n              companies or advertisers under any circumstances.\n            </p>\n            <p>\n              In general, the third-party providers used by us will only\n              collect, use and disclose your information to the extent necessary\n              to allow them to perform the services they provide to us. However,\n              certain third-party service providers, such as payment gateways\n              and other payment transaction processors, have their own privacy\n              policies in respect to the information we are required to provide\n              to them for your purchase-related transactions.\n            </p>\n            <p>\n              For these providers, we recommend that you read their privacy\n              policies so you can understand the manner in which your personal\n              information will be handled by these providers. In particular,\n              remember that certain providers may be located in or have\n              facilities that are located a different jurisdiction than either\n              you or us. So if you elect to proceed with a transaction that\n              involves the services of a third-party service provider, then your\n              information may become subject to the laws of the jurisdiction(s)\n              in which that service provider or its facilities are located.\n            </p>\n            <p>\n              Once you leave our store’s website or are redirected to a\n              third-party website or application, you are no longer governed by\n              this Privacy Policy or our website’s\n              <a href=\"terms.html\" class=\"blog-link-more\">Terms of Service</a>.\n            </p>\n            <p>\n              When you click on links on our store, they may direct you away\n              from our site. We are not responsible for the privacy practices of\n              other sites and encourage you to read their privacy statements.\n            </p>\n            <p>\n              We may disclose your personal information if we are required by\n              law to do so or if you violate our Terms of Service.\n            </p>\n          </div>\n          <div>\n            <h4>3. Security</h4>\n            <p>\n              To protect your personal information, we take reasonable\n              precautions and follow industry best practices to make sure it is\n              not inappropriately lost, misused, accessed, disclosed, altered or\n              destroyed.\n            </p>\n            <p>\n              If you provide us with your credit card information, the\n              information is encrypted using secure socket layer technology\n              (SSL) and stored with a AES-256 encryption. Although no method of\n              transmission over the Internet or electronic storage is 100%\n              secure, we follow all PCI-DSS requirements and implement\n              additional generally accepted industry standards.\n            </p>\n          </div>\n          <div>\n            <h4>4. Cookies</h4>\n            <p>\n              Like many web sites, we use \"Cookies,\" which are data files placed\n              on a web browser when it is used to visit the Sites to facilitate\n              site navigation and to personalize your experience, including\n              tailoring advertisements.\n            </p>\n            <p>\n              The information we collect is what you provide us with when you\n              signup for a newsletter, or when making a purchase. For example,\n              this may be your name, address, or contact information. Cookies\n              can also identify session information like the pages you view, how\n              long your session was, transactions, and your basic demographic\n              information (origin, gender, age).\n            </p>\n            <p>\n              Disabling cookies on your device is possible by changing your\n              browser settings. You can use opt-out programs, like ‘NAI’s\n              Consumer opt-out’ or ‘Google Analytics opt-out browser add-on,’ to\n              prevent cookies from being used. If you decide to do this, know\n              that our site may not function properly.\n            </p>\n          </div>\n          <div>\n            <h4>5. Changes to this Privacy Policy</h4>\n            <p>\n              We reserve the right to modify this privacy policy at any time, so\n              please review it frequently. Changes and clarifications will take\n              effect immediately upon their posting on the website. If we make\n              material changes to this policy, we will notify you here that it\n              has been updated, so that you are aware of what information we\n              collect, how we use it, and under what circumstances, if any, we\n              use and/or disclose it.\n            </p>\n            <p>\n              If our store is acquired or merged with another company, your\n              information may be transferred to the new owners so that we may\n              continue to sell products to you.\n            </p>\n          </div>\n          <div>\n            <h4>Contact Details</h4>\n            <p>\n              You retain the right to ask for your data. If there is something\n              incorrect you can have it changed or removed. If you wish to\n              cancel your account or request that we no longer use your Personal\n              Information to provide you service, you may contact us by clicking\n              <a routerLink=\"/contact\">here</a> or send us an email using\n              <a [href]=\"'mailto:support@apsonigeria.org'\"\n                >support@apsonigeria.org</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<div class=\"members-wrapper\">\n  <main class=\"min-vh-100 bg-grey\">\n    <lib-page-transition></lib-page-transition>\n\n    <ng-container *ngIf=\"commonService.isReady(); else setup\">\n      <app-navbar></app-navbar>\n      <app-member-header></app-member-header>\n\n      <aside class=\"right-panel\">\n        <section class=\"right-body pt-5 pb-5\">\n          <div class=\"container-fluid \">\n            <router-outlet></router-outlet>\n          </div>\n        </section>\n      </aside>\n\n      <div\n        class=\"backdrop\"\n        [class.hidden-menu]=\"classReference.showMenu\"\n        (click)=\"toggleMenu()\"\n      ></div>\n    </ng-container>\n\n    <ng-template #setup>\n      <app-setup></app-setup>\n    </ng-template>\n  </main>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/register/register.component.html":
-/*!**************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/register/register.component.html ***!
-  \**************************************************************************************************************************************/
+/***/ "../../node_modules/raw-loader/index.js!./src/app/members/navbar/navbar.component.html":
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/members/navbar/navbar.component.html ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section bg-grey min-vh-100\">\n  <div class=\"container-fluid contact-form-wrapper\">\n    <div\n      class=\"shadow-sm bg-white login-wrapper position-relative overflow-hidden mw-100\"\n    >\n      <div class=\"row position-static\">\n        <div class=\"column-left col-12 col-md-5 colum-left bg-register\">\n          <div class=\"h-100\">\n            <lib-back-button></lib-back-button>\n            <h1 class=\"text-white font-weight-bold column-left-title mt-3\">\n              Register with APSON\n            </h1>\n          </div>\n        </div>\n        <div class=\"col-md-7 offset-md-5 col-12\">\n          <form\n            (ngSubmit)=\"onRegisterMember()\"\n            role=\"form\"\n            class=\"form pl-4 position-relative pr-4 pt-5 register\"\n          >\n            <lib-alert\n              [title]=\"response.title\"\n              [type]=\"response.type\"\n              [message]=\"response.message\"\n              *ngIf=\"!hideAlert\"\n            ></lib-alert>\n            <lib-input\n              [title]=\"'Full Name'\"\n              [type]=\"'text'\"\n              [formData]=\"formData\"\n              [name]=\"'name'\"\n              [invalidText]=\"'Your name is required'\"\n            ></lib-input>\n            <div class=\"form-group\">\n              <label for=\"state\">State of residence</label>\n              <select\n                class=\"form-control custom-select\"\n                [formControl]=\"formData.get('state')\"\n                [value]=\"formData.get('state').value\"\n              >\n                <option value=\"\">-- Choose one --</option>\n                <option value=\"0\">Abia</option>\n                <option value=\"1\">Adamawa</option>\n                <option value=\"2\">Akwa Ibom</option>\n                <option value=\"3\">Anambra</option>\n                <option value=\"4\">Bauchi</option>\n                <option value=\"5\">Bayelsa</option>\n                <option value=\"6\">Benue</option>\n                <option value=\"7\">Borno</option>\n                <option value=\"8\">Cross River</option>\n                <option value=\"9\">Delta</option>\n                <option value=\"10\">Ebonyi</option>\n                <option value=\"11\">Edo</option>\n                <option value=\"12\">Ekiti</option>\n                <option value=\"13\">Enugu</option>\n                <option value=\"14\">FCT</option>\n                <option value=\"15\">Gombe</option>\n                <option value=\"16\">Imo</option>\n                <option value=\"17\">Jigawa</option>\n                <option value=\"18\">Kaduna</option>\n                <option value=\"19\">Kano</option>\n                <option value=\"20\">Katsina</option>\n                <option value=\"21\">Kebbi</option>\n                <option value=\"22\">Kogi</option>\n                <option value=\"23\">Kwara</option>\n                <option value=\"24\">Lagos</option>\n                <option value=\"25\">Nasarawa</option>\n                <option value=\"26\">Niger</option>\n                <option value=\"27\">Ogun</option>\n                <option value=\"28\">Ondo</option>\n                <option value=\"29\">Osun</option>\n                <option value=\"30\">Oyo</option>\n                <option value=\"31\">Plateau</option>\n                <option value=\"32\">Rivers</option>\n                <option value=\"33\">Sokoto</option>\n                <option value=\"34\">Taraba</option>\n                <option value=\"35\">Yobe</option>\n                <option value=\"36\">Zamfara</option>\n              </select>\n              <span\n                class=\"display-error\"\n                *ngIf=\"\n                  formData.get('state').invalid &&\n                  (formData.get('state').dirty || formData.get('state').touched)\n                \"\n                >Your state is required.</span\n              >\n            </div>\n            <lib-input\n              [title]=\"'Email Address'\"\n              [type]=\"'email'\"\n              [formData]=\"formData\"\n              [name]=\"'email'\"\n              [invalidText]=\"'Enter a valid email address'\"\n            ></lib-input>\n            <div class=\"form-group\">\n              <label for=\"sex\" class=\"d-block\">Sex</label>\n              <div class=\"custom-control custom-radio d-inline-block mr-5\">\n                <input\n                  id=\"sexMale\"\n                  [formControl]=\"formData.get('sex')\"\n                  value=\"Male\"\n                  type=\"radio\"\n                  class=\"custom-control-input\"\n                />\n                <label\n                  class=\"custom-control-label font-weight-normal\"\n                  for=\"sexMale\"\n                  >Male</label\n                >\n              </div>\n              <div class=\"custom-control custom-radio d-inline-block\">\n                <input\n                  id=\"sexFemale\"\n                  [formControl]=\"formData.get('sex')\"\n                  value=\"Female\"\n                  type=\"radio\"\n                  class=\"custom-control-input\"\n                />\n                <label\n                  class=\"custom-control-label font-weight-normal\"\n                  for=\"sexFemale\"\n                  >Female</label\n                >\n              </div>\n            </div>\n            <lib-input\n              [title]=\"'Phone number'\"\n              [type]=\"'tel'\"\n              [formData]=\"formData\"\n              [name]=\"'phone'\"\n              [invalidText]=\"'Phone number is required'\"\n            ></lib-input>\n            <lib-input\n              [title]=\"'Choose a password'\"\n              [type]=\"'password'\"\n              [formData]=\"formData\"\n              [name]=\"'password'\"\n              [invalidText]=\"'Choose a password'\"\n            ></lib-input>\n            <div class=\"text-center mt-4 btn-curved w-100\">\n              <lib-submit-button\n                [text]=\"'Register with APSON'\"\n                [isBusy]=\"isBusy\"\n                [disabled]=\"formData.invalid\"\n              ></lib-submit-button>\n            </div>\n          </form>\n          <div class=\"text-center mt-5 login-footer\">\n            <p class=\"text-muted\">\n              Already a member?\n              <a\n                routerLink=\"/login\"\n                class=\"d-inline-block btn-underlined blog-link-more ml-1\"\n                >Login</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<aside class=\"left-panel\" [class.hidden-menu]=\"classReference.showMenu\">\n  <button type=\"button\" class=\"btn btn-link btn-back\" (click)=\"toggleMenu()\">\n    <i class=\"fas fa-arrow-left\"></i>\n  </button>\n  <div class=\"left-content\">\n    <ng-container\n      *ngIf=\"commonService.getSchools().length; else addSchoolButton\"\n    >\n      <div class=\"left-panel-profile mt-3\">\n        <img\n          src=\"{{ commonService.getActiveSchool().logo }}\"\n          class=\"profile-image bg-white d-block ml-auto mr-auto\"\n          width=\"60\"\n          height=\"60\"\n        />\n        <div\n          class=\"drop-wrapper\"\n          [class.active]=\"dropdownShown\"\n          #dropdownWrapper\n        >\n          <div\n            class=\"drop drop-icon mt-3 text-center\"\n            (click)=\"toggleDropdownMenu($event)\"\n          >\n            <h4\n              class=\"font-weight-bold left-panel-profile-name text-capitalize\"\n            >\n              {{ commonService.getActiveSchool().name }}\n            </h4>\n            <p class=\"left-panel-email\">\n              {{ commonService.getActiveSchool().typeName }}\n            </p>\n            <i class=\"fas fa-caret-down drop-icon\"></i>\n          </div>\n          <div class=\"drop-menu\">\n            <a\n              *ngFor=\"let school of commonService.getSchools()\"\n              (click)=\"commonService.saveActiveSchool(school.id)\"\n              [class.active]=\"commonService.isActiveSchool(school)\"\n              >{{ school.name }}<br />({{ school.typeName }} school)</a\n            >\n            <a class=\"btn-brand\" routerLink=\"/members/add-school\"\n              >Add a new school</a\n            >\n          </div>\n        </div>\n      </div>\n    </ng-container>\n    <ng-template #addSchoolButton>\n      <a href=\"/#/members/add-school/\" class=\"btn-brand mt-4 w-100\"\n        >Add your school</a\n      >\n    </ng-template>\n\n    <ul class=\"fa-ul \">\n      <li routerLinkActive=\"active\">\n        <i class=\"fas fa-li transition fa-chart-line\"></i>\n        <a routerLink=\"/members/dashboard/\" class=\"transition\">Dashboard</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <i class=\"fas fa-li fa-user-graduate transition\"></i>\n        <a routerLink=\"/members/students/\" class=\"transition\">Students</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <i class=\"fas fa-li transition fa-file-signature\"></i>\n        <a routerLink=\"/members/scores/\" class=\"transition\">Score Sheet</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <i class=\"fas fa-li transition fa-cogs\"></i>\n        <a routerLink=\"/members/settings/\" class=\"transition\"\n          >School Settings</a\n        >\n      </li>\n      <li routerLinkActive=\"active\">\n        <i class=\"fas fa-li transition fa-user-cog\"></i>\n        <a routerLink=\"/members/profile/\" class=\"transition\">My Profile</a>\n      </li>\n      <li>\n        <i class=\"fas fa-li transition fa-sign-in-alt\"></i>\n        <a (click)=\"logout()\" class=\"transition pointer\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</aside>\n"
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/reset-password/reset-password.component.html":
-/*!**************************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/reset-password/reset-password.component.html ***!
-  \**************************************************************************************************************************************************/
+/***/ "../../node_modules/raw-loader/index.js!./src/app/members/setup/setup.component.html":
+/*!****************************************************************************************************************************************!*\
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/members/setup/setup.component.html ***!
+  \****************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section bg-grey\">\n  <div class=\"container-fluid contact-form-wrapper\">\n    <div\n      class=\"shadow-sm bg-white login-wrapper position-relative overflow-hidden\"\n    >\n      <div class=\"row position-static\">\n        <div class=\"column-left col-12 col-md-5 colum-left bg-login\">\n          <div class=\"h-100\">\n            <a\n              routerLink=\"/login\"\n              class=\"link-back transition text-white d-inline-block mt-4\"\n              ><i class=\"fas fa-arrow-left\"></i\n            ></a>\n            <h1 class=\"text-white font-weight-bold column-left-title\">\n              Reset Password\n            </h1>\n          </div>\n        </div>\n        <div class=\"col-md-7 offset-md-5 col-12\">\n          <form role=\"form\" class=\"form pl-4 position-relative pr-4 pt-5\">\n            <div class=\"form-group\">\n              <label for=\"exampleInputEmail1\">New Password</label>\n              <input\n                type=\"password\"\n                class=\"form-control\"\n                id=\"name\"\n                name=\"password\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"exampleInputEmail1\">Re-enter new password</label>\n              <input\n                type=\"password\"\n                class=\"form-control\"\n                id=\"name\"\n                name=\"password2\"\n              />\n            </div>\n            <div class=\"text-center mt-4 btn-curved w-100\">\n              <lib-submit-button\n                [text]=\"'Reset my password'\"\n              ></lib-submit-button>\n            </div>\n          </form>\n          <div class=\"text-center mt-5 login-footer\">\n            <p class=\"text-muted\">\n              Back to\n              <a\n                routerLink=\"/login\"\n                class=\"d-inline-block btn-underlined blog-link-more ml-1\"\n                >Login</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"setup min-vh-100 text-center\">\n    <img src=\"/assets/images/icons/setup.svg\" width=\"200\" />\n    <h4 class=\"empty-data-title mt-5 mb-4\">\n      <img src=\"/assets/images/icons/loader-half.gif\" width=\"40\" class=\"mr-3\" />\n      Setting up your workspace....\n    </h4>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../node_modules/raw-loader/index.js!./src/app/schools/schools.component.html":
-/*!************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/schools/schools.component.html ***!
-  \************************************************************************************************************************************/
+/***/ "../../node_modules/raw-loader/index.js!./src/app/visitors.component.html":
+/*!*****************************************************************************************************************************!*\
+  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/visitors.component.html ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"hero-section section overlay hero-school\">\n  <div class=\"container-fluid position-relative\">\n    <h1>Find the best private schools in Nigeria.</h1>\n    <div class=\"select-group form\">\n      <div class=\"row\">\n        <div class=\"col-md-4 col-12\">\n          <lib-simple-select\n            placeholder=\"All States\"\n            [data]=\"states\"\n            (whenSelected)=\"filterByState($event)\"\n          >\n          </lib-simple-select>\n        </div>\n        <div class=\"col-md-4 col-12\">\n          <lib-simple-select\n            placholder=\"All LGAs\"\n            (whenSelected)=\"filter('lga', $event)\"\n            [data]=\"lgas\"\n          ></lib-simple-select>\n        </div>\n        <div class=\"col-md-4 col-12\">\n          <div class=\"input-group\">\n            <lib-simple-select\n              placeholder=\"All types\"\n              [data]=\"types\"\n              (whenSelected)=\"filter('type', $event)\"\n            >\n            </lib-simple-select>\n            <div class=\"input-group-append\">\n              <a\n                (click)=\"scrollToResults(results)\"\n                class=\"btn btn-link input-group-text btn-brand scroll pointer\"\n              >\n                <i class=\"fas fa-arrow-down\"></i\n              ></a>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"section bg-grey school-section-content\" id=\"results\" #results>\n  <div class=\"position-relative container-fluid\">\n    <lib-school-box\n      [schoolParams]=\"schoolParams\"\n      [size]=\"1000\"\n    ></lib-school-box>\n  </div>\n</section>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/single-blog/single-blog.component.html":
-/*!********************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/single-blog/single-blog.component.html ***!
-  \********************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"section blog-post-section\">\n  <div class=\"container\">\n    <div class=\"blog-inner-content\">\n      <h1 class=\"blog-page-title blog-post-title\">\n        How to start a private school in Nigeria.\n      </h1>\n      <small class=\"blog-post-date\"\n        ><i class=\"fas fa-calendar-alt\"></i> July 4th, 2019</small\n      >\n      <img\n        src=\"assets/images/limbo/zach-vessels-1314101-unsplash.jpg\"\n        width=\"100%\"\n        class=\"rounded blog-cover-img\"\n      />\n      <div class=\"text-content\">\n        <p>\n          <strong>Pellentesque habitant morbi tristique</strong> senectus et\n          netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,\n          feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero\n          sit amet quam egestas semper.\n          <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo.\n          Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat\n          wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet,\n          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum\n          rutrum orci, sagittis tempus lacus enim ac dui.\n          <a routerLink=\"#!\">Donec non enim</a> in turpis pulvinar facilisis. Ut\n          felis.\n        </p>\n        <h2>Header Level 2</h2>\n        <ol>\n          <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>\n          <li>Aliquam tincidunt mauris eu risus.</li>\n        </ol>\n        <blockquote class=\"blockquote blockquote-primary\">\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus\n          magna. Cras in mi at felis aliquet congue. Ut a est eget ligula\n          molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis\n          mollis, tellus est malesuada tellus, at luctus turpis elit sit amet\n          quam. Vivamus pretium ornare est.\n        </blockquote>\n        <h3>Header Level 3</h3>\n        <p>\n          Pellentesque habitant morbi tristique senectus et netus et malesuada\n          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,\n          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam\n          egestas semper. Aenean ultricies mi vitae est. Mauris placerat\n          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.\n          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,\n          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum\n          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in\n          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus\n          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.\n          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,\n          facilisis luctus, metus\n        </p>\n        <ul>\n          <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>\n          <li>Aliquam tincidunt mauris eu risus.</li>\n        </ul>\n        <p>\n          <img\n            src=\"https://d19m59y37dris4.cloudfront.net/directory/1-2/img/photo/photo-1499695867787-121ffb7950bf.jpg\"\n            alt=\"Example blog post alt\"\n            class=\"img-fluid\"\n          />\n        </p>\n\n        <p>\n          Pellentesque habitant morbi tristique senectus et netus et malesuada\n          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,\n          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam\n          egestas semper. Aenean ultricies mi vitae est. Mauris placerat\n          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.\n          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,\n          wisi.\n        </p>\n        <p>\n          Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum\n          orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis\n          pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus\n          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.\n          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,\n          facilisis luctus, metus\n        </p>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"section bg-grey\">\n  <div class=\"container-fluid position-relative\">\n    <header class=\"header-left\">\n      <h2 class=\"font-weight-bold text-uppercase\">Recommended for you</h2>\n      <a routerLink=\"/blog\" class=\"blog-link-more float-right\"\n        >VIEW ALL <i class=\"fas fa-arrow-right\"></i\n      ></a>\n    </header>\n    <div class=\"row blog-slider boxed-row\">\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100 \">\n          <span class=\"blog-category bg-cat-news\">News</span>\n          <a routerLink=\"/blog/983409\" class=\"link-cover\"></a>\n          <div class=\"blog-image-wrapper\">\n            <img\n              src=\"assets/images/limbo/zach-vessels-1284924-unsplash.jpg\"\n              width=\"100%\"\n              class=\"blog-image\"\n            />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">How to start a private school in Nigeria</h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/983409\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-publication\">Publication</span>\n          <div class=\"blog-image-wrapper\">\n            <img\n              src=\"assets/images/limbo/joshua-oluwagbemiga-1435064-unsplash.jpg\"\n              width=\"100%\"\n              class=\"blog-image\"\n            />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">\n              How to start a private school in Nigeria.\n            </h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 col-6 mb-4\">\n        <div class=\"blog-box card h-100\">\n          <a routerLink=\"/blog/983409\" class=\"link-cover\"></a>\n          <span class=\"blog-category bg-cat-event\">Event</span>\n          <div class=\"blog-image-wrapper\">\n            <img\n              src=\"assets/images/limbo/annie-spratt-1215936-unsplash.jpg\"\n              width=\"100%\"\n              class=\"blog-image\"\n            />\n          </div>\n          <div class=\"blog-content\">\n            <span class=\"blog-date\">April 17, 2019</span>\n            <h4 class=\"blog-title\">Register for the 2019 Education for all</h4>\n            <span class=\"blog-link-more\">READ MORE &rarr;</span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <button type=\"button\" class=\"btn blog-control transition\">\n      <i class=\"fas fa-arrow-left\"></i>\n    </button>\n    <button\n      type=\"button\"\n      class=\"btn blog-control transition blog-control-right\"\n    >\n      <i class=\"fas fa-arrow-right\"></i>\n    </button>\n  </div>\n</section>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/single-school/single-school.component.html":
-/*!************************************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/single-school/single-school.component.html ***!
-  \************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngIf=\"loading; else schoolTemplate\">\n  <lib-busy></lib-busy>\n</ng-container>\n<ng-template #schoolTemplate>\n  <section\n    class=\"hero-single-school\"\n    [style.backgroundImage]=\"getCover()\"\n  ></section>\n  <section class=\"section school-section\">\n    <div class=\"container-fluid\">\n      <div class=\"row\">\n        <div class=\"col-lg-4 col-md-5\">\n          <div class=\"school-cta shadow sticky-top mb-5\">\n            <img [attr.src]=\"school.logo\" width=\"20\" class=\"school-badge\" />\n            <h1 class=\"mb-4 school-subtitle text-center\">\n              {{ school.name }}\n            </h1>\n            <ul class=\"fa-ul school-list\">\n              <li *ngIf=\"school.location\">\n                <i class=\"fas fa-map-marker-alt fa-li blog-link-more\"></i>\n                <a [href]=\"toMapAddress()\" target=\"_blank\">{{\n                  school.fullAddress\n                }}</a>\n              </li>\n              <li *ngIf=\"school.contact\">\n                <i\n                  class=\"fas fa-li fa-flip-horizontal fa-envelope blog-link-more\"\n                ></i>\n                <a [href]=\"toEmailAddress()\" class=\"text-overflow\">{{\n                  school.email\n                }}</a>\n              </li>\n              <li *ngIf=\"school.contact\">\n                <i\n                  class=\"fas fa-li fa-flip-horizontal fa-link blog-link-more\"\n                ></i>\n                <a\n                  [href]=\"school.website\"\n                  target=\"_blank\"\n                  class=\"text-overflow\"\n                  >{{ school.website }}</a\n                >\n              </li>\n              <li *ngIf=\"school.contact\">\n                <i\n                  class=\"fas fa-li fa-phone fa-flip-horizontal blog-link-more text-phone \"\n                ></i>\n                <a [href]=\"toPhone()\">{{ school.phone }}</a>\n              </li>\n            </ul>\n            <a\n              (click)=\"scrollToContact(contact)\"\n              class=\"btn-brand mt-4 w-100 pointer text-uppercase scroll\"\n              >Contact us</a\n            >\n          </div>\n        </div>\n        <div class=\"col-md-7 col-lg-8\">\n          <h4 class=\"mb-4 school-subtitle mt-4\">About Us</h4>\n          <ul class=\"list-inline text-sm mb-4 mt-4 school-summary\">\n            <li class=\"list-inline-item mr-3\">\n              <i class=\"fas blog-link-more fa-user-graduate\"></i>\n              {{ school.typeName }}\n            </li>\n            <li class=\"list-inline-item mr-3\">\n              <i class=\"fas fa-calendar-alt blog-link-more\"></i> Founded\n              {{ school.founded }}\n            </li>\n            <li class=\"list-inline-item mr-3\">\n              <i class=\"fas fa-users blog-link-more\"></i> Accepts\n              {{ getGender() }}\n            </li>\n          </ul>\n          <div class=\"school-details\">\n            <div\n              class=\"text-block text-muted font-weight-light text-sentence\"\n              [innerHTML]=\"school.details\"\n            ></div>\n          </div>\n          <div class=\"text-block\" *ngIf=\"school.amenities\">\n            <hr class=\"mt-5 mb-4\" />\n            <h2 class=\"school-subtitle mb-4\">Amenities</h2>\n            <ul class=\"list-unstyled text-muted school-summary mb-0\">\n              <li class=\"mb-2\" *ngIf=\"school.amenities.laboratory\">\n                <i class=\"fas mr-1 fa-bong blog-link-more\"></i>\n                <span class=\"text-sm\">Science Laboratory</span>\n              </li>\n              <li class=\"mb-2\" *ngIf=\"school.amenities.computer\">\n                <i class=\"fas mr-1 fa-desktop blog-link-more\"></i>\n                <span class=\"text-sm\">Computer Laboratory</span>\n              </li>\n              <li class=\"mb-2\" *ngIf=\"school.amenities.library\">\n                <i class=\"fas mr-1 fa-book blog-link-more\"></i>\n                <span class=\"text-sm\">Library</span>\n              </li>\n              <li class=\"mb-3\" *ngIf=\"school.amenities.vehicle\">\n                <i class=\"fas mr-1 fa-bus-alt blog-link-more\"></i>\n                <span class=\"text-sm\">School Vehicle</span>\n              </li>\n              <li class=\"mb-2\" *ngIf=\"school.amenities.boarding\">\n                <i class=\"fas mr-1 blog-link-more fa-house-damage\"></i>\n                <span class=\"text-sm\">Boarding Facility</span>\n              </li>\n            </ul>\n          </div>\n          <div class=\"text-block\" *ngIf=\"school.gallery\">\n            <hr class=\"mb-4 mt-5\" />\n            <h2 class=\"mb-4 school-subtitle\">Gallery</h2>\n            <div class=\"card-columns\">\n              <div class=\"card\">\n                <img\n                  class=\"card-img-top\"\n                  src=\"assets/images/limbo/santi-vedri-707620-unsplash.jpg\"\n                  alt=\"Card image cap\"\n                />\n              </div>\n              <div class=\"card\" *ngFor=\"let image of school.gallery\">\n                <img\n                  class=\"card-img-top\"\n                  [attr.src]=\"image\"\n                  alt=\"{{\n                    school.name.concat(', ').concat(school.fullAddress)\n                  }}\"\n                />\n              </div>\n            </div>\n          </div>\n          <div class=\"contact-form form mb-5 \" id=\"contact\" #contact>\n            <hr class=\"mt-5 mb-5\" />\n            <h2 class=\"school-subtitle mb-1 \">Contact Us</h2>\n            <p class=\"mb-5 support-text\">\n              Feel free to contact us for more information concerning our\n              school, admission procedures and requirements.\n            </p>\n            <app-contact-box\n              [receiver]=\"school.contact ? school.contact.email : defaultEmail\"\n              [scrollView]=\"contact\"\n            ></app-contact-box>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n</ng-template>\n"
-
-/***/ }),
-
-/***/ "../../node_modules/raw-loader/index.js!./src/app/terms/terms.component.html":
-/*!********************************************************************************************************************************!*\
-  !*** /Users/ejodamenokosun/Documents/GitHub/apson/apson-frontend/node_modules/raw-loader!./src/app/terms/terms.component.html ***!
-  \********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"hero-section section\" data-pg-collapsed>\n  <div class=\"container-fluid position-relative\">\n    <h1 class=\"text-uppercase text-center\">Terms &amp; Conditions</h1>\n  </div>\n</section>\n<section class=\"section terms-section\" data-pg-collapsed>\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <div class=\"terms-intro\">\n          <div>\n            <h4>1. Introduction</h4>\n            <p>\n              Thank you for visiting our site which is owned and operated by the\n              Association of Private School Owners of Nigeria (APSON),\n              (collectively, “We”, “Us”, or “Our”). Please read these terms of\n              use (“Terms of Use”) carefully before using the services of this\n              site (the “Site”). THESE TERMS AND CONDITIONS SET FORTH THE\n              LEGALLY BINDING TERMS AND CONDITIONS FOR YOUR USE OF THIS SITE\n              (THE “SITE”) AND THE RELATED SERVICES, FEATURES, CONTENT, APPS,\n              WIDGETS OFFERED OR ANY PURCHASES YOU MAKE VIA THE SITE.\n            </p>\n            <p>\n              These Terms and Conditions apply to all users of the Site,\n              including, without limitation, users who are contributors of\n              content, information and other materials or services on the Site.\n              Your access and use of the Site will be subject to the version of\n              the Terms and Conditions posted on the Site at the time of use. If\n              you do not agree with the Terms and Conditions, then you do not\n              have the right to access, view, download or otherwise use the Site\n              or purchase any product and, accordingly, you should not do so.\n            </p>\n            <p>\n              Any dispute regarding the interpretation or application of these\n              Terms and Conditions shall be governed by and construed in\n              accordance with Nigerian laws and shall be exclusively settled by\n              the courts of Nigeria.\n            </p>\n          </div>\n          <div>\n            <h4>2. Eligibility</h4>\n            <p>\n              By using this site, you represent that you are at least the age of\n              majority in your state or province of residence, or that you are\n              the age of majority in your state or province of residence and you\n              have given us your consent to allow any of your minor dependents\n              to use this site.\n            </p>\n          </div>\n          <div>\n            <h4>3. Prohibited Use</h4>\n            <p>\n              You may not use our products for any illegal or unauthorized\n              purpose nor may you, in the use of the Service, violate any laws\n              in your jurisdiction (including but not limited to copyright\n              laws). You must not transmit any worms or viruses or any code of a\n              destructive nature. A breach or violation of any of the Terms will\n              result in an immediate termination of your Services.\n            </p>\n            <p>\n              In addition to other prohibitions as set forth in the Terms of\n              Service, you are prohibited from using the site or its content:\n              (a) for any unlawful purpose; (b) to solicit others to perform or\n              participate in any unlawful acts; (c) to violate any\n              international, federal, provincial or state regulations, rules,\n              laws, or local ordinances; (d) to infringe upon or violate our\n              intellectual property rights or the intellectual property rights\n              of others; (e) to harass, abuse, insult, harm, defame, slander,\n              disparage, intimidate, or discriminate based on gender, sexual\n              orientation, religion, ethnicity, race, age, national origin, or\n              disability; (f) to submit false or misleading information; (g) to\n              upload or transmit viruses or any other type of malicious code\n              that will or may be used in any way that will affect the\n              functionality or operation of the Service or of any related\n              website, other websites, or the Internet; (h) to collect or track\n              the personal information of others; (i) to spam, phish, pharm,\n              pretext, spider, crawl, or scrape; (j) for any obscene or immoral\n              purpose; or (k) to interfere with or circumvent the security\n              features of the Service or any related website, other websites, or\n              the Internet. We reserve the right to terminate your use of the\n              Service or any related website for violating any of the prohibited\n              uses.\n            </p>\n          </div>\n          <div>\n            <h4>4. Content Permission</h4>\n            <p>\n              We reserve the right to refuse service to anyone for any reason at\n              any time. You understand that your content (not including credit\n              card information), may be transferred unencrypted and involve (a)\n              transmissions over various networks; and (b) changes to conform\n              and adapt to technical requirements of connecting networks or\n              devices. Credit card information is always encrypted during\n              transfer over networks.\n            </p>\n            <p>\n              You agree not to reproduce, duplicate, copy, sell, resell or\n              exploit any portion of the Service, use of the Service, or access\n              to the Service or any contact on the website through which the\n              service is provided, without express written permission by us. The\n              headings used in this agreement are included for convenience only\n              and will not limit or otherwise affect these Terms.\n            </p>\n          </div>\n          <div>\n            <h4>5. Accuracy of Information</h4>\n            <p>\n              We are not responsible if information made available on this site\n              is not accurate, complete or current. The material on this site is\n              provided for general information only and should not be relied\n              upon or used as the sole basis for making decisions without\n              consulting primary, more accurate, more complete or more timely\n              sources of information. Any reliance on the material on this site\n              is at your own risk.\n            </p>\n            <p>\n              This site may contain certain historical information. Historical\n              information, necessarily, is not current and is provided for your\n              reference only. We reserve the right to modify the contents of\n              this site at any time, but we have no obligation to update any\n              information on our site. You agree that it is your responsibility\n              to monitor changes to our site.\n            </p>\n          </div>\n          <div>\n            <h4>6. Product Modifications</h4>\n            <p>\n              Prices for our products and services are subject to change without\n              notice. We reserve the right at any time to modify or discontinue\n              the Service (or any part or content thereof) without notice at any\n              time. We shall not be liable to you or to any third-party for any\n              modification, price change, suspension or discontinuance of the\n              Service.\n            </p>\n          </div>\n          <div>\n            <h4>7. Use of Third Pary Tools</h4>\n            <p>\n              We may provide you with access to third-party tools over which we\n              neither monitor nor have any control nor input.\n            </p>\n            <p>\n              You acknowledge and agree that we provide access to such tools ”as\n              is” and “as available” without any warranties, representations or\n              conditions of any kind and without any endorsement. We shall have\n              no liability whatsoever arising from or relating to your use of\n              optional third-party tools.\n            </p>\n            <p>\n              Any use by you of optional tools offered through the site is\n              entirely at your own risk and discretion and you should ensure\n              that you are familiar with and approve of the terms on which tools\n              are provided by the relevant third-party provider(s). We may also,\n              in the future, offer new services and/or features through the\n              website (including, the release of new tools and resources). Such\n              new features and/or services shall also be subject to these Terms\n              of Service.\n            </p>\n          </div>\n          <div>\n            <h4>8. Third Party Links</h4>\n            <p>\n              Certain content, products and services available via our Service\n              may include materials from third-parties.\n            </p>\n            <p>\n              Third-party links on this site may direct you to third-party\n              websites that are not affiliated with us. We are not responsible\n              for examining or evaluating the content or accuracy and we do not\n              warrant and will not have any liability or responsibility for any\n              third-party materials or websites, or for any other materials,\n              products, or services of third-parties.\n            </p>\n            <p>\n              We are not liable for any harm or damages related to the purchase\n              or use of goods, services, resources, content, or any other\n              transactions made in connection with any third-party websites.\n              Please review carefully the third-party's policies and practices\n              and make sure you understand them before you engage in any\n              transaction. Complaints, claims, concerns, or questions regarding\n              third-party products should be directed to the third-party.\n            </p>\n          </div>\n          <div>\n            <h4>9. Your Comments and Feedbacks</h4>\n            <p>\n              If, at our request, you send certain specific submissions (for\n              example contest entries) or without a request from us you send\n              creative ideas, suggestions, proposals, plans, or other materials,\n              whether online, by email, by postal mail, or otherwise\n              (collectively, 'comments'), you agree that we may, at any time,\n              without restriction, edit, copy, publish, distribute, translate\n              and otherwise use in any medium any comments that you forward to\n              us. We are and shall be under no obligation (1) to maintain any\n              comments in confidence; (2) to pay compensation for any comments;\n              or (3) to respond to any comments.\n            </p>\n            <p>\n              We may, but have no obligation to, monitor, edit or remove content\n              that we determine in our sole discretion are unlawful, offensive,\n              threatening, libelous, defamatory, pornographic, obscene or\n              otherwise objectionable or violates any party’s intellectual\n              property or these Terms of Service. You agree that your comments\n              will not violate any right of any third-party, including\n              copyright, trademark, privacy, personality or other personal or\n              proprietary right.\n            </p>\n            <p>\n              You further agree that your comments will not contain libelous or\n              otherwise unlawful, abusive or obscene material, or contain any\n              computer virus or other malware that could in any way affect the\n              operation of the Service or any related website. You may not use a\n              false e-mail address, pretend to be someone other than yourself,\n              or otherwise mislead us or third-parties as to the origin of any\n              comments. You are solely responsible for any comments you make and\n              their accuracy. We take no responsibility and assume no liability\n              for any comments posted by you or any third-party.\n            </p>\n          </div>\n          <div>\n            <h4>10. Errors and Omissions</h4>\n            <p>\n              Occasionally there may be information on our site or in the\n              Service that contains typographical errors, inaccuracies or\n              omissions that may relate to product descriptions, pricing,\n              promotions, offers, product shipping charges, transit times and\n              availability. We reserve the right to correct any errors,\n              inaccuracies or omissions, and to change or update information or\n              cancel orders if any information in the Service or on any related\n              website is inaccurate at any time without prior notice (including\n              after you have submitted your order).\n            </p>\n            <p>\n              We undertake no obligation to update, amend or clarify information\n              in the Service or on any related website, including without\n              limitation, pricing information, except as required by law. No\n              specified update or refresh date applied in the Service or on any\n              related website, should be taken to indicate that all information\n              in the Service or on any related website has been modified or\n              updated.\n            </p>\n          </div>\n          <div>\n            <h4>11. Disclaimer</h4>\n            <p>\n              We do not guarantee, represent or warrant that your use of our\n              service will be uninterrupted, timely, secure or error-free. We do\n              not warrant that the results that may be obtained from the use of\n              the service will be accurate or reliable.\n            </p>\n            <p>\n              You agree that from time to time we may remove the service for\n              indefinite periods of time or cancel the service at any time,\n              without notice to you. You expressly agree that your use of, or\n              inability to use, the service is at your sole risk. The service\n              and all products and services delivered to you through the service\n              are (except as expressly stated by us) provided 'as is' and 'as\n              available' for your use, without any representation, warranties or\n              conditions of any kind, either express or implied, including all\n              implied warranties or conditions of merchantability, merchantable\n              quality, fitness for a particular purpose, durability, title, and\n              non-infringement.\n            </p>\n            <p>\n              In no case shall flawless beauty by angel brinks, our directors,\n              officers, employees, affiliates, agents, contractors, interns,\n              suppliers, service providers or licensors be liable for any\n              injury, loss, claim, or any direct, indirect, incidental,\n              punitive, special, or consequential damages of any kind,\n              including, without limitation lost profits, lost revenue, lost\n              savings, loss of data, replacement costs, or any similar damages,\n              whether based in contract, tort (including negligence), strict\n              liability or otherwise, arising from your use of any of the\n              service or any products procured using the service, or for any\n              other claim related in any way to your use of the service or any\n              product, including, but not limited to, any errors or omissions in\n              any content, or any loss or damage of any kind incurred as a\n              result of the use of the service or any content (or product)\n              posted, transmitted, or otherwise made available via the service,\n              even if advised of their possibility.\n            </p>\n            <p>\n              Because some states or jurisdictions do not allow the exclusion or\n              the limitation of liability for consequential or incidental\n              damages, in such states or jurisdictions, our liability shall be\n              limited to the maximum extent permitted by law.\n            </p>\n          </div>\n          <div>\n            <h4>12. Indemnification</h4>\n            <p>\n              You agree to indemnify, defend and hold harmless the Association\n              of Private School Owners of Nigeria (APSON) and our parent,\n              subsidiaries, affiliates, partners, officers, directors, agents,\n              contractors, licensors, service providers, subcontractors,\n              suppliers, interns and employees, harmless from any claim or\n              demand, including reasonable attorneys’ fees, made by any\n              third-party due to or arising out of your breach of these Terms of\n              Service or the documents they incorporate by reference, or your\n              violation of any law or the rights of a third-party.\n            </p>\n          </div>\n          <div>\n            <h4>13. Severability</h4>\n            <p>\n              In the event that any provision of these Terms of Service is\n              determined to be unlawful, void or unenforceable, such provision\n              shall nonetheless be enforceable to the fullest extent permitted\n              by applicable law, and the unenforceable portion shall be deemed\n              to be severed from these Terms of Service, such determination\n              shall not affect the validity and enforceability of any other\n              remaining provisions.\n            </p>\n          </div>\n          <div>\n            <h4>14. Termination</h4>\n            <p>\n              The obligations and liabilities of the parties incurred prior to\n              the termination date shall survive the termination of this\n              agreement for all purposes. These Terms of Service are effective\n              unless and until terminated by either you or us. You may terminate\n              these Terms of Service at any time by notifying us that you no\n              longer wish to use our Services, or when you cease using our site.\n            </p>\n            <p>\n              If in our sole judgment you fail, or we suspect that you have\n              failed, to comply with any term or provision of these Terms of\n              Service, we also may terminate this agreement at any time without\n              notice and you will remain liable for all amounts due up to and\n              including the date of termination; and/or accordingly may deny you\n              access to our Services (or any part thereof)\n            </p>\n          </div>\n          <div>\n            <h4>15. Enforcement of Agreement</h4>\n            <p>\n              The failure of us to exercise or enforce any right or provision of\n              these Terms of Service shall not constitute a waiver of such right\n              or provision. These Terms of Service and any policies or operating\n              rules posted by us on this site or in respect to The Service\n              constitutes the entire agreement and understanding between you and\n              us and govern your use of the Service, superseding any prior or\n              contemporaneous agreements, communications and proposals, whether\n              oral or written, between you and us (including, but not limited\n              to, any prior versions of the Terms of Service). Any ambiguities\n              in the interpretation of these Terms of Service shall not be\n              construed against the drafting party.\n            </p>\n          </div>\n          <div>\n            <h4>16. Changes to Terms and Conditions</h4>\n            <p>\n              You can review the most current version of the Terms of Service at\n              any time at this page. We reserve the right, at our sole\n              discretion, to update, change or replace any part of these Terms\n              of Service by posting updates and changes to our website.\n            </p>\n            <p>\n              It is your responsibility to check our website periodically for\n              changes. Your continued use of or access to our website or the\n              Service following the posting of any changes to these Terms of\n              Service constitutes acceptance of those changes.\n            </p>\n          </div>\n          <div>\n            <h4>Contact Details</h4>\n            <p>\n              For questions and clarifications about our terms and conditions,\n              you may contact by clicking\n              <a routerLink=\"/contact\" class=\"blog-link-more\">here</a> or send\n              us an email using\n              <a\n                [href]=\"'mailto:support@apsonigeria.com'\"\n                class=\"blog-link-more\"\n                >support@apsonigeria.com</a\n              >\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<main class=\"visitors-wrapper\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n  <app-footer></app-footer>\n</main>\n"
 
 /***/ }),
 
@@ -2598,124 +2887,6 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/about/about.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/about/about.component.ts ***!
-  \******************************************/
-/*! exports provided: AboutComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var AboutComponent = /** @class */ (function () {
-    function AboutComponent() {
-    }
-    AboutComponent.prototype.ngOnInit = function () { };
-    AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-about',
-            template: __webpack_require__(/*! raw-loader!./about.component.html */ "../../node_modules/raw-loader/index.js!./src/app/about/about.component.html"),
-        })
-    ], AboutComponent);
-    return AboutComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/app-routing.module.ts":
-/*!***************************************!*\
-  !*** ./src/app/app-routing.module.ts ***!
-  \***************************************/
-/*! exports provided: AppRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
-/* harmony import */ var _privacy_privacy_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./privacy/privacy.component */ "./src/app/privacy/privacy.component.ts");
-/* harmony import */ var _terms_terms_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./terms/terms.component */ "./src/app/terms/terms.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
-/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blogs/blogs.component */ "./src/app/blogs/blogs.component.ts");
-/* harmony import */ var _schools_schools_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./schools/schools.component */ "./src/app/schools/schools.component.ts");
-/* harmony import */ var _single_school_single_school_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./single-school/single-school.component */ "./src/app/single-school/single-school.component.ts");
-/* harmony import */ var _single_blog_single_blog_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./single-blog/single-blog.component */ "./src/app/single-blog/single-blog.component.ts");
-/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _services_login_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/login.guard */ "./src/app/services/login.guard.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var routes = [
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"], pathMatch: 'full' },
-    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
-    { path: 'contact', component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_5__["ContactComponent"] },
-    { path: 'privacy', component: _privacy_privacy_component__WEBPACK_IMPORTED_MODULE_6__["PrivacyComponent"] },
-    { path: 'terms', component: _terms_terms_component__WEBPACK_IMPORTED_MODULE_7__["TermsComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"], canActivate: [_services_login_guard__WEBPACK_IMPORTED_MODULE_17__["LoginGuard"]] },
-    { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"] },
-    { path: 'reset-password', component: _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_10__["ResetPasswordComponent"] },
-    { path: 'forgot-password', component: _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_11__["ForgotPasswordComponent"] },
-    { path: 'blog', component: _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__["BlogsComponent"], pathMatch: 'full' },
-    { path: 'blog/news', component: _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__["BlogsComponent"], pathMatch: 'full' },
-    { path: 'blog/publications', component: _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__["BlogsComponent"], pathMatch: 'full' },
-    { path: 'schools', component: _schools_schools_component__WEBPACK_IMPORTED_MODULE_13__["SchoolsComponent"], pathMatch: 'full' },
-    { path: 'schools/:id', component: _single_school_single_school_component__WEBPACK_IMPORTED_MODULE_14__["SingleSchoolComponent"] },
-    { path: 'blog/:id', component: _single_blog_single_blog_component__WEBPACK_IMPORTED_MODULE_15__["SingleBlogComponent"] },
-    { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__["PageNotFoundComponent"] },
-];
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
-    }
-    AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
-                    scrollPositionRestoration: 'enabled',
-                    anchorScrolling: 'enabled',
-                    onSameUrlNavigation: 'reload',
-                    useHash: true,
-                }),
-            ],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-        })
-    ], AppRoutingModule);
-    return AppRoutingModule;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/app.component.ts":
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -2736,7 +2907,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
-            template: "\n    <app-header></app-header>\n    <router-outlet></router-outlet>\n    <app-footer></app-footer>\n  ",
+            template: "\n    <router-outlet></router-outlet>\n  ",
         })
     ], AppComponent);
     return AppComponent;
@@ -2759,46 +2930,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "../../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
-/* harmony import */ var _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blogs/blogs.component */ "./src/app/blogs/blogs.component.ts");
-/* harmony import */ var _schools_schools_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./schools/schools.component */ "./src/app/schools/schools.component.ts");
-/* harmony import */ var _single_school_single_school_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./single-school/single-school.component */ "./src/app/single-school/single-school.component.ts");
-/* harmony import */ var _single_blog_single_blog_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./single-blog/single-blog.component */ "./src/app/single-blog/single-blog.component.ts");
-/* harmony import */ var _terms_terms_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./terms/terms.component */ "./src/app/terms/terms.component.ts");
-/* harmony import */ var _privacy_privacy_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./privacy/privacy.component */ "./src/app/privacy/privacy.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
-/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
-/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/service-worker */ "../../node_modules/@angular/service-worker/fesm5/service-worker.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _contact_box_contact_box_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./contact-box/contact-box.component */ "./src/app/contact-box/contact-box.component.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "../../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/service-worker */ "../../node_modules/@angular/service-worker/fesm5/service-worker.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../environments/environment.prod */ "./src/environments/environment.prod.ts");
+/* harmony import */ var _visitors_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./visitors.module */ "./src/app/visitors.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _members_members_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./members/members.module */ "./src/app/members/members.module.ts");
 
 
 
@@ -2815,40 +2954,21 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"],
-                _footer_footer_component__WEBPACK_IMPORTED_MODULE_8__["FooterComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"],
-                _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"],
-                _contact_contact_component__WEBPACK_IMPORTED_MODULE_11__["ContactComponent"],
-                _blogs_blogs_component__WEBPACK_IMPORTED_MODULE_12__["BlogsComponent"],
-                _schools_schools_component__WEBPACK_IMPORTED_MODULE_13__["SchoolsComponent"],
-                _single_school_single_school_component__WEBPACK_IMPORTED_MODULE_14__["SingleSchoolComponent"],
-                _single_blog_single_blog_component__WEBPACK_IMPORTED_MODULE_15__["SingleBlogComponent"],
-                _terms_terms_component__WEBPACK_IMPORTED_MODULE_16__["TermsComponent"],
-                _privacy_privacy_component__WEBPACK_IMPORTED_MODULE_17__["PrivacyComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"],
-                _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__["ForgotPasswordComponent"],
-                _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__["ResetPasswordComponent"],
-                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_23__["PageNotFoundComponent"],
-                _contact_box_contact_box_component__WEBPACK_IMPORTED_MODULE_26__["ContactBoxComponent"],
-            ],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
             imports: [
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                shared__WEBPACK_IMPORTED_MODULE_22__["SharedModule"],
-                _angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"],
-                _angular_service_worker__WEBPACK_IMPORTED_MODULE_24__["ServiceWorkerModule"].register('ngsw-worker.js', {
-                    enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_25__["environment"].production,
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"],
+                _visitors_module__WEBPACK_IMPORTED_MODULE_8__["VisitorsModule"],
+                _members_members_module__WEBPACK_IMPORTED_MODULE_10__["MembersModule"],
+                _angular_service_worker__WEBPACK_IMPORTED_MODULE_5__["ServiceWorkerModule"].register('ngsw-worker.js', {
+                    enabled: _environments_environment_prod__WEBPACK_IMPORTED_MODULE_7__["environment"].production,
                 }),
             ],
             providers: [
                 {
-                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
-                    useClass: shared__WEBPACK_IMPORTED_MODULE_22__["InterceptorService"],
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
+                    useClass: shared__WEBPACK_IMPORTED_MODULE_6__["InterceptorService"],
                     multi: true,
                 },
             ],
@@ -2856,149 +2976,6 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/blogs/blogs.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/blogs/blogs.component.ts ***!
-  \******************************************/
-/*! exports provided: BlogsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlogsComponent", function() { return BlogsComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var BlogsComponent = /** @class */ (function () {
-    function BlogsComponent() {
-    }
-    BlogsComponent.prototype.ngOnInit = function () { };
-    BlogsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-blogs',
-            template: __webpack_require__(/*! raw-loader!./blogs.component.html */ "../../node_modules/raw-loader/index.js!./src/app/blogs/blogs.component.html"),
-        })
-    ], BlogsComponent);
-    return BlogsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/contact-box/contact-box.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/contact-box/contact-box.component.ts ***!
-  \******************************************************/
-/*! exports provided: ContactBoxComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactBoxComponent", function() { return ContactBoxComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
-/* harmony import */ var helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! helpers */ "../../dist/helpers/fesm5/helpers.js");
-
-
-
-
-
-var ContactBoxComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ContactBoxComponent, _super);
-    function ContactBoxComponent(formBuilder, requestService) {
-        var _this = _super.call(this) || this;
-        _this.formBuilder = formBuilder;
-        _this.requestService = requestService;
-        _this.receiver = helpers__WEBPACK_IMPORTED_MODULE_4__["APSON_EMAIL"];
-        _this.formGroup = _this.formBuilder.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
-            phone: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            subject: ['Enquiry', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            message: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            receiver: [_this.receiver],
-        });
-        return _this;
-    }
-    ContactBoxComponent.prototype.ngOnDestroy = function () {
-        _super.prototype.ngOnDestroy.call(this);
-    };
-    ContactBoxComponent.prototype.sendMessage = function () {
-        var _this = this;
-        this.toggleLoaders(true);
-        this.subscription.add(this.requestService.post('contact', this.formGroup.value).subscribe(function () {
-            _this.toggleLoaders(false);
-            Object(helpers__WEBPACK_IMPORTED_MODULE_4__["scrollIntoView"])(_this.scrollView);
-            _this.formGroup.reset({
-                name: '',
-                phone: '',
-                message: '',
-                email: '',
-                subject: 'Enquiry',
-                receiver: _this.receiver,
-            });
-            _this.showMessage('Thank you for your message. Our representative will contact you shortly.', 'Message Sent', 'success');
-        }, function (error) {
-            _this.handleError(error);
-        }));
-    };
-    ContactBoxComponent.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-        { type: shared__WEBPACK_IMPORTED_MODULE_3__["RequestService"] }
-    ]; };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-    ], ContactBoxComponent.prototype, "scrollView", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-    ], ContactBoxComponent.prototype, "receiver", void 0);
-    ContactBoxComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-contact-box',
-            template: __webpack_require__(/*! raw-loader!./contact-box.component.html */ "../../node_modules/raw-loader/index.js!./src/app/contact-box/contact-box.component.html"),
-        })
-    ], ContactBoxComponent);
-    return ContactBoxComponent;
-}(shared__WEBPACK_IMPORTED_MODULE_3__["BaseComponent"]));
-
-
-
-/***/ }),
-
-/***/ "./src/app/contact/contact.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/contact/contact.component.ts ***!
-  \**********************************************/
-/*! exports provided: ContactComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var ContactComponent = /** @class */ (function () {
-    function ContactComponent() {
-    }
-    ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-contact',
-            template: __webpack_require__(/*! raw-loader!./contact.component.html */ "../../node_modules/raw-loader/index.js!./src/app/contact/contact.component.html"),
-        })
-    ], ContactComponent);
-    return ContactComponent;
 }());
 
 
@@ -3036,37 +3013,6 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/forgot-password/forgot-password.component.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/forgot-password/forgot-password.component.ts ***!
-  \**************************************************************/
-/*! exports provided: ForgotPasswordComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var ForgotPasswordComponent = /** @class */ (function () {
-    function ForgotPasswordComponent() {
-    }
-    ForgotPasswordComponent.prototype.ngOnInit = function () { };
-    ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-forgot-password',
-            template: __webpack_require__(/*! raw-loader!./forgot-password.component.html */ "../../node_modules/raw-loader/index.js!./src/app/forgot-password/forgot-password.component.html"),
-        })
-    ], ForgotPasswordComponent);
-    return ForgotPasswordComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/header/header.component.ts":
 /*!********************************************!*\
   !*** ./src/app/header/header.component.ts ***!
@@ -3079,12 +3025,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
 
 
-var HeaderComponent = /** @class */ (function () {
+
+var HeaderComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](HeaderComponent, _super);
     function HeaderComponent() {
+        return _super.call(this) || this;
     }
-    HeaderComponent.prototype.ngOnInit = function () { };
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header',
@@ -3092,7 +3041,7 @@ var HeaderComponent = /** @class */ (function () {
         })
     ], HeaderComponent);
     return HeaderComponent;
-}());
+}(shared__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
 
 
 
@@ -3128,273 +3077,470 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/login/login.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/login/login.component.ts ***!
-  \******************************************/
-/*! exports provided: LoginComponent */
+/***/ "./src/app/members/header/header.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/members/header/header.component.ts ***!
+  \****************************************************/
+/*! exports provided: MembersHeaderComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembersHeaderComponent", function() { return MembersHeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dropdown */ "../../dist/dropdown/fesm5/dropdown.js");
+/* harmony import */ var _services_common_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/common-service.service */ "./src/app/members/services/common-service.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
 
 
 
 
-var LoginComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LoginComponent, _super);
-    function LoginComponent(formBuilder, authService) {
+
+
+var MembersHeaderComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MembersHeaderComponent, _super);
+    function MembersHeaderComponent(authService, commonService, location) {
         var _this = _super.call(this) || this;
-        _this.formBuilder = formBuilder;
         _this.authService = authService;
-        _this.formData = _this.formBuilder.group({
-            username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-        });
+        _this.commonService = commonService;
+        _this.location = location;
         return _this;
     }
-    LoginComponent.prototype.ngOnDestroy = function () {
-        this.subscription.unsubscribe();
-    };
-    LoginComponent.prototype.onLogin = function () {
+    MembersHeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.toggleLoaders(true);
-        this.subscription.add(this.authService.login(this.formData.value).subscribe(function (response) {
-            var data = response.data;
-            _this.hideAlert = false;
-            _this.showMessage('Redirecting you...', 'Log in successful', 'success');
-            _this.authService.setMember(data);
-            _this.authService.gotoMembers();
-        }, function (error) {
-            _this.handleError(error);
+        this.member = this.authService.getMember();
+        this.subscription.add(this.authService.member.subscribe(function (member) {
+            _this.member = member;
         }));
     };
-    LoginComponent.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-        { type: shared__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+    MembersHeaderComponent.prototype.ngOnDestroy = function () {
+        _super.prototype.ngOnDestroy.call(this);
+    };
+    MembersHeaderComponent.prototype.logout = function () {
+        this.authService.logout();
+    };
+    MembersHeaderComponent.ctorParameters = function () { return [
+        { type: shared__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+        { type: _services_common_service_service__WEBPACK_IMPORTED_MODULE_4__["CommonService"] },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] }
     ]; };
-    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    MembersHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-login',
-            template: __webpack_require__(/*! raw-loader!./login.component.html */ "../../node_modules/raw-loader/index.js!./src/app/login/login.component.html"),
+            selector: 'app-member-header',
+            template: __webpack_require__(/*! raw-loader!./header.component.html */ "../../node_modules/raw-loader/index.js!./src/app/members/header/header.component.html"),
         })
-    ], LoginComponent);
-    return LoginComponent;
-}(shared__WEBPACK_IMPORTED_MODULE_3__["BaseComponent"]));
+    ], MembersHeaderComponent);
+    return MembersHeaderComponent;
+}(dropdown__WEBPACK_IMPORTED_MODULE_3__["Dropdown"]));
 
 
 
 /***/ }),
 
-/***/ "./src/app/page-not-found/page-not-found.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/page-not-found/page-not-found.component.ts ***!
-  \************************************************************/
-/*! exports provided: PageNotFoundComponent */
+/***/ "./src/app/members/members-routing.module.ts":
+/*!***************************************************!*\
+  !*** ./src/app/members/members-routing.module.ts ***!
+  \***************************************************/
+/*! exports provided: MembersRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageNotFoundComponent", function() { return PageNotFoundComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembersRoutingModule", function() { return MembersRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var PageNotFoundComponent = /** @class */ (function () {
-    function PageNotFoundComponent() {
-    }
-    PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-page-not-found',
-            template: __webpack_require__(/*! raw-loader!./page-not-found.component.html */ "../../node_modules/raw-loader/index.js!./src/app/page-not-found/page-not-found.component.html"),
-        })
-    ], PageNotFoundComponent);
-    return PageNotFoundComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/privacy/privacy.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/privacy/privacy.component.ts ***!
-  \**********************************************/
-/*! exports provided: PrivacyComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacyComponent", function() { return PrivacyComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var PrivacyComponent = /** @class */ (function () {
-    function PrivacyComponent() {
-    }
-    PrivacyComponent.prototype.ngOnInit = function () { };
-    PrivacyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-privacy',
-            template: __webpack_require__(/*! raw-loader!./privacy.component.html */ "../../node_modules/raw-loader/index.js!./src/app/privacy/privacy.component.html"),
-        })
-    ], PrivacyComponent);
-    return PrivacyComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/register/register.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/register/register.component.ts ***!
-  \************************************************/
-/*! exports provided: RegisterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _members_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./members.component */ "./src/app/members/members.component.ts");
 
 
 
 
-var RegisterComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RegisterComponent, _super);
-    function RegisterComponent(authService, formBuilder, requestService) {
+
+var routes = [
+    {
+        path: 'members',
+        canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        component: _members_component__WEBPACK_IMPORTED_MODULE_4__["MembersComponent"],
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: '/members/dashboard',
+            },
+            {
+                path: 'dashboard',
+                pathMatch: 'full',
+                canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["ActiveMemberGuard"]],
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | dashboard-dashboard-module */ "dashboard-dashboard-module").then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/members/dashboard/dashboard.module.ts")).then(function (m) { return m.DashboardModule; });
+                },
+            },
+            {
+                path: 'students',
+                pathMatch: 'full',
+                canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["ActiveMemberGuard"]],
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | students-students-module */ "students-students-module").then(__webpack_require__.bind(null, /*! ./students/students.module */ "./src/app/members/students/students.module.ts")).then(function (m) { return m.StudentsModule; });
+                },
+            },
+            {
+                path: 'scores',
+                pathMatch: 'full',
+                canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["ActiveMemberGuard"]],
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | scores-scores-module */ "scores-scores-module").then(__webpack_require__.bind(null, /*! ./scores/scores.module */ "./src/app/members/scores/scores.module.ts")).then(function (m) { return m.ScoresModule; });
+                },
+            },
+            {
+                path: 'settings',
+                pathMatch: 'full',
+                canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["ActiveMemberGuard"]],
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | settings-settings-module */ "settings-settings-module").then(__webpack_require__.bind(null, /*! ./settings/settings.module */ "./src/app/members/settings/settings.module.ts")).then(function (m) { return m.SettingsModule; });
+                },
+            },
+            {
+                path: 'profile',
+                pathMatch: 'full',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | profile-profile-module */ "profile-profile-module").then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/members/profile/profile.module.ts")).then(function (m) { return m.ProfileModule; });
+                },
+            },
+            {
+                path: 'add-school',
+                pathMatch: 'full',
+                canActivate: [shared__WEBPACK_IMPORTED_MODULE_3__["ActiveMemberGuard"]],
+                loadChildren: function () {
+                    return Promise.all(/*! import() | add-school-add-school-module */[__webpack_require__.e("common"), __webpack_require__.e("add-school-add-school-module")]).then(__webpack_require__.bind(null, /*! ./add-school/add-school.module */ "./src/app/members/add-school/add-school.module.ts")).then(function (m) { return m.AddSchoolModule; });
+                },
+            },
+            {
+                path: 'membership-renewal',
+                pathMatch: 'full',
+                loadChildren: function () {
+                    return Promise.all(/*! import() | make-payment-make-payment-module */[__webpack_require__.e("common"), __webpack_require__.e("make-payment-make-payment-module")]).then(__webpack_require__.bind(null, /*! ./make-payment/make-payment.module */ "./src/app/members/make-payment/make-payment.module.ts")).then(function (m) { return m.MakePaymentModule; });
+                },
+            },
+        ],
+    },
+];
+var MembersRoutingModule = /** @class */ (function () {
+    function MembersRoutingModule() {
+    }
+    MembersRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
+                    scrollPositionRestoration: 'enabled',
+                    anchorScrolling: 'enabled',
+                    onSameUrlNavigation: 'reload',
+                    useHash: true,
+                    urlUpdateStrategy: 'eager',
+                }),
+            ],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+        })
+    ], MembersRoutingModule);
+    return MembersRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/members.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/members/members.component.ts ***!
+  \**********************************************/
+/*! exports provided: MembersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembersComponent", function() { return MembersComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _services_common_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/common-service.service */ "./src/app/members/services/common-service.service.ts");
+
+
+
+
+var MembersComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MembersComponent, _super);
+    function MembersComponent(commonService) {
+        var _this = _super.call(this) || this;
+        _this.commonService = commonService;
+        return _this;
+    }
+    MembersComponent.prototype.ngOnInit = function () { };
+    MembersComponent.ctorParameters = function () { return [
+        { type: _services_common_service_service__WEBPACK_IMPORTED_MODULE_3__["CommonService"] }
+    ]; };
+    MembersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-members',
+            template: __webpack_require__(/*! raw-loader!./members.component.html */ "../../node_modules/raw-loader/index.js!./src/app/members/members.component.html"),
+        })
+    ], MembersComponent);
+    return MembersComponent;
+}(shared__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/members.module.ts":
+/*!*******************************************!*\
+  !*** ./src/app/members/members.module.ts ***!
+  \*******************************************/
+/*! exports provided: MembersModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembersModule", function() { return MembersModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/members/navbar/navbar.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _members_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./members-routing.module */ "./src/app/members/members-routing.module.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _members_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./members.component */ "./src/app/members/members.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header/header.component */ "./src/app/members/header/header.component.ts");
+/* harmony import */ var _setup_setup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setup/setup.component */ "./src/app/members/setup/setup.component.ts");
+
+
+
+
+
+
+
+
+
+
+var MembersModule = /** @class */ (function () {
+    function MembersModule() {
+    }
+    MembersModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [
+                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_2__["NavbarComponent"],
+                _members_component__WEBPACK_IMPORTED_MODULE_7__["MembersComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_8__["MembersHeaderComponent"],
+                _setup_setup_component__WEBPACK_IMPORTED_MODULE_9__["SetupComponent"],
+            ],
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], shared__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _members_routing_module__WEBPACK_IMPORTED_MODULE_5__["MembersRoutingModule"]],
+        })
+    ], MembersModule);
+    return MembersModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/navbar/navbar.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/members/navbar/navbar.component.ts ***!
+  \****************************************************/
+/*! exports provided: NavbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dropdown */ "../../dist/dropdown/fesm5/dropdown.js");
+/* harmony import */ var _services_common_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/common-service.service */ "./src/app/members/services/common-service.service.ts");
+
+
+
+
+
+var NavbarComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](NavbarComponent, _super);
+    function NavbarComponent(authService, commonService) {
         var _this = _super.call(this) || this;
         _this.authService = authService;
-        _this.formBuilder = formBuilder;
+        _this.commonService = commonService;
+        return _this;
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.member = this.authService.getMember();
+        this.subscription.add(this.authService.member.subscribe(function (member) {
+            _this.member = member;
+        }));
+    };
+    NavbarComponent.prototype.ngOnDestroy = function () {
+        _super.prototype.ngOnDestroy.call(this);
+    };
+    NavbarComponent.prototype.logout = function () {
+        this.authService.logout();
+    };
+    NavbarComponent.ctorParameters = function () { return [
+        { type: shared__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+        { type: _services_common_service_service__WEBPACK_IMPORTED_MODULE_4__["CommonService"] }
+    ]; };
+    NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-navbar',
+            template: __webpack_require__(/*! raw-loader!./navbar.component.html */ "../../node_modules/raw-loader/index.js!./src/app/members/navbar/navbar.component.html"),
+        })
+    ], NavbarComponent);
+    return NavbarComponent;
+}(dropdown__WEBPACK_IMPORTED_MODULE_3__["Dropdown"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/services/common-service.service.ts":
+/*!************************************************************!*\
+  !*** ./src/app/members/services/common-service.service.ts ***!
+  \************************************************************/
+/*! exports provided: CommonService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommonService", function() { return CommonService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+
+
+
+var CommonService = /** @class */ (function () {
+    function CommonService(router) {
+        this.router = router;
+        this.pageTitle = 'Dashboard';
+        this.schools = [];
+        this.ready = false;
+        this.fullWidth = false;
+    }
+    CommonService.prototype.setPageTitle = function (title) {
+        this.pageTitle = title;
+    };
+    CommonService.prototype.getPageTitle = function () {
+        return this.pageTitle;
+    };
+    CommonService.prototype.isReady = function () {
+        return this.ready;
+    };
+    CommonService.prototype.setReady = function (ready) {
+        this.ready = ready;
+    };
+    CommonService.prototype.findSchool = function (schoolId) {
+        var school = this.schools.find(function (school) { return school.id === schoolId; });
+        return school || this.schools[this.schools.length - 1];
+    };
+    CommonService.prototype.setActiveSchool = function (schoolId) {
+        var id = schoolId || localStorage.getItem('activeSchoolId');
+        if (id) {
+            this.activeSchool = this.findSchool(id);
+        }
+    };
+    CommonService.prototype.saveActiveSchool = function (schoolId) {
+        localStorage.setItem('activeSchoolId', schoolId);
+        this.setReady(false);
+    };
+    CommonService.prototype.getActiveSchool = function () {
+        return this.activeSchool;
+    };
+    CommonService.prototype.isActiveSchool = function (school) {
+        return this.activeSchool.id === school.id;
+    };
+    CommonService.prototype.setSchools = function (schools) {
+        this.schools = schools;
+    };
+    CommonService.prototype.getSchools = function () {
+        return this.schools;
+    };
+    CommonService.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
+    CommonService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root',
+        })
+    ], CommonService);
+    return CommonService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/setup/setup.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/members/setup/setup.component.ts ***!
+  \**************************************************/
+/*! exports provided: SetupComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetupComponent", function() { return SetupComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _services_common_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/common-service.service */ "./src/app/members/services/common-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var SetupComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SetupComponent, _super);
+    function SetupComponent(requestService, authService, commonService, router) {
+        var _this = _super.call(this) || this;
         _this.requestService = requestService;
-        _this.formData = _this.formBuilder.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            state: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
-            phone: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            sex: ['Male'],
-        });
+        _this.authService = authService;
+        _this.commonService = commonService;
+        _this.router = router;
         return _this;
     }
-    RegisterComponent.prototype.ngOnDestroy = function () {
-        this.subscription.unsubscribe();
-    };
-    RegisterComponent.prototype.onRegisterMember = function () {
+    SetupComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.toggleLoaders(true);
-        this.subscription.add(this.requestService.registerMember(this.formData.value).subscribe(function (response) {
-            var data = response.data;
-            _this.authService.setMember(data);
-            _this.toggleLoaders(false);
-            _this.showMessage('Registration successful', '', 'success');
-            _this.authService.gotoMembers();
+        var member = this.authService.getMember();
+        this.subscription.add(this.requestService
+            .get("schools/", { memberId: member.id, size: 1000, order: 'name,ASC' })
+            .subscribe(function (response) {
+            var result = response.data.result;
+            _this.commonService.setSchools(result || []);
+            _this.commonService.setActiveSchool(null);
+            _this.commonService.setReady(true);
         }, function (error) {
-            _this.handleError(error);
+            _this.isBusy = false;
         }));
     };
-    RegisterComponent.ctorParameters = function () { return [
-        { type: shared__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-        { type: shared__WEBPACK_IMPORTED_MODULE_3__["RequestService"] }
+    SetupComponent.prototype.ngOnDestroy = function () {
+        _super.prototype.ngOnDestroy.call(this);
+        this.router.navigateByUrl('/members/dashboard');
+    };
+    SetupComponent.ctorParameters = function () { return [
+        { type: shared__WEBPACK_IMPORTED_MODULE_2__["RequestService"] },
+        { type: shared__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+        { type: _services_common_service_service__WEBPACK_IMPORTED_MODULE_3__["CommonService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
     ]; };
-    RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    SetupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-register',
-            template: __webpack_require__(/*! raw-loader!./register.component.html */ "../../node_modules/raw-loader/index.js!./src/app/register/register.component.html"),
+            selector: 'app-setup',
+            template: __webpack_require__(/*! raw-loader!./setup.component.html */ "../../node_modules/raw-loader/index.js!./src/app/members/setup/setup.component.html"),
         })
-    ], RegisterComponent);
-    return RegisterComponent;
-}(shared__WEBPACK_IMPORTED_MODULE_3__["BaseComponent"]));
-
-
-
-/***/ }),
-
-/***/ "./src/app/reset-password/reset-password.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/reset-password/reset-password.component.ts ***!
-  \************************************************************/
-/*! exports provided: ResetPasswordComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function() { return ResetPasswordComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var ResetPasswordComponent = /** @class */ (function () {
-    function ResetPasswordComponent() {
-    }
-    ResetPasswordComponent.prototype.ngOnInit = function () { };
-    ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-reset-password',
-            template: __webpack_require__(/*! raw-loader!./reset-password.component.html */ "../../node_modules/raw-loader/index.js!./src/app/reset-password/reset-password.component.html"),
-        })
-    ], ResetPasswordComponent);
-    return ResetPasswordComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/schools/schools.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/schools/schools.component.ts ***!
-  \**********************************************/
-/*! exports provided: SchoolsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SchoolsComponent", function() { return SchoolsComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! helpers */ "../../dist/helpers/fesm5/helpers.js");
-
-
-
-
-var SchoolsComponent = /** @class */ (function () {
-    function SchoolsComponent() {
-        this.schoolParams = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.states = helpers__WEBPACK_IMPORTED_MODULE_3__["STATES"];
-        this.lgas = [];
-        this.types = helpers__WEBPACK_IMPORTED_MODULE_3__["SCHOOL_TYPES"];
-    }
-    SchoolsComponent.prototype.scrollToResults = function (element) {
-        Object(helpers__WEBPACK_IMPORTED_MODULE_3__["scrollIntoView"])(element);
-    };
-    SchoolsComponent.prototype.filterByState = function (state) {
-        this.filter('state', state);
-        this.lgas = state ? helpers__WEBPACK_IMPORTED_MODULE_3__["LGAS"][state] : [];
-    };
-    SchoolsComponent.prototype.filter = function (key, value) {
-        this.schoolParams.next({ key: key, value: value });
-    };
-    SchoolsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-schools',
-            template: __webpack_require__(/*! raw-loader!./schools.component.html */ "../../node_modules/raw-loader/index.js!./src/app/schools/schools.component.html"),
-        })
-    ], SchoolsComponent);
-    return SchoolsComponent;
-}());
+    ], SetupComponent);
+    return SetupComponent;
+}(shared__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
 
 
 
@@ -3414,8 +3560,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
-/* harmony import */ var helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! helpers */ "../../dist/helpers/fesm5/helpers.js");
-
 
 
 
@@ -3426,7 +3570,7 @@ var LoginGuard = /** @class */ (function () {
         this.router = router;
     }
     LoginGuard.prototype.canActivate = function (next, state) {
-        var authenticated = this.authService.isLoggedIn(helpers__WEBPACK_IMPORTED_MODULE_4__["MEMBERS_URL"]);
+        var authenticated = this.authService.isLoggedIn('member');
         if (authenticated) {
             this.authService.gotoMembers();
         }
@@ -3448,160 +3592,246 @@ var LoginGuard = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/single-blog/single-blog.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/single-blog/single-blog.component.ts ***!
-  \******************************************************/
-/*! exports provided: SingleBlogComponent */
+/***/ "./src/app/visitors-routing.module.ts":
+/*!********************************************!*\
+  !*** ./src/app/visitors-routing.module.ts ***!
+  \********************************************/
+/*! exports provided: VisitorsRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SingleBlogComponent", function() { return SingleBlogComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-
-
-var SingleBlogComponent = /** @class */ (function () {
-    function SingleBlogComponent() {
-    }
-    SingleBlogComponent.prototype.ngOnInit = function () { };
-    SingleBlogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-single-blog',
-            template: __webpack_require__(/*! raw-loader!./single-blog.component.html */ "../../node_modules/raw-loader/index.js!./src/app/single-blog/single-blog.component.html"),
-        })
-    ], SingleBlogComponent);
-    return SingleBlogComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/single-school/single-school.component.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/single-school/single-school.component.ts ***!
-  \**********************************************************/
-/*! exports provided: SingleSchoolComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SingleSchoolComponent", function() { return SingleSchoolComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorsRoutingModule", function() { return VisitorsRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! helpers */ "../../dist/helpers/fesm5/helpers.js");
-/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _services_login_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/login.guard */ "./src/app/services/login.guard.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _visitors_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./visitors.component */ "./src/app/visitors.component.ts");
 
 
 
 
 
-var SingleSchoolComponent = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SingleSchoolComponent, _super);
-    function SingleSchoolComponent(activedRoute, requestService, router) {
-        var _this = _super.call(this) || this;
-        _this.activedRoute = activedRoute;
-        _this.requestService = requestService;
-        _this.router = router;
-        _this.defaultEmail = helpers__WEBPACK_IMPORTED_MODULE_3__["APSON_EMAIL"];
-        return _this;
+
+var routes = [
+    {
+        path: '',
+        component: _visitors_component__WEBPACK_IMPORTED_MODULE_5__["VisitorsComponent"],
+        children: [
+            {
+                path: '',
+                component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"],
+                pathMatch: 'full',
+            },
+            {
+                path: 'about',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | about-about-module */ "about-about-module").then(__webpack_require__.bind(null, /*! ./about/about.module */ "./src/app/about/about.module.ts")).then(function (m) { return m.AboutModule; });
+                },
+            },
+            {
+                path: 'contact',
+                loadChildren: function () {
+                    return Promise.all(/*! import() | contact-contact-module */[__webpack_require__.e("common"), __webpack_require__.e("contact-contact-module")]).then(__webpack_require__.bind(null, /*! ./contact/contact.module */ "./src/app/contact/contact.module.ts")).then(function (m) { return m.ContactModule; });
+                },
+            },
+            {
+                path: 'privacy',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | privacy-privacy-module */ "privacy-privacy-module").then(__webpack_require__.bind(null, /*! ./privacy/privacy.module */ "./src/app/privacy/privacy.module.ts")).then(function (m) { return m.PrivacyModule; });
+                },
+            },
+            {
+                path: 'terms',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | terms-terms-module */ "terms-terms-module").then(__webpack_require__.bind(null, /*! ./terms/terms.module */ "./src/app/terms/terms.module.ts")).then(function (m) { return m.TermsModule; });
+                },
+            },
+            {
+                path: 'login',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | login-login-module */ "login-login-module").then(__webpack_require__.bind(null, /*! ./login/login.module */ "./src/app/login/login.module.ts")).then(function (m) { return m.LoginModule; });
+                },
+                canActivate: [_services_login_guard__WEBPACK_IMPORTED_MODULE_3__["LoginGuard"]],
+            },
+            {
+                path: 'register',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | register-register-module */ "register-register-module").then(__webpack_require__.bind(null, /*! ./register/register.module */ "./src/app/register/register.module.ts")).then(function (m) { return m.RegsiterModule; });
+                },
+            },
+            {
+                path: 'reset-password',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | reset-password-reset-password-module */ "reset-password-reset-password-module").then(__webpack_require__.bind(null, /*! ./reset-password/reset-password.module */ "./src/app/reset-password/reset-password.module.ts")).then(function (m) { return m.ResetPasswordModule; });
+                },
+            },
+            {
+                path: 'forgot-password',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | forgot-password-forgot-password-module */ "forgot-password-forgot-password-module").then(__webpack_require__.bind(null, /*! ./forgot-password/forgot-password.module */ "./src/app/forgot-password/forgot-password.module.ts")).then(function (m) { return m.ForgotPasswordModule; });
+                },
+            },
+            {
+                path: 'blog',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | blogs-blogs-module */ "blogs-blogs-module").then(__webpack_require__.bind(null, /*! ./blogs/blogs.module */ "./src/app/blogs/blogs.module.ts")).then(function (m) { return m.BlogModule; });
+                },
+            },
+            {
+                path: 'blog/news',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | blogs-blogs-module */ "blogs-blogs-module").then(__webpack_require__.bind(null, /*! ./blogs/blogs.module */ "./src/app/blogs/blogs.module.ts")).then(function (m) { return m.BlogModule; });
+                },
+            },
+            {
+                path: 'blog/publications',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | blogs-blogs-module */ "blogs-blogs-module").then(__webpack_require__.bind(null, /*! ./blogs/blogs.module */ "./src/app/blogs/blogs.module.ts")).then(function (m) { return m.BlogModule; });
+                },
+            },
+            {
+                path: 'blog/:id',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | single-blog-single-blog-module */ "single-blog-single-blog-module").then(__webpack_require__.bind(null, /*! ./single-blog/single-blog.module */ "./src/app/single-blog/single-blog.module.ts")).then(function (m) { return m.SingleBlogModule; });
+                },
+            },
+            {
+                path: 'schools',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | schools-schools-module */ "schools-schools-module").then(__webpack_require__.bind(null, /*! ./schools/schools.module */ "./src/app/schools/schools.module.ts")).then(function (m) { return m.SchoolsModule; });
+                },
+            },
+            {
+                path: 'schools/:id',
+                loadChildren: function () {
+                    return Promise.all(/*! import() | single-school-single-school-module */[__webpack_require__.e("common"), __webpack_require__.e("single-school-single-school-module")]).then(__webpack_require__.bind(null, /*! ./single-school/single-school.module */ "./src/app/single-school/single-school.module.ts")).then(function (m) { return m.SingleSchoolModule; });
+                },
+            },
+        ],
+    },
+];
+var VisitorsRoutingModule = /** @class */ (function () {
+    function VisitorsRoutingModule() {
     }
-    SingleSchoolComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.loading = true;
-        var id = this.activedRoute.snapshot.params.id;
-        this.subscription.add(this.requestService.get("schools/" + id).subscribe(function (_a) {
-            var data = _a.data;
-            _this.school = data;
-            _this.setFullAddress();
-            _this.setContactDetails();
-            _this.loading = false;
-        }, function (_) {
-            _this.router.navigateByUrl('/not-found');
-        }));
-    };
-    SingleSchoolComponent.prototype.toMapAddress = function () {
-        return "https://maps.google.com?q=" + this.school.fullAddress;
-    };
-    SingleSchoolComponent.prototype.toPhone = function () {
-        return "tel:" + this.school.phone;
-    };
-    SingleSchoolComponent.prototype.setFullAddress = function () {
-        if (this.school.location) {
-            var _a = this.school.location, address = _a.address, city = _a.city, stateName = _a.stateName;
-            this.school.fullAddress = address + ", " + city + ", " + stateName;
-        }
-    };
-    SingleSchoolComponent.prototype.setContactDetails = function () {
-        if (this.school.contact) {
-            var _a = this.school.contact, email = _a.email, phone = _a.phone, website = _a.website;
-            this.school.email = email;
-            this.school.phone = ['0', '+', '234'].includes(phone.charAt(0))
-                ? phone
-                : "0" + phone;
-            this.school.website = website;
-        }
-    };
-    SingleSchoolComponent.prototype.toEmailAddress = function () {
-        return "mailto:" + this.school.email;
-    };
-    SingleSchoolComponent.prototype.getCover = function () {
-        return "url(" + this.school.cover + ")";
-    };
-    SingleSchoolComponent.prototype.getGender = function () {
-        return Object(helpers__WEBPACK_IMPORTED_MODULE_3__["getGender"])(this.school.gender);
-    };
-    SingleSchoolComponent.prototype.scrollToContact = function (element) {
-        Object(helpers__WEBPACK_IMPORTED_MODULE_3__["scrollIntoView"])(element);
-    };
-    SingleSchoolComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: shared__WEBPACK_IMPORTED_MODULE_4__["RequestService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-    ]; };
-    SingleSchoolComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-single-school',
-            template: __webpack_require__(/*! raw-loader!./single-school.component.html */ "../../node_modules/raw-loader/index.js!./src/app/single-school/single-school.component.html"),
+    VisitorsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
+                    scrollPositionRestoration: 'enabled',
+                    anchorScrolling: 'enabled',
+                    onSameUrlNavigation: 'reload',
+                    useHash: true,
+                    urlUpdateStrategy: 'eager',
+                }),
+            ],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
         })
-    ], SingleSchoolComponent);
-    return SingleSchoolComponent;
-}(shared__WEBPACK_IMPORTED_MODULE_4__["BaseComponent"]));
+    ], VisitorsRoutingModule);
+    return VisitorsRoutingModule;
+}());
 
 
 
 /***/ }),
 
-/***/ "./src/app/terms/terms.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/terms/terms.component.ts ***!
-  \******************************************/
-/*! exports provided: TermsComponent */
+/***/ "./src/app/visitors.component.ts":
+/*!***************************************!*\
+  !*** ./src/app/visitors.component.ts ***!
+  \***************************************/
+/*! exports provided: VisitorsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermsComponent", function() { return TermsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorsComponent", function() { return VisitorsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 
 
-var TermsComponent = /** @class */ (function () {
-    function TermsComponent() {
+var VisitorsComponent = /** @class */ (function () {
+    function VisitorsComponent() {
     }
-    TermsComponent.prototype.ngOnInit = function () { };
-    TermsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    VisitorsComponent.prototype.ngOnInit = function () { };
+    VisitorsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-terms',
-            template: __webpack_require__(/*! raw-loader!./terms.component.html */ "../../node_modules/raw-loader/index.js!./src/app/terms/terms.component.html"),
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            selector: 'app-visitors',
+            template: __webpack_require__(/*! raw-loader!./visitors.component.html */ "../../node_modules/raw-loader/index.js!./src/app/visitors.component.html"),
         })
-    ], TermsComponent);
-    return TermsComponent;
+    ], VisitorsComponent);
+    return VisitorsComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/visitors.module.ts":
+/*!************************************!*\
+  !*** ./src/app/visitors.module.ts ***!
+  \************************************/
+/*! exports provided: VisitorsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorsModule", function() { return VisitorsModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _visitors_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./visitors-routing.module */ "./src/app/visitors-routing.module.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! shared */ "../../dist/shared/fesm5/shared.js");
+/* harmony import */ var _visitors_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./visitors.component */ "./src/app/visitors.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+
+
+
+
+
+
+
+
+
+
+var VisitorsModule = /** @class */ (function () {
+    function VisitorsModule() {
+    }
+    VisitorsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [
+                _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
+                _visitors_component__WEBPACK_IMPORTED_MODULE_7__["VisitorsComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
+                _footer_footer_component__WEBPACK_IMPORTED_MODULE_9__["FooterComponent"],
+            ],
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], shared__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _visitors_routing_module__WEBPACK_IMPORTED_MODULE_4__["VisitorsRoutingModule"]],
+        })
+    ], VisitorsModule);
+    return VisitorsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/environments/environment.prod.ts":
+/*!**********************************************!*\
+  !*** ./src/environments/environment.prod.ts ***!
+  \**********************************************/
+/*! exports provided: environment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+var environment = {
+    production: true
+};
 
 
 /***/ }),
