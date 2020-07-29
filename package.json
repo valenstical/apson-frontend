@@ -8,6 +8,8 @@
     "start:admin": "ng serve --port 4600",
     "build": "ng build",
     "build:helpers": "ng build helpers",
+    "build:shared": "ng build shared",
+    "build:dropdown": "ng build dropdown",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
