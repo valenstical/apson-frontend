@@ -1059,19 +1059,14 @@ function (phone) {
  */
 /** @type {?} */
 var BASE_URL = 'https://apson.herokuapp.com';
-// export const VISITORS_URL = 'http://localhost:4300';
-// export const MEMBERS_URL = 'http://localhost:4400';
+/** @type {?} */
+var VISITORS_URL = 'https://www.apsonigeria.com';
+// export const ADMIN_URL = 'https://admin.apsonigeria.org';
+// export const STUDENTS_URL = 'https://students.apsonigeria.org';
 /** @type {?} */
 var ADMIN_URL = 'http://localhost:4500';
 /** @type {?} */
 var STUDENTS_URL = 'http://localhost:4600';
-// export const BASE_URL = 'http://localhost:4300';
-/** @type {?} */
-var MEMBERS_URL = 'https://members.apsonigeria.com';
-/** @type {?} */
-var VISITORS_URL = 'https://www.apsonigeria.com';
-// export const ADMIN_URL = 'https://admin.apsonigeria.com';
-// export const STUDENTS_URL = 'https://students.apsonigeria.com';
 /** @type {?} */
 var APSON_EMAIL = 'support@apsonigeria.com';
 /** @type {?} */
@@ -1193,5 +1188,5 @@ var CloudinaryWidget = /** @class */ (function () {
     return CloudinaryWidget;
 }());
 
-export { ADMIN_URL, APSON_EMAIL, BASE_URL, CloudinaryWidget, LGAS, MEMBERS_URL, PaystackWidget, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter, toMobileNumber };
+export { ADMIN_URL, APSON_EMAIL, BASE_URL, CloudinaryWidget, LGAS, PaystackWidget, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter, toMobileNumber };
 //# sourceMappingURL=helpers.js.map

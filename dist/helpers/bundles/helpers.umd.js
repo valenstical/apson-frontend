@@ -1089,19 +1089,14 @@
      */
     /** @type {?} */
     var BASE_URL = 'https://apson.herokuapp.com';
-    // export const VISITORS_URL = 'http://localhost:4300';
-    // export const MEMBERS_URL = 'http://localhost:4400';
+    /** @type {?} */
+    var VISITORS_URL = 'https://www.apsonigeria.com';
+    // export const ADMIN_URL = 'https://admin.apsonigeria.org';
+    // export const STUDENTS_URL = 'https://students.apsonigeria.org';
     /** @type {?} */
     var ADMIN_URL = 'http://localhost:4500';
     /** @type {?} */
     var STUDENTS_URL = 'http://localhost:4600';
-    // export const BASE_URL = 'http://localhost:4300';
-    /** @type {?} */
-    var MEMBERS_URL = 'https://members.apsonigeria.com';
-    /** @type {?} */
-    var VISITORS_URL = 'https://www.apsonigeria.com';
-    // export const ADMIN_URL = 'https://admin.apsonigeria.com';
-    // export const STUDENTS_URL = 'https://students.apsonigeria.com';
     /** @type {?} */
     var APSON_EMAIL = 'support@apsonigeria.com';
     /** @type {?} */
@@ -1228,7 +1223,6 @@
     exports.BASE_URL = BASE_URL;
     exports.CloudinaryWidget = CloudinaryWidget;
     exports.LGAS = LGAS;
-    exports.MEMBERS_URL = MEMBERS_URL;
     exports.PaystackWidget = PaystackWidget;
     exports.SCHOOL_TYPES = SCHOOL_TYPES;
     exports.STATES = STATES;

@@ -21,7 +21,8 @@
             "aot": false,
             "assets": [
               "projects/visitors/src/assets",
-              "projects/visitors/src/manifest.webmanifest"
+              "projects/visitors/src/manifest.webmanifest",
+              "projects/visitors/src/.well-known/assetlinks.json"
             ],
             "styles": ["projects/visitors/src/styles.scss"],
             "scripts": []
@@ -150,9 +151,7 @@
               "projects/dropdown/tsconfig.lib.json",
               "projects/dropdown/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
