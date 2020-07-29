@@ -1,0 +1,84 @@
+<aside class="left-panel" [class.hidden-menu]="classReference.showMenu">
+  <button type="button" class="btn btn-link btn-back" (click)="toggleMenu()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <div class="left-content">
+    <ng-container
+      *ngIf="commonService.getSchools().length; else addSchoolButton"
+    >
+      <div class="left-panel-profile mt-3">
+        <img
+          src="{{ commonService.getActiveSchool().logo }}"
+          class="profile-image bg-white d-block ml-auto mr-auto"
+          width="60"
+          height="60"
+        />
+        <div
+          class="drop-wrapper"
+          [class.active]="dropdownShown"
+          #dropdownWrapper
+        >
+          <div
+            class="drop drop-icon mt-3 text-center"
+            (click)="toggleDropdownMenu($event)"
+          >
+            <h4
+              class="font-weight-bold left-panel-profile-name text-capitalize"
+            >
+              {{ commonService.getActiveSchool().name }}
+            </h4>
+            <p class="left-panel-email">
+              {{ commonService.getActiveSchool().typeName }}
+            </p>
+            <i class="fas fa-caret-down drop-icon"></i>
+          </div>
+          <div class="drop-menu">
+            <a
+              *ngFor="let school of commonService.getSchools()"
+              (click)="commonService.saveActiveSchool(school.id)"
+              [class.active]="commonService.isActiveSchool(school)"
+              >{{ school.name }}<br />({{ school.typeName }} school)</a
+            >
+            <a class="btn-brand" routerLink="/members/add-school"
+              >Add a new school</a
+            >
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #addSchoolButton>
+      <a href="/#/members/add-school/" class="btn-brand mt-4 w-100"
+        >Add your school</a
+      >
+    </ng-template>
+
+    <ul class="fa-ul ">
+      <li routerLinkActive="active">
+        <i class="fas fa-li transition fa-chart-line"></i>
+        <a routerLink="/members/dashboard/" class="transition">Dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li fa-user-graduate transition"></i>
+        <a routerLink="/members/students/" class="transition">Students</a>
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transition fa-file-signature"></i>
+        <a routerLink="/members/scores/" class="transition">Score Sheet</a>
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transition fa-cogs"></i>
+        <a routerLink="/members/settings/" class="transition"
+          >School Settings</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transition fa-user-cog"></i>
+        <a routerLink="/members/profile/" class="transition">My Profile</a>
+      </li>
+      <li>
+        <i class="fas fa-li transition fa-sign-in-alt"></i>
+        <a (click)="logout()" class="transition pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+</aside>

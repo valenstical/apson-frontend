@@ -9,3 +9,5 @@ export * from './lib/models/member';
 export * from './lib/models/school';
 export * from './lib/components/base-component';
 export * from './lib/components/base-data-component';
+export * from './lib/services/active-member.guard';
+export * from './lib/services/auth.guard';

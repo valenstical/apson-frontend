@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>5. Amenities</h4>
+      <p>Choose as many that applies.</p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <form
+      (submit)="updateDetails()"
+      [formGroup]="formData"
+      class="form pl-4 position-relative pr-4 pt-5  form-box pb-4"
+    >
+      <div class="form-group">
+        <label for="amenities" class="d-block">Available Amenities</label>
+        <div class="custom-control custom-checkbox mr-5 mb-2">
+          <input
+            id="amenity_0"
+            formControlName="laboratory"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label font-weight-normal" for="amenity_0"
+            >Science Laboratory</label
+          >
+        </div>
+        <div class="custom-control custom-checkbox mr-5 mb-2">
+          <input
+            id="amenity_1"
+            formControlName="computer"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label font-weight-normal" for="amenity_1"
+            >Computer Laboratory</label
+          >
+        </div>
+        <div class="custom-control custom-checkbox mr-5 mb-2">
+          <input
+            id="amenity_2"
+            formControlName="library"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label font-weight-normal" for="amenity_2"
+            >Library</label
+          >
+        </div>
+        <div class="custom-control custom-checkbox mr-5 mb-2">
+          <input
+            id="amenity_3"
+            formControlName="vehicle"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label font-weight-normal" for="amenity_3"
+            >School Vehicle</label
+          >
+        </div>
+        <div class="custom-control custom-checkbox mr-5 mb-2">
+          <input
+            id="amenity_4"
+            formControlName="boarding"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label font-weight-normal" for="amenity_4"
+            >Boarding Facility</label
+          >
+        </div>
+      </div>
+      <lib-alert
+        *ngIf="!hideAlert"
+        [message]="response.message"
+        [type]="response.type"
+        [title]="response.title"
+      ></lib-alert>
+      <div class="text-right text-sm btn-grouped ml-n4 mr-n4 pr-4 pl-4">
+        <lib-submit-button
+          [text]="'Save changes'"
+          [maxWidth]="''"
+          [isBusy]="isBusy"
+        ></lib-submit-button>
+      </div>
+    </form>
+  </div>
+</div>

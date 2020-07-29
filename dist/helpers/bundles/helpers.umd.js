@@ -1062,7 +1062,25 @@
      * @return {?}
      */
     function (genderId) {
-        return ['Male Only', 'Female Female', 'Male & Female'][genderId];
+        return ['Male Only', 'Female Only', 'Male & Female'][genderId];
+    });
+    /** @type {?} */
+    var toMobileNumber = (/**
+     * @param {?} phone
+     * @return {?}
+     */
+    function (phone) {
+        /** @type {?} */
+        var suffix = '0';
+        /** @type {?} */
+        var firstLetter = phone.charAt(0);
+        if (firstLetter === '2') {
+            suffix = '+';
+        }
+        else if (firstLetter === '0' || firstLetter === '+') {
+            suffix = '';
+        }
+        return "" + suffix + phone;
     });
 
     /**
@@ -1093,11 +1111,125 @@
         'Secondary school',
     ];
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var PaystackWidget = /** @class */ (function () {
+        function PaystackWidget(_a, onSuccess, onFailure) {
+            var key = _a.key, ref = _a.ref, plan = _a.plan, email = _a.email;
+            this.handler = PaystackPop.setup({
+                key: key,
+                email: email,
+                ref: ref,
+                plan: plan,
+                callback: (/**
+                 * @param {?} response
+                 * @return {?}
+                 */
+                function (response) {
+                    onSuccess(response);
+                }),
+                onClose: (/**
+                 * @return {?}
+                 */
+                function () {
+                    onFailure();
+                }),
+            });
+        }
+        /**
+         * @return {?}
+         */
+        PaystackWidget.prototype.open = /**
+         * @return {?}
+         */
+        function () {
+            this.handler.openIframe();
+        };
+        return PaystackWidget;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var defaultFunc = (/**
+     * @param {?} params
+     * @return {?}
+     */
+    function (params) { });
+    /** @type {?} */
+    var styles = {
+        palette: {
+            window: '#FFFFFF',
+            sourceBg: '#FBFBFB',
+            windowBorder: '#00b09b',
+            tabIcon: '#000000',
+            inactiveTabIcon: '#0D2F5A',
+            menuIcons: '#555a5f',
+            link: '#00b09b',
+            action: '#339933',
+            inProgress: '#0433ff',
+            complete: '#339933',
+            error: '#cc0000',
+            textDark: '#000000',
+            textLight: '#FFFFFF',
+        },
+    };
+    var CloudinaryWidget = /** @class */ (function () {
+        function CloudinaryWidget(handleSuccess, handleFailure, ratio, preset, cropping) {
+            if (handleSuccess === void 0) { handleSuccess = defaultFunc; }
+            if (handleFailure === void 0) { handleFailure = defaultFunc; }
+            if (ratio === void 0) { ratio = 1; }
+            if (preset === void 0) { preset = 'profile'; }
+            if (cropping === void 0) { cropping = true; }
+            this.widget = window.cloudinary.createUploadWidget({
+                cloudName: 'dvnrltpfi',
+                uploadPreset: preset,
+                cropping: cropping,
+                croppingAspectRatio: ratio,
+                croppingDefaultSelectionRatio: 0.8,
+                resourceType: 'image',
+                clientAllowedFormats: ['png', 'jpg', 'jpeg', 'gif'],
+                maxImageWidth: 500,
+                maxImageHeight: 500,
+                multiple: false,
+                styles: styles,
+                buttonClass: 'd-none',
+                sources: ['local', 'camera'],
+            }, (/**
+             * @param {?} error
+             * @param {?} result
+             * @return {?}
+             */
+            function (error, result) {
+                if (!error && result && result.event === 'success') {
+                    return handleSuccess(result.info.secure_url);
+                }
+                handleFailure(error);
+            }));
+        }
+        /**
+         * @return {?}
+         */
+        CloudinaryWidget.prototype.open = /**
+         * @return {?}
+         */
+        function () {
+            this.widget.open();
+        };
+        return CloudinaryWidget;
+    }());
+
     exports.ADMIN_URL = ADMIN_URL;
     exports.APSON_EMAIL = APSON_EMAIL;
     exports.BASE_URL = BASE_URL;
+    exports.CloudinaryWidget = CloudinaryWidget;
     exports.LGAS = LGAS;
     exports.MEMBERS_URL = MEMBERS_URL;
+    exports.PaystackWidget = PaystackWidget;
     exports.SCHOOL_TYPES = SCHOOL_TYPES;
     exports.STATES = STATES;
     exports.STUDENTS_URL = STUDENTS_URL;
@@ -1105,6 +1237,7 @@
     exports.getGender = getGender;
     exports.scrollIntoView = scrollIntoView;
     exports.selectedFilter = selectedFilter;
+    exports.toMobileNumber = toMobileNumber;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

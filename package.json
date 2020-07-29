@@ -8,13 +8,18 @@
     "start:admin": "ng serve --port 4600",
     "build": "ng build",
     "build:helpers": "ng build helpers",
+    "build:shared": "ng build shared",
+    "build:dropdown": "ng build dropdown",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "git:commit": "git commit --amend --no-edit",
+    "git:force": "git push -f",
+    "git:add": "git add .",
+    "push": "npm run git:add & npm run git:commit & npm run git:force"
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/build-angular": "^0.801.2",
     "@angular/animations": "~8.1.2",
     "@angular/common": "~8.1.2",
     "@angular/compiler": "~8.1.2",
@@ -25,6 +30,7 @@
     "@angular/pwa": "^0.802.0",
     "@angular/router": "~8.1.2",
     "@angular/service-worker": "~8.1.2",
+    "dropdown": "file:dist/dropdown",
     "helpers": "file:dist/helpers",
     "ngx-cacheable": "^1.2.5",
     "rxjs": "~6.4.0",

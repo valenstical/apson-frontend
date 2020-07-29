@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>4. School Details</h4>
+      <p>
+        Write about your school history, mission, vision, and any other
+        information you like.
+      </p>
+      <!-- <p>You can format the write-up with the editing tools provided.</p> -->
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <form
+      (submit)="updateDetails()"
+      [formGroup]="formData"
+      class="form pl-4 position-relative pr-4 pt-5  form-box pb-4"
+    >
+      <div class="form-group">
+        <label for="details">School Details</label>
+        <textarea
+          class="form-control textarea-lg"
+          id="details"
+          formControlName="details"
+        ></textarea>
+      </div>
+      <lib-alert
+        *ngIf="!hideAlert"
+        [message]="response.message"
+        [type]="response.type"
+        [title]="response.title"
+      ></lib-alert>
+      <div class="text-right text-sm btn-grouped ml-n4 mr-n4 pr-4 pl-4">
+        <lib-submit-button
+          [text]="'Save changes'"
+          [maxWidth]="''"
+          [isBusy]="isBusy"
+          [disabled]="formData.invalid"
+        ></lib-submit-button>
+      </div>
+    </form>
+  </div>
+</div>

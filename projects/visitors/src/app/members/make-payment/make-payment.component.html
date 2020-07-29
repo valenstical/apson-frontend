@@ -1,0 +1,12 @@
+<lib-alert
+  [title]="response.title"
+  [type]="response.type"
+  [message]="response.message"
+  *ngIf="!hideAlert"
+></lib-alert>
+<app-message-box
+  [action]="'0'"
+  [buttonText]="'Pay membership fee'"
+  (btnClick)="startPayment()"
+  [isBusy]="isBusy"
+></app-message-box>

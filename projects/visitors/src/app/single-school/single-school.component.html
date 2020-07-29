@@ -1,144 +1,142 @@
-<ng-container *ngIf="loading; else schoolTemplate">
-  <lib-busy></lib-busy>
-</ng-container>
-<ng-template #schoolTemplate>
-  <section
-    class="hero-single-school"
-    [style.backgroundImage]="getCover()"
-  ></section>
-  <section class="section school-section">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-4 col-md-5">
-          <div class="school-cta shadow sticky-top mb-5">
-            <img [attr.src]="school.logo" width="20" class="school-badge" />
-            <h1 class="mb-4 school-subtitle text-center">
-              {{ school.name }}
-            </h1>
-            <ul class="fa-ul school-list">
-              <li *ngIf="school.location">
-                <i class="fas fa-map-marker-alt fa-li blog-link-more"></i>
-                <a [href]="toMapAddress()" target="_blank">{{
-                  school.fullAddress
-                }}</a>
-              </li>
-              <li *ngIf="school.contact">
-                <i
-                  class="fas fa-li fa-flip-horizontal fa-envelope blog-link-more"
-                ></i>
-                <a [href]="toEmailAddress()" class="text-overflow">{{
-                  school.email
-                }}</a>
-              </li>
-              <li *ngIf="school.contact">
-                <i
-                  class="fas fa-li fa-flip-horizontal fa-link blog-link-more"
-                ></i>
-                <a
-                  [href]="school.website"
-                  target="_blank"
-                  class="text-overflow"
-                  >{{ school.website }}</a
-                >
-              </li>
-              <li *ngIf="school.contact">
-                <i
-                  class="fas fa-li fa-phone fa-flip-horizontal blog-link-more text-phone "
-                ></i>
-                <a [href]="toPhone()">{{ school.phone }}</a>
-              </li>
-            </ul>
-            <a
-              (click)="scrollToContact(contact)"
-              class="btn-brand mt-4 w-100 pointer text-uppercase scroll"
-              >Contact us</a
-            >
-          </div>
-        </div>
-        <div class="col-md-7 col-lg-8">
-          <h4 class="mb-4 school-subtitle mt-4">About Us</h4>
-          <ul class="list-inline text-sm mb-4 mt-4 school-summary">
-            <li class="list-inline-item mr-3">
-              <i class="fas blog-link-more fa-user-graduate"></i>
-              {{ school.typeName }}
-            </li>
-            <li class="list-inline-item mr-3">
-              <i class="fas fa-calendar-alt blog-link-more"></i> Founded
-              {{ school.founded }}
-            </li>
-            <li class="list-inline-item mr-3">
-              <i class="fas fa-users blog-link-more"></i> Accepts
-              {{ getGender() }}
-            </li>
-          </ul>
-          <div class="school-details">
-            <div
-              class="text-block text-muted font-weight-light text-sentence"
-              [innerHTML]="school.details"
-            ></div>
-          </div>
-          <div class="text-block" *ngIf="school.amenities">
-            <hr class="mt-5 mb-4" />
-            <h2 class="school-subtitle mb-4">Amenities</h2>
-            <ul class="list-unstyled text-muted school-summary mb-0">
-              <li class="mb-2" *ngIf="school.amenities.laboratory">
-                <i class="fas mr-1 fa-bong blog-link-more"></i>
-                <span class="text-sm">Science Laboratory</span>
-              </li>
-              <li class="mb-2" *ngIf="school.amenities.computer">
-                <i class="fas mr-1 fa-desktop blog-link-more"></i>
-                <span class="text-sm">Computer Laboratory</span>
-              </li>
-              <li class="mb-2" *ngIf="school.amenities.library">
-                <i class="fas mr-1 fa-book blog-link-more"></i>
-                <span class="text-sm">Library</span>
-              </li>
-              <li class="mb-3" *ngIf="school.amenities.vehicle">
-                <i class="fas mr-1 fa-bus-alt blog-link-more"></i>
-                <span class="text-sm">School Vehicle</span>
-              </li>
-              <li class="mb-2" *ngIf="school.amenities.boarding">
-                <i class="fas mr-1 blog-link-more fa-house-damage"></i>
-                <span class="text-sm">Boarding Facility</span>
-              </li>
-            </ul>
-          </div>
-          <div class="text-block" *ngIf="school.gallery">
-            <hr class="mb-4 mt-5" />
-            <h2 class="mb-4 school-subtitle">Gallery</h2>
-            <div class="card-columns">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="assets/images/limbo/santi-vedri-707620-unsplash.jpg"
-                  alt="Card image cap"
-                />
-              </div>
-              <div class="card" *ngFor="let image of school.gallery">
-                <img
-                  class="card-img-top"
-                  [attr.src]="image"
-                  alt="{{
-                    school.name.concat(', ').concat(school.fullAddress)
-                  }}"
-                />
-              </div>
+<div class="min-vh-100">
+  <ng-container *ngIf="loading; else schoolTemplate">
+    <lib-busy></lib-busy>
+  </ng-container>
+  <ng-template #schoolTemplate>
+    <section
+      class="hero-single-school"
+      [style.backgroundImage]="getCover()"
+    ></section>
+    <section class="section school-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-5">
+            <div class="school-cta shadow sticky-top mb-5">
+              <img [attr.src]="school.logo" width="20" class="school-badge" />
+              <h1 class="mb-4 school-subtitle text-center">
+                {{ school.name }}
+              </h1>
+              <ul class="fa-ul school-list">
+                <li *ngIf="school.location">
+                  <i class="fas fa-map-marker-alt fa-li blog-link-more"></i>
+                  <a [href]="toMapAddress()" target="_blank">{{
+                    school.fullAddress
+                  }}</a>
+                </li>
+                <li *ngIf="school.email">
+                  <i
+                    class="fas fa-li fa-flip-horizontal fa-envelope blog-link-more"
+                  ></i>
+                  <a [href]="toEmailAddress()" class="text-overflow">{{
+                    school.email
+                  }}</a>
+                </li>
+                <li *ngIf="school.website">
+                  <i
+                    class="fas fa-li fa-flip-horizontal fa-link blog-link-more"
+                  ></i>
+                  <a
+                    [href]="school.website"
+                    target="_blank"
+                    class="text-overflow"
+                    >{{ school.website }}</a
+                  >
+                </li>
+                <li *ngIf="school.phone">
+                  <i
+                    class="fas fa-li fa-phone fa-flip-horizontal blog-link-more text-phone "
+                  ></i>
+                  <a [href]="toPhone()">{{ school.phone }}</a>
+                </li>
+              </ul>
+              <a
+                (click)="scrollToContact(contact)"
+                class="btn-brand mt-4 w-100 pointer text-uppercase scroll"
+                >Contact us</a
+              >
             </div>
           </div>
-          <div class="contact-form form mb-5 " id="contact" #contact>
-            <hr class="mt-5 mb-5" />
-            <h2 class="school-subtitle mb-1 ">Contact Us</h2>
-            <p class="mb-5 support-text">
-              Feel free to contact us for more information concerning our
-              school, admission procedures and requirements.
-            </p>
-            <app-contact-box
-              [receiver]="school.contact ? school.contact.email : defaultEmail"
-              [scrollView]="contact"
-            ></app-contact-box>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-4 school-subtitle mt-4">About Us</h4>
+            <ul class="list-inline text-sm mb-4 mt-4 school-summary">
+              <li class="list-inline-item mr-3">
+                <i class="fas blog-link-more fa-user-graduate"></i>
+                {{ school.typeName }}
+              </li>
+              <li class="list-inline-item mr-3">
+                <i class="fas fa-calendar-alt blog-link-more"></i> Founded
+                {{ school.founded }}
+              </li>
+              <li class="list-inline-item mr-3">
+                <i class="fas fa-users blog-link-more"></i> Accepts
+                {{ getGender() }}
+              </li>
+            </ul>
+            <div class="school-details">
+              <div
+                class="text-block text-muted font-weight-light text-sentence"
+                [innerHTML]="school.details"
+              ></div>
+            </div>
+            <div class="text-block" *ngIf="school.amenities">
+              <hr class="mt-5 mb-4" />
+              <h2 class="school-subtitle mb-4">Amenities</h2>
+              <ul class="list-unstyled text-muted school-summary mb-0">
+                <li class="mb-2" *ngIf="school.amenities.laboratory">
+                  <i class="fas mr-1 fa-bong blog-link-more"></i>
+                  <span class="text-sm">Science Laboratory</span>
+                </li>
+                <li class="mb-2" *ngIf="school.amenities.computer">
+                  <i class="fas mr-1 fa-desktop blog-link-more"></i>
+                  <span class="text-sm">Computer Laboratory</span>
+                </li>
+                <li class="mb-2" *ngIf="school.amenities.library">
+                  <i class="fas mr-1 fa-book blog-link-more"></i>
+                  <span class="text-sm">Library</span>
+                </li>
+                <li class="mb-3" *ngIf="school.amenities.vehicle">
+                  <i class="fas mr-1 fa-bus-alt blog-link-more"></i>
+                  <span class="text-sm">School Vehicle</span>
+                </li>
+                <li class="mb-2" *ngIf="school.amenities.boarding">
+                  <i class="fas mr-1 blog-link-more fa-house-damage"></i>
+                  <span class="text-sm">Boarding Facility</span>
+                </li>
+              </ul>
+            </div>
+            <div class="text-block" *ngIf="school.gallery">
+              <hr class="mb-4 mt-5" />
+              <h2 class="mb-4 school-subtitle">Gallery</h2>
+              <div class="card-columns">
+                <div class="card" *ngFor="let image of school.gallery">
+                  <img
+                    class="card-img-top"
+                    [attr.src]="image"
+                    alt="{{
+                      school.name.concat(', ').concat(school.fullAddress)
+                    }}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="contact-form form mb-5 " id="contact" #contact>
+              <hr class="mt-5 mb-5" />
+              <h2 class="school-subtitle mb-1 ">Contact Us</h2>
+              <p class="mb-5 support-text">
+                Feel free to contact us for more information concerning our
+                school, admission procedures and requirements.
+              </p>
+              <app-contact-box
+                [receiver]="
+                  school.contact ? school.contact.email : defaultEmail
+                "
+                [scrollView]="contact"
+                [subjects]="['Enquiry for Admission', 'General Enquiry']"
+              ></app-contact-box>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</ng-template>
+    </section>
+  </ng-template>
+</div>

@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>6. Cover Image</h4>
+      <p>Choose an attractive image of your school, students, etc...</p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <div class="form position-relative form-box mb-2 p-4">
+      <img src="{{ cover }}" width="100%" />
+      <div class="ml-n4 mr-n4 pr-4 pl-4 text-center mt-4">
+        <button
+          [disabled]="uploading.cover"
+          type="button"
+          (click)="changeImage('cover', 1.5)"
+          class="btn-brand mt-4 btn-curved pt-2 pb-2 text-sm btn-brand-bordered"
+        >
+          Change Image
+          <div class="spinner-border" *ngIf="uploading.cover"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>7. School badge</h4>
+      <p>Upload an image of your school badge/logo here.</p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <div class="form position-relative form-box mb-2 p-4 text-center">
+      <img src="{{ logo }}" class="mw-100 school-logo" />
+      <div class="ml-n4 mr-n4 pr-4 pl-4 text-center mt-4">
+        <button
+          type="button"
+          (click)="changeImage('logo', 1)"
+          [disabled]="uploading.logo"
+          class="btn-brand mt-4 btn-curved pt-2 pb-2 text-sm btn-brand-bordered"
+        >
+          Change Image
+          <div class="spinner-border" *ngIf="uploading.logo"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row no-border">
+  <div class="col-12 col-lg-3">
+    <div class="form-section-heading">
+      <h4>8. Gallery</h4>
+      <p>
+        Show different parts of your school, facilities, students etc... Impress
+        your clients.
+      </p>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <div class="form position-relative form-box mb-2 p-4">
+      <div class="card-columns card-column-2">
+        <div class="card" *ngFor="let image of gallery">
+          <img class="card-img-top" src="{{ image }}" alt="Card image cap" />
+          <button class="close delete-image" (click)="removeGallery(image)">
+            &times;
+          </button>
+        </div>
+      </div>
+      <div class="ml-n4 mr-n4 pr-4 pl-4 text-center">
+        <button
+          [disabled]="uploading.gallery"
+          type="button"
+          (click)="changeImage('gallery', 1.5, false)"
+          class="btn-brand mt-4 btn-curved pt-2 pb-2 text-sm btn-brand-bordered"
+        >
+          Add Image
+          <div class="spinner-border" *ngIf="uploading.gallery"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

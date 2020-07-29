@@ -1028,7 +1028,25 @@ const getGender = (/**
  * @param {?} genderId
  * @return {?}
  */
-(genderId) => ['Male Only', 'Female Female', 'Male & Female'][genderId]);
+(genderId) => ['Male Only', 'Female Only', 'Male & Female'][genderId]);
+/** @type {?} */
+const toMobileNumber = (/**
+ * @param {?} phone
+ * @return {?}
+ */
+(phone) => {
+    /** @type {?} */
+    let suffix = '0';
+    /** @type {?} */
+    const firstLetter = phone.charAt(0);
+    if (firstLetter === '2') {
+        suffix = '+';
+    }
+    else if (firstLetter === '0' || firstLetter === '+') {
+        suffix = '';
+    }
+    return `${suffix}${phone}`;
+});
 
 /**
  * @fileoverview added by tsickle
@@ -1058,5 +1076,115 @@ const SCHOOL_TYPES = [
     'Secondary school',
 ];
 
-export { ADMIN_URL, APSON_EMAIL, BASE_URL, LGAS, MEMBERS_URL, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class PaystackWidget {
+    /**
+     * @param {?} __0
+     * @param {?} onSuccess
+     * @param {?} onFailure
+     */
+    constructor({ key, ref, plan, email }, onSuccess, onFailure) {
+        this.handler = PaystackPop.setup({
+            key,
+            email,
+            ref,
+            plan,
+            callback: (/**
+             * @param {?} response
+             * @return {?}
+             */
+            function (response) {
+                onSuccess(response);
+            }),
+            onClose: (/**
+             * @return {?}
+             */
+            function () {
+                onFailure();
+            }),
+        });
+    }
+    /**
+     * @return {?}
+     */
+    open() {
+        this.handler.openIframe();
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const defaultFunc = (/**
+ * @param {?} params
+ * @return {?}
+ */
+params => { });
+/** @type {?} */
+const styles = {
+    palette: {
+        window: '#FFFFFF',
+        sourceBg: '#FBFBFB',
+        windowBorder: '#00b09b',
+        tabIcon: '#000000',
+        inactiveTabIcon: '#0D2F5A',
+        menuIcons: '#555a5f',
+        link: '#00b09b',
+        action: '#339933',
+        inProgress: '#0433ff',
+        complete: '#339933',
+        error: '#cc0000',
+        textDark: '#000000',
+        textLight: '#FFFFFF',
+    },
+};
+class CloudinaryWidget {
+    /**
+     * @param {?=} handleSuccess
+     * @param {?=} handleFailure
+     * @param {?=} ratio
+     * @param {?=} preset
+     * @param {?=} cropping
+     */
+    constructor(handleSuccess = defaultFunc, handleFailure = defaultFunc, ratio = 1, preset = 'profile', cropping = true) {
+        this.widget = window.cloudinary.createUploadWidget({
+            cloudName: 'dvnrltpfi',
+            uploadPreset: preset,
+            cropping,
+            croppingAspectRatio: ratio,
+            croppingDefaultSelectionRatio: 0.8,
+            resourceType: 'image',
+            clientAllowedFormats: ['png', 'jpg', 'jpeg', 'gif'],
+            maxImageWidth: 500,
+            maxImageHeight: 500,
+            multiple: false,
+            styles,
+            buttonClass: 'd-none',
+            sources: ['local', 'camera'],
+        }, (/**
+         * @param {?} error
+         * @param {?} result
+         * @return {?}
+         */
+        (error, result) => {
+            if (!error && result && result.event === 'success') {
+                return handleSuccess(result.info.secure_url);
+            }
+            handleFailure(error);
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    open() {
+        this.widget.open();
+    }
+}
+
+export { ADMIN_URL, APSON_EMAIL, BASE_URL, CloudinaryWidget, LGAS, MEMBERS_URL, PaystackWidget, SCHOOL_TYPES, STATES, STUDENTS_URL, VISITORS_URL, getGender, scrollIntoView, selectedFilter, toMobileNumber };
 //# sourceMappingURL=helpers.js.map

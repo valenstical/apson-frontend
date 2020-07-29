@@ -6,14 +6,7 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": [
-          "/index.html",
-          "/*.css",
-          "/*.js",
-          "/*.jpg",
-          "/*.png",
-          "/*.gif"
-        ]
+        "files": ["/index.html", "/*.css", "/*.js"]
       }
     },
     {
@@ -23,7 +16,7 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani|jpg|png|gif)"
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
     }

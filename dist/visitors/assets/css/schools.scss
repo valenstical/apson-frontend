@@ -1,0 +1,252 @@
+.visitors-wrapper {
+  .select-group select {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    height: 44px;
+  }
+
+  .select-group a.btn-brand {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+  }
+
+  .school-box {
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-radius: 7px;
+    border: none;
+  }
+
+  .school-box-cover {
+    height: 190px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background-color: #efefef;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .school-box-title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .school-box-content {
+    position: relative;
+    padding: 0px 20px 10px;
+  }
+
+  .school-ratings {
+    display: inline-block;
+    color: #ffa200;
+    font-size: 10px;
+    margin-bottom: 7px;
+    margin-top: 4px;
+  }
+
+  .school-ratings .fas {
+    margin-right: 0px;
+  }
+
+  .school-ratings-5 .fas {
+    color: #ffa200;
+  }
+
+  .school-ratings-4 .fas:last-child {
+    color: #bab8b8;
+  }
+
+  .school-ratings-3 .fas:last-child,
+  .school-ratings-3 .fas:nth-child(4) {
+    color: #bab8b8;
+  }
+
+  .school-ratings-2 .fas:last-child,
+  .school-ratings-2 .fas:nth-child(4),
+  .school-ratings-2 .fas:nth-child(3) {
+    color: #bab8b8;
+  }
+
+  .school-ratings-1 .fas {
+    color: #bab8b8;
+  }
+
+  .school-ratings-1 .fas:first-child {
+    color: #ffa200;
+  }
+
+  .school-list {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+
+  .school-list li {
+    margin-bottom: 8px;
+  }
+
+  .school-btn-call {
+    top: -30px;
+    text-align: center;
+    padding-top: 9px;
+    right: 15px;
+    left: auto;
+    display: inline-block;
+  }
+
+  .school-footer {
+    border-top: 1px solid #efefef;
+    margin-top: 10px;
+    text-align: right;
+    padding: 13px 20px;
+  }
+
+  .school-footer a {
+    font-weight: normal;
+  }
+
+  .school-type {
+    background-color: rgba(248, 249, 250, 0.9);
+    text-transform: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #212529;
+  }
+
+  .school-box-cover img {
+    width: 100%;
+    transition: all 900ms;
+  }
+
+  .school-box:hover .school-box-cover img {
+    transform: scale(1.1, 1.1);
+  }
+
+  .hero-school {
+    background-color: #efefef;
+    background-image: url('/assets/images/limbo/james-timothy-783370-unsplash.jpg');
+    padding-bottom: 0px;
+    padding-top: 140px;
+  }
+
+  .hero-school h1 {
+    text-transform: none;
+  }
+
+  .select-group {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    top: 60px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 25px;
+    margin-top: 0px;
+  }
+
+  .school-section-content {
+    padding-top: 120px;
+  }
+
+  @media (min-width: 767.98px) {
+    .select-group {
+      padding: 35px 25px 25px;
+    }
+  }
+
+  .select-group a:hover {
+    transform: none;
+  }
+
+  @media (min-width: 576px) {
+    .select-group {
+      margin-top: 60px;
+    }
+  }
+
+  .school-section-content .row > div {
+    margin-bottom: 30px;
+  }
+
+  .hero-single-school {
+    background-color: #efefef;
+    background-size: cover;
+    background-position: center center;
+    height: 40vh;
+    min-height: 230px;
+  }
+
+  @media (min-width: 576px) {
+    .hero-single-school {
+      min-height: 400px;
+    }
+  }
+
+  .school-tittle {
+    font-weight: bold;
+    font-size: 20px;
+    color: #404040;
+    text-transform: capitalize;
+  }
+
+  .school-details {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #868e96;
+    font-size: 16px;
+  }
+
+  .school-details h3 {
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #595959;
+  }
+
+  @media (min-width: 576px) {
+    .school-title {
+      font-size: 35px;
+    }
+  }
+
+  .school-summary li {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #a0a0a0;
+    font-size: 14px;
+  }
+
+  .school-subtitle {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .school-cta {
+    padding: 30px;
+    border-radius: 0.4rem;
+    background-color: white;
+    top: 80px;
+    z-index: 1;
+  }
+
+  .school-cta li a {
+    color: #8b8989;
+  }
+
+  .school-badge {
+    width: 100px;
+    display: block;
+    margin: -10px auto 20px;
+  }
+
+  .school-section .card-columns {
+    column-count: 2;
+  }
+
+  .input-group-append {
+    height: 100%;
+  }
+}

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { scrollIntoView, getGender, APSON_EMAIL } from 'helpers';
+import {
+  scrollIntoView,
+  getGender,
+  APSON_EMAIL,
+  toMobileNumber,
+} from 'helpers';
 import { BaseComponent, School, RequestService } from 'shared';
 
 @Component({
@@ -27,7 +32,7 @@ export class SingleSchoolComponent extends BaseComponent implements OnInit {
       },
     } = this.activedRoute;
     this.subscription.add(
-      this.requestService.get(`schools/${id}`).subscribe(
+      this.requestService.getSchool(id).subscribe(
         ({ data }) => {
           this.school = data;
           this.setFullAddress();
@@ -64,9 +69,7 @@ export class SingleSchoolComponent extends BaseComponent implements OnInit {
         contact: { email, phone, website },
       } = this.school;
       this.school.email = email;
-      this.school.phone = ['0', '+', '234'].includes(phone.charAt(0))
-        ? phone
-        : `0${phone}`;
+      this.school.phone = toMobileNumber(phone);
       this.school.website = website;
     }
   }
