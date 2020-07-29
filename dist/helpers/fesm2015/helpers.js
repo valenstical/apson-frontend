@@ -1035,7 +1035,7 @@ const getGender = (/**
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const BASE_URL = 'https://appson-backend.herokuapp.com';
+const BASE_URL = 'https://apson.herokuapp.com';
 // export const VISITORS_URL = 'http://localhost:4300';
 // export const MEMBERS_URL = 'http://localhost:4400';
 /** @type {?} */
@@ -1044,13 +1044,13 @@ const ADMIN_URL = 'http://localhost:4500';
 const STUDENTS_URL = 'http://localhost:4600';
 // export const BASE_URL = 'http://localhost:4300';
 /** @type {?} */
-const MEMBERS_URL = 'https://members.apsonigeria.org';
+const MEMBERS_URL = 'https://members.apsonigeria.com';
 /** @type {?} */
-const VISITORS_URL = 'https://www.apsonigeria.org';
-// export const ADMIN_URL = 'https://admin.apsonigeria.org';
-// export const STUDENTS_URL = 'https://students.apsonigeria.org';
+const VISITORS_URL = 'https://www.apsonigeria.com';
+// export const ADMIN_URL = 'https://admin.apsonigeria.com';
+// export const STUDENTS_URL = 'https://students.apsonigeria.com';
 /** @type {?} */
-const APSON_EMAIL = 'support@apsonigeria.org';
+const APSON_EMAIL = 'support@apsonigeria.com';
 /** @type {?} */
 const SCHOOL_TYPES = [
     'Cresche/Nursery',

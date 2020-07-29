@@ -7,6 +7,7 @@
     "start:members": "ng serve --port 4500",
     "start:admin": "ng serve --port 4600",
     "build": "ng build",
+    "build:helpers": "ng build helpers",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
