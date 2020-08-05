@@ -1,0 +1,132 @@
+<section class="hero-section section overlay bg-about">
+  <div class="container-fluid position-relative">
+    <h1 class="text-center">Register your school</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form
+          (ngSubmit)="onRegisterSchool()"
+          role="form"
+          class="form pl-4 position-relative pr-4 pt-5"
+        >
+          <div class="mb-4">
+            <lib-alert
+              [title]="response.title"
+              [type]="response.type"
+              [message]="response.message"
+              *ngIf="!hideAlert"
+            ></lib-alert>
+          </div>
+
+          <div class="mb-4">
+            <lib-input
+              [title]="'School Name'"
+              [type]="'text'"
+              [formData]="formData"
+              [name]="'name'"
+              [invalidText]="'School name is required'"
+            ></lib-input>
+          </div>
+
+          <div class="form-group mb-4">
+            <lib-select
+              placeholder="--Choose One --"
+              [data]="states"
+              name="state"
+              title="State"
+              [formData]="formData"
+              invalidText="State is required"
+              (whenSelected)="filterByState($event)"
+            >
+            </lib-select>
+          </div>
+
+          <div class="form-group mb-4">
+            <lib-select
+              placeholder="--Choose One --"
+              [data]="lgas"
+              name="lga"
+              title="Local Government Area"
+              [formData]="formData"
+              invalidText="Local Goverment Area is required"
+              (whenSelected)="filter('lga', $event)"
+            >
+            </lib-select>
+          </div>
+
+          <div class="mb-4">
+            <lib-input
+              [title]="'Phone number'"
+              [type]="'tel'"
+              [formData]="formData"
+              [name]="'phone'"
+              [invalidText]="'Phone number is required'"
+            ></lib-input>
+          </div>
+
+          <div class="text-center mt-4 btn-curved w-100">
+            <lib-submit-button
+              [text]="'Register your school'"
+              [isBusy]="isBusy"
+              [disabled]="formData.invalid"
+            ></lib-submit-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="background-color: #efefef;">
+  <div class="container">
+    <header class="header">
+      <span>Why join us</span>
+      <h2>100% SUPPORT FOR MEMBERS WELFARE</h2>
+      <p>
+        As the official and flagship organization of private school owners in
+        Nigeria, we constantly building an organization that puts it's members
+        welfare at the core center of our decision making process.
+      </p>
+    </header>
+  </div>
+  <div class="container-fluid">
+    <div class="row position-relative">
+      <div class="col-sm-4">
+        <div class="why-item">
+          <i class="fas why-item-icon fa-handshake"></i>
+          <span class="why-item-subtitle">Members welfare</span>
+          <h4>100% Support for Member's welfare</h4>
+          <p>
+            APSON creates an enabling environment to protect her members from
+            undue harassment, hindrance or encumbrances.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="why-item">
+          <i class="fas why-item-icon fa-map-marked-alt"></i>
+          <span class="why-item-subtitle">School directory</span>
+          <h4>Get your schools discovered</h4>
+          <p>
+            APSON provides an online platform where member schools are freely
+            advertised, making easy for the public to discover your schools.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="why-item">
+          <i class="fas why-item-icon fa-laptop"></i>
+          <span class="why-item-subtitle">School Management</span>
+          <h4>Free school management software</h4>
+          <p>
+            Make it easy for your students to pay fees, get results, connect
+            with their classmates with our state of the art student management
+            system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
